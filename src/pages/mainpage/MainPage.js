@@ -1,17 +1,20 @@
+
+import { Translations } from "../language-management/Translations.js";
+
 function MainPage() {
   return (
-    <div>
-      <h1>Welcome to my landing page</h1>
-      <p>
-        Here you can find all the information you need about my product or
-        service.
-      </p>
-      <div>
-        <button>Button 1</button>
-        <button>Button 2</button>
-        <button>Button 3</button>
-      </div>
-    </div>
+    <Translations>
+      {({ translate }) => (
+        <div>
+          <h1>{translate("Welcome to my landing page")}</h1>
+          <div className="row">
+            <button className="btn btn-primary">{translate("Gesture Management")}</button>
+            <button className="btn btn-secondary">{translate("Movment Library")}</button>
+            <button className="btn btn-danger">{translate("Gesture Labeling")}</button>
+          </div>
+        </div>
+      )}
+    </Translations>
   );
 }
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Translations } from "../language-management/Translations.js";
 
 function GestureManagement() {
 
@@ -29,18 +30,22 @@ function GestureManagement() {
     };
 
     return (
+      <Translations>
+        {({ translate }) => (
       <form onSubmit={handleLogin}>
         <div>
-          <label htmlFor="username-input">Username:</label>
+          <label htmlFor="username-input">{translate("Username")}:</label>
           <input id="username-input" type="text" value={username} onChange={handleUsernameChange} required />
         </div>
         <div>
-          <label htmlFor="password-input">Password:</label>
+          <label htmlFor="password-input">{translate("Password")}:</label>
           <input id="password-input" type="password" value={password} onChange={handlePasswordChange} required />
         </div>
         {errorMessage && <div>{errorMessage}</div>}
-        <button type="submit">Login</button>
+        <button type="submit">{translate("Login")}</button>
       </form>
+        )}
+      </Translations>
     );
   }
 
