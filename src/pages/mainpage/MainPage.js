@@ -19,14 +19,32 @@ function MainPage() {
   }
 
   return (
-    <Translations>
+     <Translations>
       {({ translate }) => (
         <div>
           <h1>{translate("Welcome to my landing page")}</h1>
-          <div className="row">
-            <button onClick={moveToGestureManagement} className="btn btn-primary">{translate("Gesture Management")}</button>
-            <button onClick={moveToMovmentLibrary} className="btn btn-secondary">{translate("Movment Library")}</button>
-            <button onClick={moveToGestureLabeling} className="btn btn-danger">{translate("Gesture Labeling")}</button>
+          <div className="row" style={{ height: "50vh" }}>
+            <div className="col-md-4">
+              <div className="card bg-primary h-100">
+                <div className="card-body d-flex align-items-center justify-content-center">
+                  <button onClick={moveToGestureManagement} className="btn btn-light btn-block">{translate("Gesture Management")}</button>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-4">
+              <div className="card bg-secondary h-100">
+                <div className="card-body d-flex align-items-center justify-content-center">
+                  <button onClick={moveToMovmentLibrary} className="btn btn-light btn-block">{translate("Movement Library")}</button>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-4">
+              <div className="card bg-danger h-100">
+                <div className="card-body d-flex align-items-center justify-content-center">
+                  <button onClick={moveToGestureLabeling} className="btn btn-light btn-block">{translate("Gesture Labeling")}</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}
