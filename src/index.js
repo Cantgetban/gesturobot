@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import { LanguageProvider } from "./pages/language-management/LanguageContext.js";
+import { LanguageProvider } from "./language-management/LanguageContext.js";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

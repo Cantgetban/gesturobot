@@ -1,4 +1,4 @@
-import { Translations } from "../language-management/Translations.js";
+import { Translations } from "../../language-management/Translations";
 import { useNavigate } from "react-router-dom";
 import "./mainpage.css";
 
@@ -23,7 +23,7 @@ function MainPage() {
         <div>
           <img src="/logo2.png" class="logo-image" alt="GestuRobot logo"></img>
           <div class="container">
-            <div class="card" onClick={moveToGestureManagement}>
+            <div class="card1" onClick={moveToGestureManagement}>
               <div class="face face1">
                 <div>
                   <b>{translate("Gesture management description")}</b>
@@ -33,7 +33,7 @@ function MainPage() {
                 </div>
               </div>
             </div>
-            <div class="card" onClick={moveToMovmentLibrary}>
+            <div class="card1" onClick={moveToMovmentLibrary}>
               <div class="face face1">
                 <div>
                   <b>{translate("Movement lib description")}</b>
@@ -43,7 +43,7 @@ function MainPage() {
                 </div>
               </div>
             </div>
-            <div class="card" onClick={moveToGestureLabeling}>
+            <div class="card1" onClick={moveToGestureLabeling}>
               <div class="face face1">
                 <div>
                   <b>{translate("Gesture taging description")}</b>

@@ -7,7 +7,7 @@
   margin: 0 auto;
   padding: 40px 0;
 }
-.card {
+.card1 {
   position: relative;
   width: 100%;
   height: 250px;
@@ -48,24 +48,24 @@ h2 {
   z-index: 10;
 }
 
-.card:hover .face.face2 {
+.card1:hover .face.face2 {
   height: 60px;
 }
 h2 {
   font-size: 2em;
 }
 
-.card:nth-child(1) .face.face2 {
+.card1:nth-child(1) .face.face2 {
   background-image: linear-gradient(40deg, #fff 0%, #d8e6f7 100%);
   border-radius: 15px;
 }
 
-.card:nth-child(2) .face.face2 {
+.card1:nth-child(2) .face.face2 {
   background-image: linear-gradient(40deg, #fff 0%, #717b89 100%);
   border-radius: 15px;
 }
 
-.card:nth-child(3) .face.face2 {
+.card1:nth-child(3) .face.face2 {
   background-image: linear-gradient(40deg, #fff 0%, #464646 100%);
   border-radius: 15px;
 }
