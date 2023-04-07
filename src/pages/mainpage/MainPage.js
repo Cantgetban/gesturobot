@@ -1,47 +1,55 @@
-
 import { Translations } from "../language-management/Translations.js";
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import "./mainpage.css";
 
 function MainPage() {
-
   let navigate = useNavigate();
 
   const moveToGestureManagement = () => {
-    navigate('/GestureManagement');
-  }
+    navigate("/GestureManagement");
+  };
 
   const moveToMovmentLibrary = () => {
-    navigate('/MovementLib');
-  }
+    navigate("/MovementLib");
+  };
 
   const moveToGestureLabeling = () => {
-    navigate('/GestureTag');
-  }
+    navigate("/GestureTag");
+  };
 
   return (
-     <Translations>
+    <Translations>
       {({ translate }) => (
         <div>
-          <h1>{translate("Welcome to my landing page")}</h1>
-          <div className="row" style={{ height: "50vh" }}>
-            <div className="col-md-4">
-              <div className="card bg-primary h-100">
-                <div className="card-body d-flex align-items-center justify-content-center">
-                  <button onClick={moveToGestureManagement} className="btn btn-light btn-block">{translate("Gesture Management")}</button>
+          <img src="/logo2.png" class="logo-image" alt="GestuRobot logo"></img>
+          <div class="container">
+            <div class="card" onClick={moveToGestureManagement}>
+              <div class="face face1">
+                <div>
+                  <b>{translate("Gesture management description")}</b>
+                </div>
+                <div class="face face2">
+                  <h2>{translate("Gesture Management")}</h2>
                 </div>
               </div>
             </div>
-            <div className="col-md-4">
-              <div className="card bg-secondary h-100">
-                <div className="card-body d-flex align-items-center justify-content-center">
-                  <button onClick={moveToMovmentLibrary} className="btn btn-light btn-block">{translate("Movement Library")}</button>
+            <div class="card" onClick={moveToMovmentLibrary}>
+              <div class="face face1">
+                <div>
+                  <b>{translate("Movement lib description")}</b>
+                </div>
+                <div class="face face2">
+                  <h2>{translate("Movement Library")}</h2>
                 </div>
               </div>
             </div>
-            <div className="col-md-4">
-              <div className="card bg-danger h-100">
-                <div className="card-body d-flex align-items-center justify-content-center">
-                  <button onClick={moveToGestureLabeling} className="btn btn-light btn-block">{translate("Gesture Labeling")}</button>
+            <div class="card" onClick={moveToGestureLabeling}>
+              <div class="face face1">
+                <div>
+                  <b>{translate("Gesture taging description")}</b>
+                </div>
+                <div class="face face2">
+                  <h2>{translate("Gesture Labeling")}</h2>
                 </div>
               </div>
             </div>

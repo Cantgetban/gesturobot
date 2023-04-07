@@ -1,11 +1,14 @@
 {
-    "hii" : "hii",
-    "Welcome to my landing page" : "Welcome to my landing page",
-    "Gesture Management" : "Gesture Management",
-    "Movment Library" : "Movment Library",
-    "Username" : "Username",
-    "Password" : "Password",
-    "Login" : "Login",
-    "Gesture Labeling" : "Gesture Labeling",
-    "Start Movement" : "Start Movement"
+  "hii": "hii",
+  "Welcome to my landing page": "Welcome to my landing page",
+  "Gesture Management": "Gesture Management",
+  "Movment Library": "Movment Library",
+  "Username": "Username",
+  "Password": "Password",
+  "Login": "Login",
+  "Gesture Labeling": "Gesture Labeling",
+  "Start Movement": "Start Movement",
+  "Gesture management description": "Here you can create and edit new gestures",
+  "Movement lib description": "Here you can look at all the movements of the robot",
+  "Gesture taging description": "Here you can give tags to gestures"
 }
