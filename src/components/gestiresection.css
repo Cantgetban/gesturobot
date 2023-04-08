@@ -1,0 +1,26 @@
+.gif-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 400px;
+  background-color: #000;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.gif-item {
+  width: 90%;
+  height: 90%;
+  overflow: hidden;
+  position: relative;
+}
+
+.gif-item img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  max-height: 100%;
+}

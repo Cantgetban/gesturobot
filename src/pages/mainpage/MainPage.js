@@ -6,7 +6,7 @@ function MainPage() {
   let navigate = useNavigate();
 
   const moveToGestureManagement = () => {
-    navigate("/GestureManagement");
+    navigate("/UserLogin");
   };
 
   const moveToMovmentLibrary = () => {
@@ -21,7 +21,7 @@ function MainPage() {
     <Translations>
       {({ translate }) => (
         <div>
-          <img src="/logo2.png" class="logo-image" alt="GestuRobot logo"></img>
+          <img src="/logo3.png" class="logo-image" alt="GestuRobot logo"></img>
           <div class="container">
             <div class="card1" onClick={moveToGestureManagement}>
               <div class="face face1">

@@ -1,67 +1,38 @@
-import React, { useState } from "react";
-import { Translations } from "../../language-management/Translations.js";
+import "./gestureManagement.css";
+import { Translations } from "../../language-management/Translations";
+import { useNavigate } from "react-router-dom";
+import GestureSection from "../../components/movment/gesturesection";
 
 function GestureManagement() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-
-  const handleUsernameChange = (event) => {
-    setUsername(event.target.value);
-  };
-
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
-
-  const handleLogin = (event) => {
-    event.preventDefault();
-
-    // Define the regular expression to match the password format
-    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-
-    if (!passwordRegex.test(password)) {
-      setErrorMessage(
-        "Password must be at least 8 characters and contain at least one letter and one number"
-      );
-    } else {
-      // Submit the form or perform any other necessary actions
-      console.log("Form submitted");
-    }
-  };
-
   return (
-    <Translations>
-      {({ translate }) => (
-        <div>
-          <img src="/logo2.png" class="logo-image" alt="GestuRobot logo"></img>
-          <form onSubmit={handleLogin}>
-            <div>
-              <label htmlFor="username-input">{translate("Username")}:</label>
-              <input
-                id="username-input"
-                type="text"
-                value={username}
-                onChange={handleUsernameChange}
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="password-input">{translate("Password")}:</label>
-              <input
-                id="password-input"
-                type="password"
-                value={password}
-                onChange={handlePasswordChange}
-                required
-              />
-            </div>
-            {errorMessage && <div>{errorMessage}</div>}
-            <button type="submit">{translate("Login")}</button>
-          </form>
-        </div>
-      )}
-    </Translations>
+    <div>
+      {" "}
+      <div id="gestures">
+        <GestureSection></GestureSection>
+      </div>
+      <div id="create-gesture">
+        <h2>Create new gesture</h2>
+        <form>
+          <label for="gesture-name">Gesture name:</label>
+          <input type="text" id="gesture-name" />
+          <button type="submit">Create</button>
+        </form>
+      </div>
+      <div id="edit-gesture">
+        <h2>Edit gesture</h2>
+        <form>
+          <label for="gesture-select">Select gesture:</label>
+          <select id="gesture-select">
+            <option value="swipe">Swipe</option>
+            <option value="tap">Tap</option>
+            <option value="pinch">Pinch</option>
+          </select>
+          <label for="new-gesture-name">New name:</label>
+          <input type="text" id="new-gesture-name" />
+          <button type="submit">Save</button>
+        </form>
+      </div>
+    </div>
   );
 }
 

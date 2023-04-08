@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Movement from "../../components/movment/movment";
-import { getMovements } from "../../databases/getMovements"; 
+import { getMovements } from "../../databases/getMovements";
 
-const MovementsLib = () => { 
+const MovementsLib = () => {
   const [movements, setMovements] = useState([]);
 
   useEffect(() => {
     const fetchMovements = async () => {
-      const data = await getMovements(); 
+      const data = await getMovements();
       setMovements(data);
     };
 
@@ -26,4 +26,4 @@ const MovementsLib = () => {
   );
 };
 
-export default MovementsLib; // export the component with the new name
+export default MovementsLib;
