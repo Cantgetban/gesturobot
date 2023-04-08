@@ -8,6 +8,7 @@ import UserLogin from "./pages/userLogin/userLogin";
 import MovementsLib from "./pages/movementslib/movementslib";
 import GestureTag from "./pages/gesturetag/gesturetag";
 import GestureManagement from "./pages/gestureManagement/gestureManagement";
+import GestureDisplay from "./pages/gesturedisplay/GestureDisplay";
 import { LanguageSwitcher } from "./language-management/LanguageSwicher";
 import { LanguageContext } from "./language-management/LanguageContext";
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/GestureTag" element={<GestureTag />} />
         <Route path="/UserLogin" element={<UserLogin />} />
         <Route path="/GestureManagement" element={<GestureManagement />} />
+        <Route path="/GestureDisplay" element={<GestureDisplay />} />
       </Routes>
     </div>
   );

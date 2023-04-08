@@ -8,5 +8,7 @@
   "Start Movement": "Start Movement",
   "Gesture management description": "Here you can create and edit new gestures",
   "Movement lib description": "Here you can look at all the movements of the robot",
-  "Gesture taging description": "Here you can give tags to gestures"
+  "Gesture taging description": "Here you can give tags to gestures",
+  "View all gestures": "View all gestures",
+  "Start new experiment": "Start new experiment"
 }

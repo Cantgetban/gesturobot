@@ -2,11 +2,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 500px;
-  height: 400px;
-  background-color: #000;
+  height: 200px;
+  background-color: #4d5258;
   border-radius: 10px;
   overflow: hidden;
+  width: 100%;
 }
 
 .gif-item {

@@ -1,38 +1,48 @@
 import "./gestureManagement.css";
 import { Translations } from "../../language-management/Translations";
 import { useNavigate } from "react-router-dom";
-import GestureSection from "../../components/movment/gesturesection";
+import GestureSection from "../../components/gesturesection/gesturesection";
 
 function GestureManagement() {
+  let navigate = useNavigate();
+
+  const moveToViewGestures = () => {
+    navigate("/GestureDisplay");
+  };
+
+  const moveToMovmentLibrary = () => {
+    navigate("/MovementLib");
+  };
   return (
-    <div>
-      {" "}
-      <div id="gestures">
-        <GestureSection></GestureSection>
-      </div>
-      <div id="create-gesture">
-        <h2>Create new gesture</h2>
-        <form>
-          <label for="gesture-name">Gesture name:</label>
-          <input type="text" id="gesture-name" />
-          <button type="submit">Create</button>
-        </form>
-      </div>
-      <div id="edit-gesture">
-        <h2>Edit gesture</h2>
-        <form>
-          <label for="gesture-select">Select gesture:</label>
-          <select id="gesture-select">
-            <option value="swipe">Swipe</option>
-            <option value="tap">Tap</option>
-            <option value="pinch">Pinch</option>
-          </select>
-          <label for="new-gesture-name">New name:</label>
-          <input type="text" id="new-gesture-name" />
-          <button type="submit">Save</button>
-        </form>
-      </div>
-    </div>
+    <Translations>
+      {({ translate }) => (
+        <div>
+          <img src="/logo3.png" class="logo-image" alt="GestuRobot logo"></img>
+          <div class="container">
+            <div class="card1" onClick={moveToViewGestures}>
+              <div class="face face1">
+                <div>
+                  <b>{translate("View all gestures")}</b>
+                </div>
+                <div class="face face2">
+                  <h2>{translate("View all gestures")}</h2>
+                </div>
+              </div>
+            </div>
+            <div class="card1" onClick={moveToMovmentLibrary}>
+              <div class="face face1">
+                <div>
+                  <b>{translate("Start new experiment")}</b>
+                </div>
+                <div class="face face2">
+                  <h2>{translate("Start new experiment")}</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </Translations>
   );
 }
 

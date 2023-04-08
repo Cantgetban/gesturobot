@@ -10,5 +10,7 @@
   "Start Movement": "הפעל תנועה",
   "Gesture management description": "כאן תוכל ליצור ולערוך מחוות חדשות",
   "Movement lib description": "כאן תוכל לראות את כל התנועות של רובוט הכלב",
-  "Gesture taging description": "כאן תוכל לתת תיוגים למחוות קיימות"
+  "Gesture taging description": "כאן תוכל לתת תיוגים למחוות קיימות",
+  "View all gestures": "הצגת מחוות קיימות",
+  "Start new experiment": "התחלת ניסוי חדש"
 }
