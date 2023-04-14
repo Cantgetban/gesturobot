@@ -3,6 +3,7 @@
   "Welcome to my landing page": "ברוכים הבאים לדף הנחיתה שלי",
   "Gesture Management": "ניהול המחוות",
   "Movement Library": "ספריית התנועות",
+  "Movements Library": "ספריית התנועות",
   "Username": "שם משתמש",
   "Password": "סיסמה",
   "Login": "היכנס",
@@ -12,5 +13,11 @@
   "Movement lib description": "כאן תוכל לראות את כל התנועות של רובוט הכלב",
   "Gesture taging description": "כאן תוכל לתת תיוגים למחוות קיימות",
   "View all gestures": "הצגת מחוות קיימות",
-  "Start new experiment": "התחלת ניסוי חדש"
+  "Start new experiment": "התחלת ניסוי חדש",
+  "Drag next movement here": "גרור לכאן את התנועה הבאה",
+  "Move down" : "הזז למטה",
+  "Move up" : "הזז למעלה",
+  "Remove" : "מחק",
+  "New Gesture" : "מחווה חדשה",
+  "Save And Add New Gesture" : "שמור והוסף מחווה חדשה"
 }

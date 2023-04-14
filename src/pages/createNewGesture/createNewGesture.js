@@ -4,6 +4,7 @@ import { getMovements } from "../../databases/getMovements";
 import { useDrop } from "react-dnd";
 import update from "immutability-helper";
 import { useNavigate } from "react-router-dom";
+import { Translations } from "../../language-management/Translations";
 
 
 
@@ -109,9 +110,11 @@ const CreateNewGesture = () => {
   };
 
   return (
+    <Translations>
+    {({ translate }) => (
     <div className="row">
       <div className="col-md-9">
-        <h2 className="text-center mb-3">Movements Library</h2>
+        <h2 className="text-center mb-3">{translate("Movements Library")}</h2>
         <div className="d-flex flex-wrap">
           {movements.map((movement) => (
             <div className="p-1" key={movement.id}>
@@ -121,9 +124,9 @@ const CreateNewGesture = () => {
         </div>
       </div>
         <div className="col-md-3">
-          <h2 className="text-center mb-3">New Gesture</h2>
+          <h2 className="text-center mb-3">{translate("New Gesture")}</h2>
           <button className="btn btn-primary" onClick={() => addGesture()}>
-            Save And Add Gesture
+          {translate("Save And Add New Gesture")}
           </button>
           <div className="card mb-3">
             <div className="card-body p-0" {...dropTargetProps}>
@@ -138,34 +141,35 @@ const CreateNewGesture = () => {
                           className="btn btn-sm btn-outline-secondary mx-1"
                           onClick={() => handleRemoveMovement(movement.id)}
                         >
-                          Remove
+                          {translate("Remove")}
                         </button>
                         <button
                           className="btn btn-sm btn-outline-secondary mx-1"
                           disabled={index === 0}
                           onClick={() => handleMoveUp(index)}
                         >
-                          Move Up
+                          {translate("Move up")}
                         </button>
                         <button
                           className="btn btn-sm btn-outline-secondary mx-1"
                           disabled={index === series.length - 1}
                           onClick={() => handleMoveDown(index)}
                         >
-                          Move Down
+                           {translate("Move down")}
                         </button>
                       </div>
                   </div>
               ))}
               <div className="p-1 card card-body" style={{ backgroundColor: "black", color: "white" , height: "200px"}}  ref={dropTarget}>
-                Drag next movement here
+                {translate("Drag next movement here")}
               </div>
           </div>
         </div>
       </div>
     </div>
+        )}
+    </Translations>
   );
-
 };
 
 export default CreateNewGesture;      

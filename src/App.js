@@ -5,7 +5,7 @@ import ReactDOM from "react-dom/client";
 import { Routes, Route } from "react-router-dom";
 import MainPage from "./pages/mainpage/MainPage";
 import UserLogin from "./pages/userLogin/userLogin";
-import MovementsLib from "./pages/movementsLib/movementsLib";
+import MovementsLib from "./pages/movementsLib/movementslib";
 import GestureTag from "./pages/gesturetag/gesturetag";
 import GestureManagement from "./pages/gesturemanagement/gesturemanagement";
 import GestureDisplay from "./pages/gesturedisplay/GestureDisplay";

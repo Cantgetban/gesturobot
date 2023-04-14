@@ -1,6 +1,7 @@
 {
   "Gesture Management": "Gesture Management",
   "Movment Library": "Movment Library",
+  "Movments Library": "Movments Library",
   "Username": "Username",
   "Password": "Password",
   "Login": "Login",
@@ -10,5 +11,11 @@
   "Movement lib description": "Here you can look at all the movements of the robot",
   "Gesture taging description": "Here you can give tags to gestures",
   "View all gestures": "View all gestures",
-  "Start new experiment": "Start new experiment"
+  "Start new experiment": "Start new experiment",
+  "Drag next movement here": "Drag next movement here",
+  "Move down" : "Move down",
+  "Move up" : "Move up",
+  "Remove" : "Remove",
+  "New Gesture" : "New Gesture",
+  "Save And Add New Gesture" : "Save And Add New Gesture"
 }
