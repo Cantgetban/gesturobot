@@ -25,13 +25,10 @@ const MovementsLib = () => {
 
   const [dropTargetProps, dropTarget] = useDrop({
     accept: "movement",
-<<<<<<< HEAD
     canDrop: (item, monitor) => {
       // Return true only if the movement is dragged over the series drop target
       return monitor.isOver({ shallow: true }) && monitor.getItemType() === "movement";
     },
-=======
->>>>>>> 5e70b98ec890a5bb3d1c2b15f7fec1cd02266ac3
     drop: (item, monitor) => {
       if (!item.movement) {
         return;
@@ -96,7 +93,6 @@ const MovementsLib = () => {
   };
 
   return (
-<<<<<<< HEAD
     <div className="row">
       <div className="col-md-9">
         <h2 className="text-center mb-3">Movements Library</h2>
@@ -109,21 +105,6 @@ const MovementsLib = () => {
         </div>
       </div>
         <div className="col-md-3">
-=======
-    <div className="mt-3">
-      <div className="row">
-        <div className="col-md-6">
-          <h2 className="text-center mb-3">Movements Library</h2>
-          <div className="d-flex flex-wrap" ref={dropTarget}>
-            {movements.map((movement) => (
-              <div className="p-1" key={movement.id}>
-                <Movement movement={movement} />
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="col-md-6">
->>>>>>> 5e70b98ec890a5bb3d1c2b15f7fec1cd02266ac3
           <h2 className="text-center mb-3">New Gesture</h2>
           <div className="card mb-3">
             <div className="card-body p-0" {...dropTargetProps}>
@@ -157,19 +138,12 @@ const MovementsLib = () => {
                       </div>
                   </div>
               ))}
-<<<<<<< HEAD
               <div className="p-1 card card-body" style={{ backgroundColor: "black", color: "white" , height: "200px"}}  ref={dropTarget}>
                 Drag next movement here
               </div>
           </div>
         </div>
       </div>
-=======
-          </div>
-        </div>
-      </div>
-    </div>
->>>>>>> 5e70b98ec890a5bb3d1c2b15f7fec1cd02266ac3
     </div>
   );
 
