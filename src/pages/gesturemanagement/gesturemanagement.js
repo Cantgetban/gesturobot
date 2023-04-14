@@ -11,7 +11,7 @@ function GestureManagement() {
   };
 
   const moveToMovmentLibrary = () => {
-    navigate("/MovementLib");
+    navigate("/CreateNewGesture");
   };
   return (
     <Translations>

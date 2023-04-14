@@ -10,7 +10,7 @@ function MainPage() {
   };
 
   const moveToMovmentLibrary = () => {
-    navigate("/MovementLib");
+    navigate("/MovementsLib");
   };
 
   const moveToGestureLabeling = () => {
