@@ -5,12 +5,16 @@ import { useDrop } from "react-dnd";
 import update from "immutability-helper";
 import { useNavigate } from "react-router-dom";
 import { Translations } from "../../language-management/Translations";
+import GestureAPI from "../../databases/gestureData"; 
 
 
 
-const CreateNewGesture = () => {
+const CreateNewGesture = (props) => {
   const [movements, setMovements] = useState([]);
   const [series, setSeries] = useState([]);
+  const [selectedEmotion, setSelectedEmotion] = useState("");
+  const { gestureData, getGestureData, postGestureData } = GestureAPI();
+
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -49,15 +53,35 @@ const CreateNewGesture = () => {
     },
   });
 
-  const addGesture = () => {
+  const addGesture = async () => {
     if (series.length === 0){
       //here add the code that dent message to the user
       return
     }
-    const newGesture = series
+
+    if (selectedEmotion === ""){
+      //here add the code that dent message to the user
+      return
+    }
+
+    const newGesture = {
+      name: "New Gesture",
+      realLabel: selectedEmotion,
+      movements: series.map((movement) => movement.id),
+      creator: "creator"
+    };
+
     setSeries([]);
-    //AddNewGesture(newGesture)
-    navigate("/GestureManagement")
+    setSelectedEmotion("");
+    // try {
+    //   await postGestureData(newGesture);
+    //   console.log("Gesture added successfully!");
+    // } catch (error) {
+    //   console.error("Error adding gesture:", error);
+    // }
+    props.onGestureAdd(newGesture)
+    props.Show()
+    navigate("/createNewExperiment")
   }
 
 
@@ -109,6 +133,50 @@ const CreateNewGesture = () => {
     setSeries(updatedSeries);
   };
 
+  const emotionsList = [
+    "Joy", // שמחה
+    "Sadness", // עצב
+    "Anger", // כעס
+    "Fear", // פחד
+    "Love", // אהבה
+    "Hate", // שנאה
+    "Guilt", // אשמה
+    "Shame", // חרפה
+    "Envy", // קנאה
+    "Jealousy", // קנאה
+    "Pride", // גאווה
+    "Gratitude", // תודה
+    "Hope", // תקווה
+    "Despair", // יאוש
+    "Confusion", // בלבול
+    "Curiosity", // סקרנות
+    "Surprise", // הפתעה
+    "Excitement", // ערבוב
+    "Disappointment", // אכזבה
+    "Contentment", // שבענות
+    "Loneliness", // בדידות
+    "Nostalgia", // נוסטלגיה
+    "Relief", // רווחה
+    "Pity", // חמלה
+    "Boredom", // משעממת
+    "Empathy", // תחושת הדדיות
+    "Compassion", // רחמים
+    "Apathy", // אפתיעה
+    "Satisfaction", // שביעות רצון
+    "Disgust", // נפגעות מתמונה מסוימת
+  ];
+
+ 
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(selectedEmotion);
+  };
+
+  const handleEmotionSelect = (event) => {
+    setSelectedEmotion(event.target.value);
+  };
+
   return (
     <Translations>
     {({ translate }) => (
@@ -128,6 +196,18 @@ const CreateNewGesture = () => {
           <button className="btn btn-primary" onClick={() => addGesture()}>
           {translate("Save And Add New Gesture")}
           </button>
+      <label>
+        Select an emotion:
+        <select value={selectedEmotion} onChange={handleEmotionSelect}>
+          <option value="">--Please choose an emotion--</option>
+          {emotionsList.map((emotion, index) => (
+            <option key={index} value={emotion}>
+              {emotion}
+            </option>
+          ))}
+        </select>
+      </label>
+      <br />
           <div className="card mb-3">
             <div className="card-body p-0" {...dropTargetProps}>
               {series.map((movement, index) => (
