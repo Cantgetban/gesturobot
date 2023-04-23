@@ -5,7 +5,7 @@ import { useDrop } from "react-dnd";
 import update from "immutability-helper";
 import { useNavigate } from "react-router-dom";
 import { Translations } from "../../language-management/Translations";
-import GestureAPI from "../../databases/gestureData"; 
+import { insertGesture, deleteGestureById, editGestureById } from "../../databases/gesturesAPI"
 
 
 
@@ -13,8 +13,7 @@ const CreateNewGesture = (props) => {
   const [movements, setMovements] = useState([]);
   const [series, setSeries] = useState([]);
   const [selectedEmotion, setSelectedEmotion] = useState("");
-  const { gestureData, getGestureData, postGestureData } = GestureAPI();
-
+  
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -68,18 +67,12 @@ const CreateNewGesture = (props) => {
       name: "New Gesture",
       realLabel: selectedEmotion,
       movements: series.map((movement) => movement.id),
-      creator: "creator"
+      creator: ["creator", 0]
     };
 
     setSeries([]);
     setSelectedEmotion("");
-    // try {
-    //   await postGestureData(newGesture);
-    //   console.log("Gesture added successfully!");
-    // } catch (error) {
-    //   console.error("Error adding gesture:", error);
-    // }
-    props.onGestureAdd(newGesture)
+    insertGesture(newGesture)    
     props.Show()
     navigate("/createNewExperiment")
   }

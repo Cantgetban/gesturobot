@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "name": "Default Gesture",
+        "realLabel": "happy",
+        "movements": [
+            1,
+            2,
+            3
+        ],
+        "creator": ["anon", 0],
+        "labels": []
+    }
+]
