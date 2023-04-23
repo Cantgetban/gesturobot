@@ -94,14 +94,14 @@ def func7():
         udp.SetSend(cmd)
         udp.Send()
 
-# very low with jump
-def func8():
-     for i in range(10):
-        time.sleep(0.1)
-        cmd.mode = 1
-        cmd.bodyHeight = -0.8
-        udp.SetSend(cmd)
-        udp.Send()
+# # very low with jump
+# def func8():
+#      for i in range(10):
+#         time.sleep(0.1)
+#         cmd.mode = 1
+#         cmd.bodyHeight = -0.8
+#         udp.SetSend(cmd)
+#         udp.Send()
 
 # low with jump
 def func9():
@@ -242,15 +242,15 @@ def func17():
         udp.SetSend(cmd)
         udp.Send()
 
-# begging
-def func18():
-    for i in range(10):
-        time.sleep(0.1)
-        cmd.mode = 1
-        cmd.euler = [0.7, 0.3, 0]
-        cmd.bodyHeight = -0.3
-        udp.SetSend(cmd)
-        udp.Send()
+# # begging
+# def func18():
+#     for i in range(10):
+#         time.sleep(0.1)
+#         cmd.mode = 1
+#         cmd.euler = [0.7, 0.3, 0]
+#         cmd.bodyHeight = -0.3
+#         udp.SetSend(cmd)
+#         udp.Send()
 
 # threatning
 def func19():
@@ -272,15 +272,15 @@ def func20():
         udp.SetSend(cmd)
         udp.Send()
 
-# begging v2 left 
-def func21():
-    for i in range(10):
-        time.sleep(0.1)
-        cmd.mode = 1
-        cmd.bodyHeight = -0.3
-        cmd.euler = [-0.9, 0, 0]
-        udp.SetSend(cmd)
-        udp.Send()
+# # begging v2 left 
+# def func21():
+#     for i in range(10):
+#         time.sleep(0.1)
+#         cmd.mode = 1
+#         cmd.bodyHeight = -0.3
+#         cmd.euler = [-0.9, 0, 0]
+#         udp.SetSend(cmd)
+#         udp.Send()
 
 # create a dictionary of functions with IDs
 function_dict = {
@@ -291,7 +291,6 @@ function_dict = {
     5: func5,
     6: func6,
     7: func7,
-    8: func8,
     9: func9,
     10: func10,
     11: func11,
@@ -301,10 +300,8 @@ function_dict = {
     15: func15,
     16: func16,
     17: func17,
-    18: func18,
     19: func19,
-    20: func20,
-    21: func21
+    20: func20
 }
 
 if __name__ == '__main__':
