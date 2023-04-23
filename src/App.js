@@ -14,7 +14,7 @@ import { LanguageContext } from "./language-management/LanguageContext";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import CreateNewGesture from "./pages/createNewGesture/createNewGesture";
-import CreateNewExperiment from "./pages/createNewExperiment/createNewExperiment"
+import CreateNewExperiment from "./pages/createNewExperiment/createNewExperiment";
 
 function App() {
   const { language } = useContext(LanguageContext);
@@ -24,13 +24,13 @@ function App() {
   );
 
   return (
-      <DndProvider backend={HTML5Backend}>
+    <DndProvider backend={HTML5Backend}>
       <div>
         <LanguageSwitcher />
       </div>
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="/createNewExperiment" element={<CreateNewExperiment/>} />
+        <Route path="/createNewExperiment" element={<CreateNewExperiment />} />
         <Route path="/CreateNewGesture" element={<CreateNewGesture />} />
         <Route path="/GestureTag" element={<GestureTag />} />
         <Route path="/UserLogin" element={<UserLogin />} />
@@ -38,7 +38,7 @@ function App() {
         <Route path="/MovementsLib" element={<MovementsLib />} />
         <Route path="/GestureDisplay" element={<GestureDisplay />} />
       </Routes>
-      </DndProvider>
+    </DndProvider>
   );
 }
 
