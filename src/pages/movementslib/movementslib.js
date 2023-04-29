@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Movement from "../../components/movment/movment";
-import { getMovements } from "../../databases/getMovements";
+import { getMovements } from "../../databases/movementsAPI";
 
 function MovementsLib() {
   const [movements, setMovements] = useState([]);

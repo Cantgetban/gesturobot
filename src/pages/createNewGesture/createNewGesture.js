@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Movement from "../../components/movment/movment";
-import { getMovements } from "../../databases/getMovements";
+import { getMovements } from "../../databases/movementsAPI";
 import { useDrop } from "react-dnd";
 import update from "immutability-helper";
 import { useNavigate } from "react-router-dom";
 import { Translations } from "../../language-management/Translations";
-import { insertGesture, deleteGestureById, editGestureById } from "../../databases/gesturesAPI"
+import { addGestureJson, deleteGesture }  from "../../databases/gesturesAPI"
 
 
 
@@ -67,12 +67,13 @@ const CreateNewGesture = (props) => {
       name: "New Gesture",
       realLabel: selectedEmotion,
       movements: series.map((movement) => movement.id),
-      creator: ["creator", 0]
+      creator: [props.name, parseInt(props.type)],
+      labels: []
     };
 
     setSeries([]);
     setSelectedEmotion("");
-    insertGesture(newGesture)    
+    addGestureJson(newGesture)    
     props.Show()
     navigate("/createNewExperiment")
   }

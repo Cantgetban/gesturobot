@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Translations } from "../../language-management/Translations.js";
 import "./userLogin.css";
-import usersData from "../../databases/users.json";
+import { getUsers } from "../../databases/usersAPI.js";
 import { useNavigate } from "react-router-dom";
 
 function UserLogin() {
@@ -22,7 +22,7 @@ function UserLogin() {
     navigate("/GestureManagement");
   };
 
-  const HandleLogin = (event) => {
+  const HandleLogin = async (event) => {
     event.preventDefault();
 
     // Define the regular expression to match the password format
@@ -34,15 +34,14 @@ function UserLogin() {
       );
     } else {
       // Submit the form or perform any other necessary actions
-      if (username in usersData) {
-        if (password === usersData[username]) {
+      const usersData = await getUsers()
+      console.log(usersData)
+      const user = usersData.find((u) => u.name === username && u.password === password);
+        if (user) {
           moveToGestureManagement();
         } else {
-          setErrorMessage("password incorrect");
+          setErrorMessage("password or username incorrect");
         }
-      } else {
-        setErrorMessage("username doesn't exists");
-      }
     }
   };
 

@@ -1,36 +1,64 @@
-import "./Gestures.json"
+import React, { useState, useEffect } from "react";
 
-let data = require("./Gestures.json"); // Assuming data.json is in the same directory
+function getAllGestures() {
+  return fetch("http://localhost:3000/gestures")
+    .then((response) => response.json())
+    .catch((error) => console.log("Error fetching gestures:", error));
+}
 
-// Insert a new Gesture to the array
-const insertGesture = (newGesture) => {
-  data.push(newGesture);
-  saveDataToFile();
-};
+function getGestureById(id) {
+  return fetch(`http://localhost:3000/gestures/${id}`)
+    .then((response) => response.json())
+    .catch((error) => console.log("Error fetching gesture:", error));
+}
 
-// Delete an Gesture from the array by id
-const deleteGestureById = (id) => {
-  const index = data.findIndex(obj => obj.id === id);
-  if (index !== -1) {
-    data.splice(index, 1);
-    saveDataToFile();
-  }
-};
+function editGesture(id, updatedGesture) {
+  return fetch(`http://localhost:3000/gestures/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(updatedGesture),
+  })
+    .then((response) => response.json())
+    .catch((error) => console.log("Error editing gesture:", error));
+}
 
-// Edit an Gesture in the array by id
-const editGestureById = (id, updatedGesture) => {
-  const index = data.findIndex(obj => obj.id === id);
-  if (index !== -1) {
-    data[index] = updatedGesture;
-    saveDataToFile();
-  }
-};
+function addGestureJson(newGesture) {
+  // get the current maximum ID
+  fetch("http://localhost:3000/gestures")
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data)
+      const maxId = data ? Math.max(...data.map((gesture) => gesture.id)) : 0;
+      // add 1 to the maximum ID to get the next ID for the new gesture
+      const nextId = maxId + 1;
+      
+      // add the new gesture with the next ID
+      fetch("http://localhost:3000/gestures", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id: nextId, ...newGesture }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          // update the gestures state with the new gesture
+          // setGestures([...gestures, data]);
+        });
+    })
+    .catch((error) => console.log("Error fetching gestures:", error));
+}
 
-// Save data back to the JSON file
-const saveDataToFile = () => {
-  const fs = require('fs');
-  fs.writeFileSync('./Gestures.json', JSON.stringify(data));
-};
+function deleteGesture(id) {
+  // send a DELETE request to delete the gesture with the given ID
+  fetch(`http://localhost:3000/gestures/${id}`, {
+    method: "DELETE",
+  }).then(() => {
+    // update the gestures state by removing the deleted gesture
+    // setGestures(gestures.filter((gesture) => gesture.id !== id));
+  });
+}
 
-export { insertGesture, deleteGestureById, editGestureById };
-
+export {addGestureJson, deleteGesture , getAllGestures, getGestureById, editGesture};

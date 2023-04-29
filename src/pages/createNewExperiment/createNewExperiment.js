@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CreateNewGesture from "../createNewGesture/createNewGesture";
 import { Link } from 'react-router-dom';
+import { addGestureJson, deleteGesture }  from "../../databases/gesturesAPI"
 
 
 function CreateNewExperiment() {
@@ -61,7 +62,7 @@ function CreateNewExperiment() {
       <div className="row">
       {showCreateNewGesture && (
         <div className="overlay">
-          <CreateNewGesture onGestureAdd={handleGestureAdd} Show={() => setShowCreateNewGesture(false)}/>
+          <CreateNewGesture onGestureAdd={handleGestureAdd} Show={() => setShowCreateNewGesture(false)} name={name} type={type}/>
         </div>
       )}
       </div>

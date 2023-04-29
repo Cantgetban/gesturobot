@@ -1,5 +1,6 @@
 import "./GestureDisplay.css";
 import GestureSection from "../../components/gesturesection/gesturesection";
+import {getAllGestures} from "../../databases/gesturesAPI";
 function GestureDisplay() {
   return (
     <>
