@@ -19,6 +19,7 @@ const CreateNewGesture = (props) => {
   useEffect(() => {
     const fetchMovements = async () => {
       const data = await getMovements();
+      console.log(data)
       setMovements(data);
     };
 

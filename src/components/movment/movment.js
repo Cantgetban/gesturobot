@@ -35,10 +35,12 @@ const Movement = ({ movement, draggable }) => {
         >
           <span className="embed-responsive embed-responsive-16by9">
             <video
+              width={287}
+              height={180}
               ref={videoRef}
               title={name}
               className="embed-responsive-item"
-              src={movement.videoSrc}
+              src= {movement.videoUrl}
               controls
             />
           </span>

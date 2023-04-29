@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import "./gesturesection.css";
 import { getAllGestures } from "../../databases/gesturesAPI";
+import LoopOfMovements from '../loopOfMovements/loopOfMovements';
 function GestureSection(props) {
 
   const [gestures, setGestures] = useState([]);
@@ -13,10 +14,6 @@ function GestureSection(props) {
 
     fetchGestures();
   }, []);
-
-  const handleButtonClick = () => {
-    videoRef.current.play();
-  };
 
   const filteredGestures = gestures.filter(gesture => {
     if (props.filterBy === 'name') {
@@ -33,33 +30,21 @@ function GestureSection(props) {
 
   return (
     <>
-      <div class="gif-display">
         {filteredGestures.map((gesture) => (
           <div className="p-1" key={gesture.id}>
             <div
-              className="card"
-              style={{ width: "18rem"}}
+              className="card col-3"
             >
               <span className="embed-responsive embed-responsive-16by9">
-                <video
-                  title={gesture.name}
-                  className="embed-responsive-item"
-                  controls
-                />
+              <LoopOfMovements ids={gesture.movements}/>
               </span>
               <div className="card-body">
                 <h5 className="card-title">{gesture.name}</h5>
                 <p className="card-text">{gesture.creator[0]}</p>
-                {(
-                  <button className="btn btn-primary" onClick={handleButtonClick}>
-                    Start Gesture
-                  </button>
-                )}
               </div>
             </div>
           </div>
         ))}
-      </div>
     </>
   );
 }

@@ -1,37 +1,38 @@
-{ "movements":[
+{
+  "movements": [
     {
-        "id": 1,
-        "name": "Go left",
-        "hebrewName": "לך שמאלה",
-        "description": "Move the robot to the left",
-        "hebrewDescription": "הזז את הרובוט שמאלה",
-        "videoUrl": "/videos/go_left.mp4"
+      "id": 1,
+      "name": "Go left",
+      "hebrewName": "לך שמאלה",
+      "description": "Move the robot to the left",
+      "hebrewDescription": "הזז את הרובוט שמאלה",
+      "videoUrl": "../../example1.mp4"
     },
     {
-        "id": 2,
-        "name": "Go right",
-        "hebrewName": "לך ימינה",
-        "description": "Move the robot to the right",
-        "hebrewDescription": "הזז את הרובוט ימינה",
-        "videoUrl": "/videos/go_right.mp4"
+      "id": 2,
+      "name": "Go right",
+      "hebrewName": "לך ימינה",
+      "description": "Move the robot to the right",
+      "hebrewDescription": "הזז את הרובוט ימינה",
+      "videoUrl": "../../example2.mp4"
     },
     {
-        "id": 3,
-        "name": "Go forward",
-        "hebrewName": "לך קדימה",
-        "description": "Move the robot forward",
-        "hebrewDescription": "הזז את הרובוט קדימה",
-        "videoUrl": "/videos/go_forward.mp4"
+      "id": 3,
+      "name": "Go forward",
+      "hebrewName": "לך קדימה",
+      "description": "Move the robot forward",
+      "hebrewDescription": "הזז את הרובוט קדימה",
+      "videoUrl": "/videos/go_forward.mp4"
     },
     {
-        "id": 4,
-        "name": "Go backward",
-        "hebrewName": "לך אחורה",
-        "description": "Move the robot backward",
-        "hebrewDescription": "הזז את הרובוט אחורה",
-        "videoUrl": "/videos/go_backward.mp4"
+      "id": 4,
+      "name": "Go backward",
+      "hebrewName": "לך אחורה",
+      "description": "Move the robot backward",
+      "hebrewDescription": "הזז את הרובוט אחורה",
+      "videoUrl": "/videos/go_backward.mp4"
     }
-],
+  ],
   "gestures": [
     {
       "id": 1,
@@ -39,67 +40,11 @@
       "realLabel": "happy",
       "movements": [
         1,
-        2,
-        3
+        2
       ],
       "creator": [
         "anon",
         0
-      ],
-      "labels": []
-    },
-    {
-      "id": 2,
-      "name": "Default Gesture",
-      "realLabel": "happy",
-      "movements": [
-        1,
-        2,
-        3
-      ],
-      "creator": [
-        "anon",
-        0
-      ],
-      "labels": []
-    },
-    {
-      "id": 3,
-      "name": "New Gesture",
-      "realLabel": "Pride",
-      "movements": [
-        3
-      ],
-      "creator": [
-        "creator",
-        0
-      ],
-      "labels": []
-    },
-    {
-      "id": 4,
-      "name": "New Gesture",
-      "realLabel": "Joy",
-      "movements": [
-        3
-      ],
-      "creator": [
-        "Sahar Rofe",
-        "2"
-      ],
-      "labels": []
-    },
-    {
-      "id": 5,
-      "name": "New Gesture",
-      "realLabel": "Love",
-      "movements": [
-        1,
-        1
-      ],
-      "creator": [
-        "Sahar Rofe",
-        7
       ],
       "labels": []
     }
@@ -107,7 +52,7 @@
   "users": [
     {
       "name": "admin",
-      "password" : "admin1234"
+      "password": "admin1234"
     }
   ]
 }
