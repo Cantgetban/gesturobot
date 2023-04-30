@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CreateNewGesture from "../createNewGesture/createNewGesture";
 import { Link } from 'react-router-dom';
 import { addGestureJson, deleteGesture }  from "../../databases/gesturesAPI"
+import { addGestureEx, getAllGesturesEx, deleteAllExperiments } from "../../databases/newExperimentAPI";
 
 
 function CreateNewExperiment() {
@@ -14,18 +15,29 @@ function CreateNewExperiment() {
     setName(event.target.value);
   };
 
+  useEffect(() => {
+    const fetchGesturesEx = async () => {
+      const data = await getAllGesturesEx();
+      setGestures(data);
+    };
+    fetchGesturesEx();
+  }, []);
+
   const handleTypeChange = (event) => {
     setType(event.target.value);
   };
 
   const handleGestureAdd = (newGesture) => {
     setGestures([...gestures, newGesture]);
+    addGestureEx(newGesture)
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     // TODO: Submit the form and create a new experiment with the given name, type, and gestures
     console.log({ name, type, gestures });
+    deleteAllExperiments()
+    setGestures([]);
   };
 
   return (

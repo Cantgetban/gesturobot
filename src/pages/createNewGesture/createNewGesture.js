@@ -76,6 +76,7 @@ const CreateNewGesture = (props) => {
     setSelectedEmotion("");
     addGestureJson(newGesture)    
     props.Show()
+    props.onGestureAdd(newGesture)
     navigate("/createNewExperiment")
   }
 

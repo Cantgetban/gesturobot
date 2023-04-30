@@ -4,3 +4,5 @@ export const getMovements = async () => {
   .then((response) => response.json())
   .catch((error) => console.log("Error fetching gestures:", error));
 };
+
+

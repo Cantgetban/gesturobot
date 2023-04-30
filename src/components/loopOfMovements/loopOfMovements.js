@@ -6,6 +6,7 @@ const LoopOfMovements = (props) => {
   const [URLs, setURLs] = useState([]);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [isFirstVideoPlayed, setIsFirstVideoPlayed] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false)
   const videoRef = React.useRef(null);
 
   function getURLsByIds(data) {
@@ -26,7 +27,12 @@ const LoopOfMovements = (props) => {
   }, []);
 
   const handleVideoEnd = () => {
-    setCurrentVideoIndex(currentVideoIndex === URLs.length - 1 ? 0 : currentVideoIndex + 1);
+    if(currentVideoIndex === URLs.length - 1){
+        setCurrentVideoIndex(0)
+        setIsPlaying(false);
+        return 
+    }
+    setCurrentVideoIndex(currentVideoIndex === URLs.length - 1 ? 0 : (currentVideoIndex + 1));
     if (currentVideoIndex === 0 && !isFirstVideoPlayed) {
       setIsFirstVideoPlayed(true);
     }
@@ -34,6 +40,7 @@ const LoopOfMovements = (props) => {
   };
 
   const handleButtonClick = () => {
+    setIsPlaying(true)
     if (!isFirstVideoPlayed) {
       setIsFirstVideoPlayed(true);
     }
@@ -43,14 +50,15 @@ const LoopOfMovements = (props) => {
   useEffect(() => {
     if (videoRef.current && (currentVideoIndex === 0 && !isFirstVideoPlayed || currentVideoIndex !== 0)) {
       videoRef.current.play();
+      return
     }
   }, [URLs, currentVideoIndex, isFirstVideoPlayed]);
 
   return (
       <>
-          <video onEnded={handleVideoEnd} width={280} height={200} src={URLs[currentVideoIndex]} ref={videoRef} preload="auto"></video>
-          <button className="btn btn-primary" onClick={handleButtonClick}>
-              Start Gesture
+          <video onEnded={handleVideoEnd} width={280} height={200} src={URLs[currentVideoIndex]} ref={videoRef} ></video>
+          <button className="btn btn-primary" onClick={handleButtonClick} disabled={isPlaying}>
+              {isPlaying ? "Playing..." : "Start Gesture"}
           </button>
       </>
   );
