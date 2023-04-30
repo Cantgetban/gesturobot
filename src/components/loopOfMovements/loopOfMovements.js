@@ -48,7 +48,7 @@ const LoopOfMovements = (props) => {
 
   return (
       <>
-          <video onEnded={handleVideoEnd} width={280} height={200} src={URLs[currentVideoIndex]} ref={videoRef} preload="auto"></video>
+          <video onEnded={handleVideoEnd} width={280} height={200} src={URLs[currentVideoIndex]} ref={videoRef} ></video>
           <button className="btn btn-primary" onClick={handleButtonClick}>
               Start Gesture
           </button>
