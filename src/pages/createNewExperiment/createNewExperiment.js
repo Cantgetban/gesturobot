@@ -3,9 +3,10 @@ import CreateNewGesture from "../createNewGesture/createNewGesture";
 import { Link } from 'react-router-dom';
 import { addGestureJson, deleteGesture }  from "../../databases/gesturesAPI"
 import { addGestureEx, getAllGesturesEx, deleteAllExperiments } from "../../databases/newExperimentAPI";
-
+import { useNavigate } from "react-router-dom";
 
 function CreateNewExperiment() {
+  let navigate = useNavigate();
   const [name, setName] = useState("");
   const [type, setType] = useState("");
   const [gestures, setGestures] = useState([]);
@@ -38,6 +39,7 @@ function CreateNewExperiment() {
     console.log({ name, type, gestures });
     deleteAllExperiments()
     setGestures([]);
+    navigate("/GestureManagement")
   };
 
   return (

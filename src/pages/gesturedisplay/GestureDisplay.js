@@ -26,7 +26,6 @@ function GestureDisplay() {
           <option value="date">Date</option>
         </select>
         <input type="text" id="new-gesture-name" value={inputValue} onChange={handleInputChange} />
-        <button type="submit">Filter</button>
       </form>
       <GestureSection filterBy={filterBy} value={inputValue} />
     </>
