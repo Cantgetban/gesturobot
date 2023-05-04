@@ -1,5 +1,16 @@
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./gesturetag.css";
+
 function GestureTag() {
+  const [isAgreed, setIsAgreed] = useState(false);
+  let navigate = useNavigate();
+  const handleCheckboxChange = (event) => {
+    setIsAgreed(event.target.checked);
+  };
+  const handleConfirmClick = () => {
+    navigate("/DemographicForm");
+  };
   return (
     <div>
       <img src="/logo3.png" class="logo-image" alt="GestuRobot logo"></img>
@@ -11,9 +22,19 @@ function GestureTag() {
         </p>
         <label for="agree">
           I agree to the terms and conditions.
-          <input type="checkbox" id="agree" name="agree"></input>
+          <input
+            type="checkbox"
+            id="agree"
+            name="agree"
+            checked={isAgreed}
+            onChange={handleCheckboxChange}
+          ></input>
         </label>
-        <button id="confirm-btn" disabled>
+        <button
+          id="confirm-btn"
+          onClick={handleConfirmClick}
+          disabled={!isAgreed}
+        >
           Confirm Participation
         </button>
       </div>

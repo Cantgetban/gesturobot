@@ -5,21 +5,20 @@ import { useDrop } from "react-dnd";
 import update from "immutability-helper";
 import { useNavigate } from "react-router-dom";
 import { Translations } from "../../language-management/Translations";
-import { addGestureJson, deleteGesture }  from "../../databases/gesturesAPI"
-
-
+import { addGestureJson, deleteGesture } from "../../databases/gesturesAPI";
+import { emotionsList } from "../../databases/emotions";
 
 const CreateNewGesture = (props) => {
   const [movements, setMovements] = useState([]);
   const [series, setSeries] = useState([]);
   const [selectedEmotion, setSelectedEmotion] = useState("");
-  
+
   let navigate = useNavigate();
 
   useEffect(() => {
     const fetchMovements = async () => {
       const data = await getMovements();
-      console.log(data)
+      console.log(data);
       setMovements(data);
     };
 
@@ -36,7 +35,10 @@ const CreateNewGesture = (props) => {
     accept: "movement",
     canDrop: (item, monitor) => {
       // Return true only if the movement is dragged over the series drop target
-      return monitor.isOver({ shallow: true }) && monitor.getItemType() === "movement";
+      return (
+        monitor.isOver({ shallow: true }) &&
+        monitor.getItemType() === "movement"
+      );
     },
     drop: (item, monitor) => {
       if (!item.movement) {
@@ -54,14 +56,14 @@ const CreateNewGesture = (props) => {
   });
 
   const addGesture = async () => {
-    if (series.length === 0){
+    if (series.length === 0) {
       //here add the code that dent message to the user
-      return
+      return;
     }
 
-    if (selectedEmotion === ""){
+    if (selectedEmotion === "") {
       //here add the code that dent message to the user
-      return
+      return;
     }
 
     const newGesture = {
@@ -69,17 +71,16 @@ const CreateNewGesture = (props) => {
       realLabel: selectedEmotion,
       movements: series.map((movement) => movement.id),
       creator: [props.name, parseInt(props.type)],
-      labels: []
+      labels: [],
     };
 
     setSeries([]);
     setSelectedEmotion("");
-    addGestureJson(newGesture)    
-    props.Show()
-    props.onGestureAdd(newGesture)
-    navigate("/createNewExperiment")
-  }
-
+    addGestureJson(newGesture);
+    props.Show();
+    props.onGestureAdd(newGesture);
+    navigate("/createNewExperiment");
+  };
 
   const handleMovementDragEnd = (movement, result) => {
     if (!result.dropResult) {
@@ -96,9 +97,14 @@ const CreateNewGesture = (props) => {
   };
 
   const handleRemoveMovement = (movementId) => {
-    const indexToRemove = series.findIndex((seriesMovement) => seriesMovement.id === movementId);
+    const indexToRemove = series.findIndex(
+      (seriesMovement) => seriesMovement.id === movementId
+    );
     if (indexToRemove !== -1) {
-      const updatedSeries = [...series.slice(0, indexToRemove), ...series.slice(indexToRemove + 1)];
+      const updatedSeries = [
+        ...series.slice(0, indexToRemove),
+        ...series.slice(indexToRemove + 1),
+      ];
       setSeries(updatedSeries);
     }
   };
@@ -129,41 +135,6 @@ const CreateNewGesture = (props) => {
     setSeries(updatedSeries);
   };
 
-  const emotionsList = [
-    "Joy", // שמחה
-    "Sadness", // עצב
-    "Anger", // כעס
-    "Fear", // פחד
-    "Love", // אהבה
-    "Hate", // שנאה
-    "Guilt", // אשמה
-    "Shame", // חרפה
-    "Envy", // קנאה
-    "Jealousy", // קנאה
-    "Pride", // גאווה
-    "Gratitude", // תודה
-    "Hope", // תקווה
-    "Despair", // יאוש
-    "Confusion", // בלבול
-    "Curiosity", // סקרנות
-    "Surprise", // הפתעה
-    "Excitement", // ערבוב
-    "Disappointment", // אכזבה
-    "Contentment", // שבענות
-    "Loneliness", // בדידות
-    "Nostalgia", // נוסטלגיה
-    "Relief", // רווחה
-    "Pity", // חמלה
-    "Boredom", // משעממת
-    "Empathy", // תחושת הדדיות
-    "Compassion", // רחמים
-    "Apathy", // אפתיעה
-    "Satisfaction", // שביעות רצון
-    "Disgust", // נפגעות מתמונה מסוימת
-  ];
-
- 
-
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(selectedEmotion);
@@ -175,77 +146,87 @@ const CreateNewGesture = (props) => {
 
   return (
     <Translations>
-    {({ translate }) => (
-    <div className="row">
-      <div className="col-md-9">
-        <h2 className="text-center mb-3">{translate("Movements Library")}</h2>
-        <div className="d-flex flex-wrap">
-          {movements.map((movement) => (
-            <div className="p-1" key={movement.id}>
-              <Movement movement={movement} />
-            </div>
-          ))}
-        </div>
-      </div>
-        <div className="col-md-3">
-          <h2 className="text-center mb-3">{translate("New Gesture")}</h2>
-          <button className="btn btn-primary" onClick={() => addGesture()}>
-          {translate("Save And Add New Gesture")}
-          </button>
-      <label>
-        Select an emotion:
-        <select value={selectedEmotion} onChange={handleEmotionSelect}>
-          <option value="">--Please choose an emotion--</option>
-          {emotionsList.map((emotion, index) => (
-            <option key={index} value={emotion}>
-              {emotion}
-            </option>
-          ))}
-        </select>
-      </label>
-      <br />
-          <div className="card mb-3">
-            <div className="card-body p-0" {...dropTargetProps}>
-              {series.map((movement, index) => (
+      {({ translate }) => (
+        <div className="row">
+          <div className="col-md-9">
+            <h2 className="text-center mb-3">
+              {translate("Movements Library")}
+            </h2>
+            <div className="d-flex flex-wrap">
+              {movements.map((movement) => (
                 <div className="p-1" key={movement.id}>
-                  <Movement
-                    movement={movement}
-                    onDragEnd={(result) => handleMovementDragEnd(result)}
-                      />
-                      <div className="d-flex align-items-center">
-                        <button
-                          className="btn btn-sm btn-outline-secondary mx-1"
-                          onClick={() => handleRemoveMovement(movement.id)}
-                        >
-                          {translate("Remove")}
-                        </button>
-                        <button
-                          className="btn btn-sm btn-outline-secondary mx-1"
-                          disabled={index === 0}
-                          onClick={() => handleMoveUp(index)}
-                        >
-                          {translate("Move up")}
-                        </button>
-                        <button
-                          className="btn btn-sm btn-outline-secondary mx-1"
-                          disabled={index === series.length - 1}
-                          onClick={() => handleMoveDown(index)}
-                        >
-                           {translate("Move down")}
-                        </button>
-                      </div>
-                  </div>
+                  <Movement movement={movement} />
+                </div>
               ))}
-              <div className="p-1 card card-body" style={{ backgroundColor: "black", color: "white" , height: "200px"}}  ref={dropTarget}>
-                {translate("Drag next movement here")}
+            </div>
+          </div>
+          <div className="col-md-3">
+            <h2 className="text-center mb-3">{translate("New Gesture")}</h2>
+            <button className="btn btn-primary" onClick={() => addGesture()}>
+              {translate("Save And Add New Gesture")}
+            </button>
+            <label>
+              Select an emotion:
+              <select value={selectedEmotion} onChange={handleEmotionSelect}>
+                <option value="">--Please choose an emotion--</option>
+                {emotionsList.map((emotion, index) => (
+                  <option key={index} value={emotion}>
+                    {emotion}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <br />
+            <div className="card mb-3">
+              <div className="card-body p-0" {...dropTargetProps}>
+                {series.map((movement, index) => (
+                  <div className="p-1" key={movement.id}>
+                    <Movement
+                      movement={movement}
+                      onDragEnd={(result) => handleMovementDragEnd(result)}
+                    />
+                    <div className="d-flex align-items-center">
+                      <button
+                        className="btn btn-sm btn-outline-secondary mx-1"
+                        onClick={() => handleRemoveMovement(movement.id)}
+                      >
+                        {translate("Remove")}
+                      </button>
+                      <button
+                        className="btn btn-sm btn-outline-secondary mx-1"
+                        disabled={index === 0}
+                        onClick={() => handleMoveUp(index)}
+                      >
+                        {translate("Move up")}
+                      </button>
+                      <button
+                        className="btn btn-sm btn-outline-secondary mx-1"
+                        disabled={index === series.length - 1}
+                        onClick={() => handleMoveDown(index)}
+                      >
+                        {translate("Move down")}
+                      </button>
+                    </div>
+                  </div>
+                ))}
+                <div
+                  className="p-1 card card-body"
+                  style={{
+                    backgroundColor: "black",
+                    color: "white",
+                    height: "200px",
+                  }}
+                  ref={dropTarget}
+                >
+                  {translate("Drag next movement here")}
+                </div>
               </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-        )}
+      )}
     </Translations>
   );
 };
 
-export default CreateNewGesture;      
+export default CreateNewGesture;

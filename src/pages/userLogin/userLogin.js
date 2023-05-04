@@ -37,11 +37,11 @@ function UserLogin() {
       const usersData = await getUsers()
       console.log(usersData)
       const user = usersData.find((u) => u.name === username && u.password === password);
-        if (user) {
-          moveToGestureManagement();
-        } else {
-          setErrorMessage("password or username incorrect");
-        }
+      if (user) {
+        moveToGestureManagement();
+      } else {
+        setErrorMessage("password or username incorrect");
+      }
     }
   };
 

@@ -9,6 +9,8 @@ import MovementsLib from "./pages/movementsLib/movementslib";
 import GestureTag from "./pages/gesturetag/gesturetag";
 import GestureManagement from "./pages/gesturemanagement/gesturemanagement";
 import GestureDisplay from "./pages/gesturedisplay/GestureDisplay";
+import DemographicForm from "./pages/demographicForm/demographicForm";
+import TagInstructions from "./pages/tagInstructions/tagInstructions";
 import { LanguageSwitcher } from "./language-management/LanguageSwicher";
 import { LanguageContext } from "./language-management/LanguageContext";
 import { DndProvider } from "react-dnd";
@@ -37,6 +39,8 @@ function App() {
         <Route path="/GestureManagement" element={<GestureManagement />} />
         <Route path="/MovementsLib" element={<MovementsLib />} />
         <Route path="/GestureDisplay" element={<GestureDisplay />} />
+        <Route path="/DemographicForm" element={<DemographicForm />} />
+        <Route path="/TagInstructions" element={<TagInstructions />} />
       </Routes>
     </DndProvider>
   );

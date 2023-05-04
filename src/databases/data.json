@@ -121,5 +121,187 @@
       "password": "admin1234"
     }
   ],
+  "taggers": [
+    {
+      "id": 1,
+      "name": {
+        "name": "dsa"
+      },
+      "age": {
+        "age": "123"
+      },
+      "gender": {
+        "gender": "male"
+      },
+      "education": {
+        "education": "Primary education"
+      }
+    },
+    {
+      "id": 2,
+      "name": {
+        "name": "dsa"
+      },
+      "age": {
+        "age": "123"
+      },
+      "gender": {
+        "gender": "male"
+      },
+      "education": {
+        "education": "Primary education"
+      }
+    },
+    {
+      "id": 3,
+      "name": {
+        "name": "asd"
+      },
+      "age": {
+        "age": "12"
+      },
+      "gender": {
+        "gender": "male"
+      },
+      "education": {
+        "education": "Secondary education"
+      }
+    },
+    {
+      "id": 4,
+      "name": {
+        "name": "asd"
+      },
+      "age": {
+        "age": "123"
+      },
+      "gender": {
+        "gender": "female"
+      },
+      "education": {
+        "education": "Doctorate or higher"
+      }
+    },
+    {
+      "id": 5,
+      "name": {
+        "name": "amit"
+      },
+      "age": {
+        "age": "123"
+      },
+      "gender": {
+        "gender": "male"
+      },
+      "education": {
+        "education": "No formal education"
+      }
+    },
+    {
+      "id": 6,
+      "name": {
+        "name": "asd"
+      },
+      "age": {
+        "age": "123"
+      },
+      "gender": {
+        "gender": "male"
+      },
+      "education": {
+        "education": "Master's degree"
+      }
+    },
+    {
+      "id": 7,
+      "name": {
+        "name": "sda"
+      },
+      "age": {
+        "age": "123"
+      },
+      "gender": {
+        "gender": "male"
+      },
+      "education": {
+        "education": "Master's degree"
+      }
+    },
+    {
+      "id": 8,
+      "name": {
+        "name": "asd"
+      },
+      "age": {
+        "age": "123"
+      },
+      "gender": {
+        "gender": "male"
+      },
+      "education": {
+        "education": "Master's degree"
+      }
+    },
+    {
+      "id": 9,
+      "name": {
+        "name": "123"
+      },
+      "age": {
+        "age": "123"
+      },
+      "gender": {
+        "gender": "male"
+      },
+      "education": {
+        "education": "Doctorate or higher"
+      }
+    },
+    {
+      "id": 10,
+      "name": {
+        "name": "sad"
+      },
+      "age": {
+        "age": "123"
+      },
+      "gender": {
+        "gender": "female"
+      },
+      "education": {
+        "education": "Master's degree"
+      }
+    },
+    {
+      "id": 11,
+      "name": {
+        "name": "asd"
+      },
+      "age": {
+        "age": "123"
+      },
+      "gender": {
+        "gender": "male"
+      },
+      "education": {
+        "education": "Doctorate or higher"
+      }
+    },
+    {
+      "id": 12,
+      "name": {
+        "name": "sad"
+      },
+      "age": {
+        "age": "24"
+      },
+      "gender": {
+        "gender": "female"
+      },
+      "education": {
+        "education": "Primary education"
+      }
+    }
+  ],
   "newExperiment": []
 }
