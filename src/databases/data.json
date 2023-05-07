@@ -77,7 +77,7 @@
     },
     {
       "id": 4,
-      "name": "New Gesture",
+      "name": "Gesture With a lot of labels",
       "realLabel": "Anger",
       "movements": [
         2
@@ -86,7 +86,11 @@
         "Sahar Rofe",
         0
       ],
-      "labels": []
+      "labels": [
+        "Sadness",
+        "Love",
+        "Anger"
+      ]
     },
     {
       "id": 5,
@@ -99,7 +103,9 @@
         "Sahar Rofe",
         0
       ],
-      "labels": []
+      "labels": [
+        "Joy"
+      ]
     },
     {
       "id": 6,
@@ -300,6 +306,261 @@
       },
       "education": {
         "education": "Primary education"
+      }
+    },
+    {
+      "id": 13,
+      "name": {
+        "name": "Amit"
+      },
+      "age": {
+        "age": "12"
+      },
+      "gender": {
+        "gender": "male"
+      },
+      "education": {
+        "education": "GED"
+      }
+    },
+    {
+      "id": 14,
+      "name": {
+        "name": "sad"
+      },
+      "age": {
+        "age": "123"
+      },
+      "gender": {
+        "gender": "male"
+      },
+      "education": {
+        "education": "No formal education"
+      }
+    },
+    {
+      "id": 15,
+      "name": {
+        "name": "as"
+      },
+      "age": {
+        "age": "213"
+      },
+      "gender": {
+        "gender": "female"
+      },
+      "education": {
+        "education": "No formal education"
+      }
+    },
+    {
+      "id": 16,
+      "name": {
+        "name": "asf"
+      },
+      "age": {
+        "age": "123"
+      },
+      "gender": {
+        "gender": "male"
+      },
+      "education": {
+        "education": "No formal education"
+      }
+    },
+    {
+      "id": 17,
+      "name": {
+        "name": "saf"
+      },
+      "age": {
+        "age": "123"
+      },
+      "gender": {
+        "gender": "male"
+      },
+      "education": {
+        "education": "No formal education"
+      }
+    },
+    {
+      "id": 18,
+      "name": {
+        "name": "asd1"
+      },
+      "age": {
+        "age": "12"
+      },
+      "gender": {
+        "gender": "male"
+      },
+      "education": {
+        "education": "GED"
+      }
+    },
+    {
+      "id": 19,
+      "name": {
+        "name": "as"
+      },
+      "age": {
+        "age": "12"
+      },
+      "gender": {
+        "gender": "female"
+      },
+      "education": {
+        "education": "Primary education"
+      }
+    },
+    {
+      "id": 20,
+      "name": {
+        "name": "asd"
+      },
+      "age": {
+        "age": "21"
+      },
+      "gender": {
+        "gender": "male"
+      },
+      "education": {
+        "education": "Bachelor's degree"
+      }
+    },
+    {
+      "id": 21,
+      "name": {
+        "name": "שד"
+      },
+      "age": {
+        "age": "12"
+      },
+      "gender": {
+        "gender": "male"
+      },
+      "education": {
+        "education": "Master's degree"
+      }
+    },
+    {
+      "id": 22,
+      "name": {
+        "name": "as"
+      },
+      "age": {
+        "age": "12"
+      },
+      "gender": {
+        "gender": "female"
+      },
+      "education": {
+        "education": "GED"
+      }
+    },
+    {
+      "id": 23,
+      "name": {
+        "name": "as"
+      },
+      "age": {
+        "age": "123"
+      },
+      "gender": {
+        "gender": "male"
+      },
+      "education": {
+        "education": "Primary education"
+      }
+    },
+    {
+      "id": 24,
+      "name": {
+        "name": "as"
+      },
+      "age": {
+        "age": "19"
+      },
+      "gender": {
+        "gender": "male"
+      },
+      "education": {
+        "education": "Vocational qualification"
+      }
+    },
+    {
+      "id": 25,
+      "name": {
+        "name": "asd"
+      },
+      "age": {
+        "age": "123"
+      },
+      "gender": {
+        "gender": "male"
+      },
+      "education": {
+        "education": "No formal education"
+      }
+    },
+    {
+      "id": 26,
+      "name": {
+        "name": "sad"
+      },
+      "age": {
+        "age": "123"
+      },
+      "gender": {
+        "gender": "male"
+      },
+      "education": {
+        "education": "Doctorate or higher"
+      }
+    },
+    {
+      "id": 27,
+      "name": {
+        "name": "at"
+      },
+      "age": {
+        "age": "421"
+      },
+      "gender": {
+        "gender": "female"
+      },
+      "education": {
+        "education": "Primary education"
+      }
+    },
+    {
+      "id": 28,
+      "name": {
+        "name": "asd"
+      },
+      "age": {
+        "age": "123"
+      },
+      "gender": {
+        "gender": "female"
+      },
+      "education": {
+        "education": "No formal education"
+      }
+    },
+    {
+      "id": 29,
+      "name": {
+        "name": "Sahar"
+      },
+      "age": {
+        "age": "23"
+      },
+      "gender": {
+        "gender": "other"
+      },
+      "education": {
+        "education": "Secondary education"
       }
     }
   ],

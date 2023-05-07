@@ -2,6 +2,7 @@ import "./tagInstructions.css";
 import { useState, useEffect } from "react";
 import { getAllGestures } from "../../databases/gesturesAPI";
 import GestureLable from "../../components/gestureLable/gestureLable";
+import { useNavigate } from "react-router-dom";
 
 function Popup({ onClose }) {
   const handleButtonClick = () => {
@@ -28,6 +29,16 @@ function TagInstructions() {
   const [showPopup, setShowPopup] = useState(true);
   const [showContent, setShowContent] = useState(false);
   const [exampleGesture, setExampleGesture] = useState([]);
+  let navigate = useNavigate();
+
+  function PopupAfterClick() {
+    const result = window.confirm(
+      "That was great! Are you ready to move on and tag real gestures?"
+    );
+    if (result) {
+      navigate("/Tagging");
+    }
+  }
 
   const handleClosePopup = () => {
     setShowPopup(false);
@@ -46,7 +57,12 @@ function TagInstructions() {
   return (
     <>
       {showPopup && <Popup onClose={handleClosePopup} />}
-      {showContent && <GestureLable gesture={exampleGesture}></GestureLable>}
+      {showContent && (
+        <GestureLable
+          gesture={exampleGesture}
+          clickFunction={PopupAfterClick}
+        ></GestureLable>
+      )}
     </>
   );
 }

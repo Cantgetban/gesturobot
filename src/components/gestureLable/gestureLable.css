@@ -6,10 +6,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 75%;
+  height: 45%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  color: #333;
 }
 
 video {
   position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
 }
 
 .button-line {
@@ -18,12 +34,25 @@ video {
   align-items: center; /* Centers the buttons vertically */
   flex-wrap: nowrap;
   margin-top: 15px;
-}
-
-.button-line button {
   margin: 0 5px; /* Adds some space between the buttons */
   white-space: nowrap; /* Prevents wrapping of the button content */
   font-size: 14px; /* Adjust the font size as needed */
   min-width: 0; /* Allows buttons to shrink if necessary */
   max-width: 100%; /* Allows buttons to expand if necessary */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+button {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-right: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
 }

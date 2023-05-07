@@ -1,13 +1,13 @@
 video {
-    transition: opacity 0.5s ease-in-out;
-  }
-  
-  .video-visible {
-    opacity: 1;
-    visibility: visible;
-  }
-  
-  .video-hidden {
-    opacity: 0;
-    visibility: hidden;
-  }
+  transition: opacity 0.5s ease-in-out;
+}
+
+.video-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.video-hidden {
+  opacity: 0;
+  visibility: hidden;
+}

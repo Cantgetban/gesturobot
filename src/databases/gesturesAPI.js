@@ -29,11 +29,11 @@ function addGestureJson(newGesture) {
   fetch("http://localhost:3000/gestures")
     .then((response) => response.json())
     .then((data) => {
-      console.log(data)
+      console.log(data);
       const maxId = data ? Math.max(...data.map((gesture) => gesture.id)) : 0;
       // add 1 to the maximum ID to get the next ID for the new gesture
       const nextId = maxId + 1;
-      
+
       // add the new gesture with the next ID
       fetch("http://localhost:3000/gestures", {
         method: "POST",
@@ -61,4 +61,10 @@ function deleteGesture(id) {
   });
 }
 
-export {addGestureJson, deleteGesture , getAllGestures, getGestureById, editGesture};
+export {
+  addGestureJson,
+  deleteGesture,
+  getAllGestures,
+  getGestureById,
+  editGesture,
+};
