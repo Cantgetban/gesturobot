@@ -28,6 +28,7 @@ function GestureLable(props) {
     <div className="p-1" key={props.gesture.id}>
       <span className="example">
         <LoopOfMovements ids={props.gesture.movements} />
+        <div>{props.gesture.id}</div>
         <div class="button-line">
           <button onClick={props.clickFunction}>
             {gestureEmotionsList[0]}

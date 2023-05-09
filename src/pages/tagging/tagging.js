@@ -4,29 +4,35 @@ import GestureLable from "../../components/gestureLable/gestureLable";
 
 function Tagging() {
   const [Gestures, setGestures] = useState([]);
+  const [currentGestureIndex, setCurrentGestureIndex] = useState(0);
 
   //fetching 5 least tagged videos
-  async function fetchGestures() {
-    const data = await getAllGestures();
-    console.log(data);
-    const sortedData = data.sort((a, b) => a.labels.length - b.labels.length);
-    const smallestLabels = sortedData.slice(0, 5);
-    setGestures(smallestLabels);
-  }
-  fetchGestures();
+  useEffect(() => {
+    const fetchGestures = async () => {
+      const data = await getAllGestures();
+      const sortedData = data.sort((a, b) => a.labels.length - b.labels.length);
+      const smallestLabels = sortedData.slice(0, 5);
+      setGestures(smallestLabels);
+    };
 
-  const [activeIndex, setActiveIndex] = useState(0);
-  const handleNextClick = () => {
-    setActiveIndex((prevIndex) => (prevIndex + 1) % Gestures.length);
-  };
-  const activeView = Gestures[activeIndex];
+    fetchGestures();
+  }, []);
+
+  function handleNextGesture() {
+    setCurrentGestureIndex(currentGestureIndex + 1);
+  }
+
   return (
-    <>
-      <GestureLable
-        gesture={activeView}
-        clickFunction={handleNextClick}
-      ></GestureLable>
-    </>
+    <div>
+      {Gestures.length > 0 ? (
+        <GestureLable
+          gesture={Gestures[currentGestureIndex]}
+          clickFunction={handleNextGesture}
+        ></GestureLable>
+      ) : (
+        <p>Loading...</p>
+      )}
+    </div>
   );
 }
 
