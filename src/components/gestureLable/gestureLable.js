@@ -6,7 +6,7 @@ function GestureLable(props) {
   const gestureEmotionsList = [props.gesture.realLabel];
 
   while (gestureEmotionsList.length < 5) {
-    const randomIndex = Math.floor(Math.random() * gestureEmotionsList.length);
+    const randomIndex = Math.floor(Math.random() * emotionsList.length);
     const randomElement = emotionsList[randomIndex];
     if (gestureEmotionsList.includes(randomElement)) {
       continue;
@@ -14,7 +14,6 @@ function GestureLable(props) {
       gestureEmotionsList.push(randomElement);
     }
   }
-
   //shuffle the array
   for (let i = gestureEmotionsList.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -23,12 +22,10 @@ function GestureLable(props) {
       gestureEmotionsList[i],
     ];
   }
-
   return (
     <div className="p-1" key={props.gesture.id}>
       <span className="example">
         <LoopOfMovements ids={props.gesture.movements} />
-        <div>{props.gesture.id}</div>
         <div class="button-line">
           <button onClick={props.clickFunction}>
             {gestureEmotionsList[0]}

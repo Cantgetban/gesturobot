@@ -10,6 +10,7 @@ import GestureTag from "./pages/gesturetag/gesturetag";
 import GestureManagement from "./pages/gesturemanagement/gesturemanagement";
 import GestureDisplay from "./pages/gesturedisplay/GestureDisplay";
 import Tagging from "./pages/tagging/tagging";
+import Labelfeedback from "./pages/labelfeedback/labelfeedback";
 import DemographicForm from "./pages/demographicForm/demographicForm";
 import TagInstructions from "./pages/tagInstructions/tagInstructions";
 import { LanguageSwitcher } from "./language-management/LanguageSwicher";
@@ -43,6 +44,7 @@ function App() {
         <Route path="/DemographicForm" element={<DemographicForm />} />
         <Route path="/TagInstructions" element={<TagInstructions />} />
         <Route path="/Tagging" element={<Tagging />} />
+        <Route path="/LabelFeedBack" element={<Labelfeedback />} />
       </Routes>
     </DndProvider>
   );

@@ -22,7 +22,7 @@
       "hebrewName": "לך קדימה",
       "description": "Move the robot forward",
       "hebrewDescription": "הזז את הרובוט קדימה",
-      "videoUrl": "/videos/go_forward.mp4"
+      "videoUrl": "../../example1.mp4"
     },
     {
       "id": 4,
@@ -30,7 +30,7 @@
       "hebrewName": "לך אחורה",
       "description": "Move the robot backward",
       "hebrewDescription": "הזז את הרובוט אחורה",
-      "videoUrl": "/videos/go_backward.mp4"
+      "videoUrl": "../../example1.mp4"
     }
   ],
   "gestures": [
@@ -38,48 +38,86 @@
       "id": 1,
       "name": "Default Gesture",
       "realLabel": "happy",
-      "movements": [1, 2],
-      "creator": ["anon", 0],
+      "movements": [
+        1,
+        2
+      ],
+      "creator": [
+        "anon",
+        0
+      ],
       "labels": []
     },
     {
       "id": 2,
       "name": "New Gesture",
       "realLabel": "Jealousy",
-      "movements": [3, 2],
-      "creator": ["", null],
+      "movements": [
+        3,
+        2
+      ],
+      "creator": [
+        "",
+        null
+      ],
       "labels": []
     },
     {
       "id": 3,
       "name": "New Gesture",
       "realLabel": "Sadness",
-      "movements": [2],
-      "creator": ["", null],
+      "movements": [
+        2
+      ],
+      "creator": [
+        "",
+        null
+      ],
       "labels": []
     },
     {
       "id": 4,
       "name": "Gesture With a lot of labels",
       "realLabel": "Anger",
-      "movements": [2],
-      "creator": ["Sahar Rofe", 0],
-      "labels": ["Sadness", "Love", "Anger"]
+      "movements": [
+        2
+      ],
+      "creator": [
+        "Sahar Rofe",
+        0
+      ],
+      "labels": [
+        "Sadness",
+        "Love",
+        "Anger"
+      ]
     },
     {
       "id": 5,
       "name": "New Gesture",
       "realLabel": "Anger",
-      "movements": [3],
-      "creator": ["Sahar Rofe", 0],
-      "labels": ["Joy"]
+      "movements": [
+        3
+      ],
+      "creator": [
+        "Sahar Rofe",
+        0
+      ],
+      "labels": [
+        "Joy"
+      ]
     },
     {
       "id": 6,
       "name": "New Gesture",
       "realLabel": "Anger",
-      "movements": [2],
-      "creator": ["Sahar Rofe", 0],
+      "movements": [
+        2
+      ],
+      "creator": [
+        "Sahar Rofe",
+        0
+      ],
       "labels": []
     }
   ],
@@ -89,6 +127,97 @@
       "password": "admin1234"
     }
   ],
-  "taggers": [],
+  "taggers": [
+    {
+      "id": 1,
+      "name": {
+        "name": "Amit"
+      },
+      "age": {
+        "age": "25"
+      },
+      "gender": {
+        "gender": "male"
+      },
+      "education": {
+        "education": "Bachelor's degree"
+      }
+    },
+    {
+      "id": 2,
+      "name": {
+        "name": "Amit"
+      },
+      "age": {
+        "age": "25"
+      },
+      "gender": {
+        "gender": "male"
+      },
+      "education": {
+        "education": "Bachelor's degree"
+      }
+    },
+    {
+      "id": 3,
+      "name": {
+        "name": "Amit"
+      },
+      "age": {
+        "age": "25"
+      },
+      "gender": {
+        "gender": "male"
+      },
+      "education": {
+        "education": "Bachelor's degree"
+      }
+    },
+    {
+      "id": 4,
+      "name": {
+        "name": "Amit"
+      },
+      "age": {
+        "age": "25"
+      },
+      "gender": {
+        "gender": "male"
+      },
+      "education": {
+        "education": "Bachelor's degree"
+      }
+    },
+    {
+      "id": 5,
+      "name": {
+        "name": "Amit"
+      },
+      "age": {
+        "age": "25"
+      },
+      "gender": {
+        "gender": "male"
+      },
+      "education": {
+        "education": "Bachelor's degree"
+      }
+    },
+    {
+      "id": 6,
+      "name": {
+        "name": "Amit"
+      },
+      "age": {
+        "age": "25"
+      },
+      "gender": {
+        "gender": "male"
+      },
+      "education": {
+        "education": "Bachelor's degree"
+      }
+    }
+  ],
   "newExperiment": []
 }

@@ -34,9 +34,10 @@ function UserLogin() {
       );
     } else {
       // Submit the form or perform any other necessary actions
-      const usersData = await getUsers()
-      console.log(usersData)
-      const user = usersData.find((u) => u.name === username && u.password === password);
+      const usersData = await getUsers();
+      const user = usersData.find(
+        (u) => u.name === username && u.password === password
+      );
       if (user) {
         moveToGestureManagement();
       } else {

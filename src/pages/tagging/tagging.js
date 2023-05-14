@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { getAllGestures } from "../../databases/gesturesAPI";
 import GestureLable from "../../components/gestureLable/gestureLable";
+import { useNavigate } from "react-router-dom";
 
 function Tagging() {
   const [Gestures, setGestures] = useState([]);
   const [currentGestureIndex, setCurrentGestureIndex] = useState(0);
-
+  var counter = 0;
+  let navigate = useNavigate();
   //fetching 5 least tagged videos
   useEffect(() => {
     const fetchGestures = async () => {
@@ -18,7 +20,11 @@ function Tagging() {
     fetchGestures();
   }, []);
 
-  function handleNextGesture() {
+  function HandleNextGesture() {
+    console.log(currentGestureIndex);
+    if (currentGestureIndex > 3) {
+      navigate("/LabelFeedBack");
+    }
     setCurrentGestureIndex(currentGestureIndex + 1);
   }
 
@@ -27,7 +33,7 @@ function Tagging() {
       {Gestures.length > 0 ? (
         <GestureLable
           gesture={Gestures[currentGestureIndex]}
-          clickFunction={handleNextGesture}
+          clickFunction={HandleNextGesture}
         ></GestureLable>
       ) : (
         <p>Loading...</p>

@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { getMovements } from "../../databases/movementsAPI";
-import "./loopOfMovements.css"
+import "./loopOfMovements.css";
 
 const LoopOfMovements = (props) => {
   const [URLs, setURLs] = useState([]);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [isFirstVideoPlayed, setIsFirstVideoPlayed] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = React.useRef(null);
 
   function getURLsByIds(data) {
-    const URLs = (props.ids).map((id) => {
+    const URLs = props.ids.map((id) => {
       const matchingObject = data.find((object) => object.id === id);
-      return matchingObject ? matchingObject.videoUrl : '';
+      return matchingObject ? matchingObject.videoUrl : "";
     });
     return URLs;
   }
@@ -20,19 +20,21 @@ const LoopOfMovements = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       const data = await getMovements();
-      const URLs = getURLsByIds(data)
+      const URLs = getURLsByIds(data);
       setURLs(URLs);
     };
-    fetchData()
+    fetchData();
   }, []);
 
   const handleVideoEnd = () => {
-    if(currentVideoIndex === URLs.length - 1){
-        setCurrentVideoIndex(0)
-        setIsPlaying(false);
-        return 
+    if (currentVideoIndex === URLs.length - 1) {
+      setCurrentVideoIndex(0);
+      setIsPlaying(false);
+      return;
     }
-    setCurrentVideoIndex(currentVideoIndex === URLs.length - 1 ? 0 : (currentVideoIndex + 1));
+    setCurrentVideoIndex(
+      currentVideoIndex === URLs.length - 1 ? 0 : currentVideoIndex + 1
+    );
     if (currentVideoIndex === 0 && !isFirstVideoPlayed) {
       setIsFirstVideoPlayed(true);
     }
@@ -40,7 +42,7 @@ const LoopOfMovements = (props) => {
   };
 
   const handleButtonClick = () => {
-    setIsPlaying(true)
+    setIsPlaying(true);
     if (!isFirstVideoPlayed) {
       setIsFirstVideoPlayed(true);
     }
@@ -48,19 +50,32 @@ const LoopOfMovements = (props) => {
   };
 
   useEffect(() => {
-    if (videoRef.current && (currentVideoIndex === 0 && !isFirstVideoPlayed || currentVideoIndex !== 0)) {
+    if (
+      videoRef.current &&
+      ((currentVideoIndex === 0 && !isFirstVideoPlayed) ||
+        currentVideoIndex !== 0)
+    ) {
       videoRef.current.play();
-      return
+      return;
     }
   }, [URLs, currentVideoIndex, isFirstVideoPlayed]);
-
   return (
-      <>
-          <video onEnded={handleVideoEnd} width={280} height={200} src={URLs[currentVideoIndex]} ref={videoRef} ></video>
-          <button className="btn btn-primary" onClick={handleButtonClick} disabled={isPlaying}>
-              {isPlaying ? "Playing..." : "Start Gesture"}
-          </button>
-      </>
+    <>
+      <video
+        onEnded={handleVideoEnd}
+        width={280}
+        height={200}
+        src={URLs[currentVideoIndex]}
+        ref={videoRef}
+      ></video>
+      <button
+        className="btn btn-primary"
+        onClick={handleButtonClick}
+        disabled={isPlaying}
+      >
+        {isPlaying ? "Playing..." : "Start Gesture"}
+      </button>
+    </>
   );
 };
 
