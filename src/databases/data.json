@@ -119,6 +119,19 @@
         0
       ],
       "labels": []
+    },
+    {
+      "id": 7,
+      "name": "New Gesture",
+      "realLabel": "Curiosity",
+      "movements": [
+        2
+      ],
+      "creator": [
+        "ssss",
+        0
+      ],
+      "labels": []
     }
   ],
   "users": [

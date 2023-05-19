@@ -19,13 +19,13 @@ function GestureDisplay() {
     <>
       <form className="form-container">
         <label htmlFor="gesture-select">Filter by:</label>
-        <select id="gesture-select" onChange={handleSelectChange}>
+        <select id="gesture-select" className="mb-2" onChange={handleSelectChange}>
           <option value="name">Name</option>
           <option value="emotion">Emotion</option>
           <option value="type">Type</option>
           <option value="date">Date</option>
         </select>
-        <input type="text" id="new-gesture-name" value={inputValue} onChange={handleInputChange} />
+        <input type="text" id="new-gesture-name" placeholder="Write your filter.." value={inputValue} onChange={handleInputChange} />
       </form>
       <GestureSection filterBy={filterBy} value={inputValue} />
     </>

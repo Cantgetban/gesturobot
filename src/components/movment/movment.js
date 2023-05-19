@@ -3,6 +3,7 @@ import { useDrag } from "react-dnd";
 import { useContext } from "react";
 import { LanguageContext } from "../../language-management/LanguageContext";
 import { Translations } from "../../language-management/Translations";
+import "./movment.css"
 
 const Movement = ({ movement, draggable }) => {
   const videoRef = useRef(null);
@@ -30,20 +31,19 @@ const Movement = ({ movement, draggable }) => {
       {({ translate }) => (
         <div
           className="card"
-          style={{ width: "18rem", opacity: isDragging ? 0.5 : 1 }}
+          id = "con"
+          style={{opacity: isDragging ? 0.5 : 1 }}
           ref={drag}
         >
-          <span className="embed-responsive embed-responsive-16by9">
+          <div className="embed-responsive embed-responsive-16by9 video-play-button">
             <video
-              width={287}
-              height={180}
               ref={videoRef}
               title={name}
-              className="embed-responsive-item"
+              id="movement-player"
               src= {movement.videoUrl}
               controls
             />
-          </span>
+          </div>
           <div className="card-body">
             <h5 className="card-title">{name}</h5>
             <p className="card-text">{description}</p>
