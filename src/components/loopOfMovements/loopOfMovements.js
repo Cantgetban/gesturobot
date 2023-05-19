@@ -5,7 +5,7 @@ import "./loopOfMovements.css";
 const LoopOfMovements = (props) => {
   const [URLs, setURLs] = useState([]);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-  const [isFirstVideoPlayed, setIsFirstVideoPlayed] = useState(false);
+  const [isFirstVideoPlayed, setIsFirstVideoPlayed] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = React.useRef(null);
 

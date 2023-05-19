@@ -21,7 +21,8 @@ function GestureSection(props) {
     } else if (props.filterBy === 'emotion') {
       return gesture.realLabel.toLowerCase().includes(props.value.toLowerCase());
     } else if (props.filterBy === 'type') {
-      return gesture.creator[1].toLowerCase().includes(props.value.toLowerCase());
+      const type = gesture.creator[1] === 0 ? "0" : "1";
+      return type.includes(props.value.toLowerCase());
     } else if (props.filterBy === 'date') {
       return gesture.date.toLowerCase().includes(props.value.toLowerCase());
     }
