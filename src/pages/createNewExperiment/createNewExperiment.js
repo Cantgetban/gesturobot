@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { addGestureJson, deleteGesture }  from "../../databases/gesturesAPI"
 import { addGestureEx, getAllGesturesEx, deleteAllExperiments } from "../../databases/newExperimentAPI";
 import { useNavigate } from "react-router-dom";
+import LoopOfMovements from "../../components/loopOfMovements/loopOfMovements";
 
 function CreateNewExperiment() {
   let navigate = useNavigate();
@@ -64,13 +65,26 @@ function CreateNewExperiment() {
       </form>
       <div className="col">
         <h2>Gestures created</h2>
-        {gestures.map((gesture, index) => (
+        {/* {gestures.map((gesture, index) => (
           <div key={index}>
             <p>{gesture.name}</p>
             <p>{gesture.movements}</p>
             <p>{gesture.realLabel}</p>
           </div>
-        ))}
+        ))} */}
+        {gestures.map((gesture, index) => (
+        <div className="col-lg-4 col-sm-6 col-12 mb-4" key={index}>
+          <div className="card">
+            <div className="card-video">
+              <LoopOfMovements ids={gesture.movements} />
+            </div>
+            <div className="card-body">
+              <h5 className="card-title">{gesture.name}</h5>
+              <p className="card-text">{gesture.creator[0]}</p>
+            </div>
+          </div>
+        </div>
+      ))}
       </div>
       </div>
       <div className="row">

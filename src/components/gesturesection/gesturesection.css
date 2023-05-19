@@ -1,26 +1,40 @@
-.gif-display {
+/* gesturesection.css */
+
+.row {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
-  background-color: #4d5258;
+  flex-wrap: wrap;
+  margin: 15px; /* Adjust the margin as needed */
+}
+
+.col-3 {
+  flex: 0 0 25%; /* Adjust the flex properties as needed */
+  max-width: 25%; /* Adjust the maximum width as needed */
+  padding: 15px; /* Adjust the padding as needed */
+}
+
+.card {
+  border: 1px solid #ccc;
   border-radius: 10px;
-  overflow: hidden;
-  width: 100%;
+  padding: 10px;
 }
 
-.gif-item {
-  width: 90%;
-  height: 90%;
-  overflow: hidden;
+.card .embed-responsive {
   position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
 }
 
-.gif-item img {
+.card .embed-responsive video {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 100%;
-  max-height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-body {
+  text-align: left;
+  min-height: 100px;
 }

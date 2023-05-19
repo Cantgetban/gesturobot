@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from 'react';
 import { getMovements } from "../../databases/movementsAPI";
 import "./loopOfMovements.css";
 
@@ -7,7 +7,7 @@ const LoopOfMovements = (props) => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [isFirstVideoPlayed, setIsFirstVideoPlayed] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
-  const videoRef = React.useRef(null);
+  const videoRef = useRef(null);
 
   function getURLsByIds(data) {
     const URLs = props.ids.map((id) => {
@@ -59,23 +59,25 @@ const LoopOfMovements = (props) => {
       return;
     }
   }, [URLs, currentVideoIndex, isFirstVideoPlayed]);
+
   return (
-    <>
-      <video
-        onEnded={handleVideoEnd}
-        width={280}
-        height={200}
-        src={URLs[currentVideoIndex]}
-        ref={videoRef}
-      ></video>
-      <button
-        className="btn btn-primary"
-        onClick={handleButtonClick}
-        disabled={isPlaying}
-      >
-        {isPlaying ? "Playing..." : "Start Gesture"}
-      </button>
-    </>
+    <div className="loop-of-movements">
+      <div className="video-container">
+        {
+          isPlaying ? null :
+          <div className="video-play-button" onClick={handleButtonClick}>
+          <img src="http://clipart-library.com/images_k/white-play-button-transparent/white-play-button-transparent-14.png"/>
+            </div>
+        }
+        
+        <video
+          onEnded={handleVideoEnd}
+          src={URLs[currentVideoIndex]}
+          ref={videoRef}
+          className="video-player"
+        ></video>
+      </div>
+    </div>
   );
 };
 
