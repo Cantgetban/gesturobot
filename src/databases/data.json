@@ -6,7 +6,7 @@
       "hebrewName": "לך שמאלה",
       "description": "Move the robot to the left",
       "hebrewDescription": "הזז את הרובוט שמאלה",
-      "videoUrl": "../../1.mp4"
+      "videoUrl": "../../movements/1.mp4"
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
       "hebrewName": "לך שמאלה",
       "description": "Move the robot to the left",
       "hebrewDescription": "הזז את הרובוט שמאלה",
-      "videoUrl": "../../2.mp4"
+      "videoUrl": "../../movements/2.mp4"
     },
     {
       "id": 3,
@@ -22,7 +22,7 @@
       "hebrewName": "לך שמאלה",
       "description": "Move the robot to the left",
       "hebrewDescription": "הזז את הרובוט שמאלה",
-      "videoUrl": "../../3.mp4"
+      "videoUrl": "../../movements/3.mp4"
     },
     {
       "id": 4,
@@ -30,7 +30,7 @@
       "hebrewName": "לך שמאלה",
       "description": "Move the robot to the left",
       "hebrewDescription": "הזז את הרובוט שמאלה",
-      "videoUrl": "../../4.mp4"
+      "videoUrl": "../../movements/4.mp4"
     },
     {
       "id": 5,
@@ -38,7 +38,7 @@
       "hebrewName": "לך שמאלה",
       "description": "Move the robot to the left",
       "hebrewDescription": "הזז את הרובוט שמאלה",
-      "videoUrl": "../../5.mp4"
+      "videoUrl": "../../movements/5.mp4"
     },
     {
       "id": 6,
@@ -46,7 +46,7 @@
       "hebrewName": "לך שמאלה",
       "description": "Move the robot to the left",
       "hebrewDescription": "הזז את הרובוט שמאלה",
-      "videoUrl": "../../6.mp4"
+      "videoUrl": "../../movements/6.mp4"
     },
     {
       "id": 7,
@@ -54,7 +54,7 @@
       "hebrewName": "לך שמאלה",
       "description": "Move the robot to the left",
       "hebrewDescription": "הזז את הרובוט שמאלה",
-      "videoUrl": "../../7.mp4"
+      "videoUrl": "../../movements/7.mp4"
     },
     {
       "id": 8,
@@ -62,7 +62,7 @@
       "hebrewName": "לך שמאלה",
       "description": "Move the robot to the left",
       "hebrewDescription": "הזז את הרובוט שמאלה",
-      "videoUrl": "../../8.mp4"
+      "videoUrl": "../../movements/8.mp4"
     },
     {
       "id": 9,
@@ -70,7 +70,7 @@
       "hebrewName": "לך שמאלה",
       "description": "Move the robot to the left",
       "hebrewDescription": "הזז את הרובוט שמאלה",
-      "videoUrl": "../../9.mp4"
+      "videoUrl": "../../movements/9.mp4"
     },
     {
       "id": 10,
@@ -78,7 +78,7 @@
       "hebrewName": "לך שמאלה",
       "description": "Move the robot to the left",
       "hebrewDescription": "הזז את הרובוט שמאלה",
-      "videoUrl": "../../10mp4"
+      "videoUrl": "../../movements/10.mp4"
     },
     {
       "id": 11,
@@ -86,7 +86,7 @@
       "hebrewName": "לך שמאלה",
       "description": "Move the robot to the left",
       "hebrewDescription": "הזז את הרובוט שמאלה",
-      "videoUrl": "../../11.mp4"
+      "videoUrl": "../../movements/11.mp4"
     },
     {
       "id": 12,
@@ -94,7 +94,7 @@
       "hebrewName": "לך שמאלה",
       "description": "Move the robot to the left",
       "hebrewDescription": "הזז את הרובוט שמאלה",
-      "videoUrl": "../../12.mp4"
+      "videoUrl": "../../movements/12.mp4"
     },
     {
       "id": 13,
@@ -102,7 +102,7 @@
       "hebrewName": "לך שמאלה",
       "description": "Move the robot to the left",
       "hebrewDescription": "הזז את הרובוט שמאלה",
-      "videoUrl": "../../13.mp4"
+      "videoUrl": "../../movements/13.mp4"
     },
     {
       "id": 14,
@@ -110,7 +110,7 @@
       "hebrewName": "לך שמאלה",
       "description": "Move the robot to the left",
       "hebrewDescription": "הזז את הרובוט שמאלה",
-      "videoUrl": "../../14.mp4"
+      "videoUrl": "../../movements/14.mp4"
     },
     {
       "id": 15,
@@ -118,7 +118,7 @@
       "hebrewName": "לך שמאלה",
       "description": "Move the robot to the left",
       "hebrewDescription": "הזז את הרובוט שמאלה",
-      "videoUrl": "../../15.mp4"
+      "videoUrl": "../../movements/15.mp4"
     },
     {
       "id": 16,
@@ -126,7 +126,7 @@
       "hebrewName": "לך שמאלה",
       "description": "Move the robot to the left",
       "hebrewDescription": "הזז את הרובוט שמאלה",
-      "videoUrl": "../../16.mp4"
+      "videoUrl": "../../movements/16.mp4"
     },
     {
       "id": 17,
@@ -134,7 +134,7 @@
       "hebrewName": "לך שמאלה",
       "description": "Move the robot to the left",
       "hebrewDescription": "הזז את הרובוט שמאלה",
-      "videoUrl": "../../17.mp4"
+      "videoUrl": "../../movements/17.mp4"
     },
     {
       "id": 18,
@@ -142,7 +142,7 @@
       "hebrewName": "לך שמאלה",
       "description": "Move the robot to the left",
       "hebrewDescription": "הזז את הרובוט שמאלה",
-      "videoUrl": "../../18.mp4"
+      "videoUrl": "../../movements/18.mp4"
     },
     {
       "id": 19,
@@ -150,7 +150,7 @@
       "hebrewName": "לך שמאלה",
       "description": "Move the robot to the left",
       "hebrewDescription": "הזז את הרובוט שמאלה",
-      "videoUrl": "../../19.mp4"
+      "videoUrl": "../../movements/19.mp4"
     },
     {
       "id": 20,
@@ -158,7 +158,7 @@
       "hebrewName": "לך שמאלה",
       "description": "Move the robot to the left",
       "hebrewDescription": "הזז את הרובוט שמאלה",
-      "videoUrl": "../../20.mp4"
+      "videoUrl": "../../movements/20.mp4"
     },
     {
       "id": 21,
@@ -166,31 +166,7 @@
       "hebrewName": "לך שמאלה",
       "description": "Move the robot to the left",
       "hebrewDescription": "הזז את הרובוט שמאלה",
-      "videoUrl": "../../21.mp4"
-    },
-    {
-      "id": 22,
-      "name": "Go left",
-      "hebrewName": "לך שמאלה",
-      "description": "Move the robot to the left",
-      "hebrewDescription": "הזז את הרובוט שמאלה",
-      "videoUrl": "../../22.mp4"
-    },
-    {
-      "id": 23,
-      "name": "Go left",
-      "hebrewName": "לך שמאלה",
-      "description": "Move the robot to the left",
-      "hebrewDescription": "הזז את הרובוט שמאלה",
-      "videoUrl": "../../23.mp4"
-    },
-    {
-      "id": 24,
-      "name": "Go left",
-      "hebrewName": "לך שמאלה",
-      "description": "Move the robot to the left",
-      "hebrewDescription": "הזז את הרובוט שמאלה",
-      "videoUrl": "../../24.mp4"
+      "videoUrl": "../../movements/21.mp4"
     }
   ],
   "gestures": [
@@ -306,6 +282,22 @@
         null
       ],
       "labels": []
+    },
+    {
+      "id": 9,
+      "name": "New Gesture",
+      "realLabel": "Love",
+      "movements": [
+        3,
+        8,
+        15,
+        18
+      ],
+      "creator": [
+        "Amit Cohen",
+        1
+      ],
+      "labels": []
     }
   ],
   "users": [
@@ -419,7 +411,39 @@
       "education": {
         "education": "Master's degree"
       }
+    },
+    {
+      "id": 8,
+      "name": {
+        "name": "Amit"
+      },
+      "age": {
+        "age": "24"
+      },
+      "gender": {
+        "gender": "male"
+      },
+      "education": {
+        "education": "Bachelor's degree"
+      }
     }
   ],
-  "newExperiment": []
+  "newExperiment": [
+    {
+      "id": 1,
+      "name": "New Gesture",
+      "realLabel": "Love",
+      "movements": [
+        3,
+        8,
+        15,
+        18
+      ],
+      "creator": [
+        "Amit Cohen",
+        1
+      ],
+      "labels": []
+    }
+  ]
 }
