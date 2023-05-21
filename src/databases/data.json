@@ -2,171 +2,111 @@
   "movements": [
     {
       "id": 1,
-      "name": "Go left",
-      "hebrewName": "לך שמאלה",
-      "description": "Move the robot to the left",
-      "hebrewDescription": "הזז את הרובוט שמאלה",
+      "name": "Stretch to the left",
+      "hebrewName": "התמתחות לשמאל",
       "videoUrl": "../../movements/1.mp4"
     },
     {
       "id": 2,
-      "name": "Go left",
-      "hebrewName": "לך שמאלה",
-      "description": "Move the robot to the left",
-      "hebrewDescription": "הזז את הרובוט שמאלה",
+      "name": "Looking to the left",
+      "hebrewName": "התבוננות לשמאל",
       "videoUrl": "../../movements/2.mp4"
     },
     {
       "id": 3,
-      "name": "Go left",
-      "hebrewName": "לך שמאלה",
-      "description": "Move the robot to the left",
-      "hebrewDescription": "הזז את הרובוט שמאלה",
+      "name": "Bowing",
+      "hebrewName": "השתחוות",
       "videoUrl": "../../movements/3.mp4"
     },
     {
       "id": 4,
-      "name": "Go left",
-      "hebrewName": "לך שמאלה",
-      "description": "Move the robot to the left",
-      "hebrewDescription": "הזז את הרובוט שמאלה",
+      "name": "Bending",
+      "hebrewName": "התכופפות",
       "videoUrl": "../../movements/4.mp4"
     },
     {
       "id": 5,
-      "name": "Go left",
-      "hebrewName": "לך שמאלה",
-      "description": "Move the robot to the left",
-      "hebrewDescription": "הזז את הרובוט שמאלה",
+      "name": "Lying",
+      "hebrewName": "שכיבה",
       "videoUrl": "../../movements/5.mp4"
     },
     {
       "id": 6,
-      "name": "Go left",
-      "hebrewName": "לך שמאלה",
-      "description": "Move the robot to the left",
-      "hebrewDescription": "הזז את הרובוט שמאלה",
+      "name": "Step forward",
+      "hebrewName": "צעידה קדימה",
       "videoUrl": "../../movements/6.mp4"
     },
     {
       "id": 7,
-      "name": "Go left",
-      "hebrewName": "לך שמאלה",
-      "description": "Move the robot to the left",
-      "hebrewDescription": "הזז את הרובוט שמאלה",
+      "name": "Walking to the left",
+      "hebrewName": "הליכה שמאלה",
       "videoUrl": "../../movements/7.mp4"
     },
     {
       "id": 8,
-      "name": "Go left",
-      "hebrewName": "לך שמאלה",
-      "description": "Move the robot to the left",
-      "hebrewDescription": "הזז את הרובוט שמאלה",
+      "name": "Gentle walk",
+      "hebrewName": "הליכה מליצית",
       "videoUrl": "../../movements/8.mp4"
     },
     {
       "id": 9,
-      "name": "Go left",
-      "hebrewName": "לך שמאלה",
-      "description": "Move the robot to the left",
-      "hebrewDescription": "הזז את הרובוט שמאלה",
+      "name": "Bent to the right",
+      "hebrewName": "רכינה לימין",
       "videoUrl": "../../movements/9.mp4"
     },
     {
       "id": 10,
-      "name": "Go left",
-      "hebrewName": "לך שמאלה",
-      "description": "Move the robot to the left",
-      "hebrewDescription": "הזז את הרובוט שמאלה",
+      "name": "Push up",
+      "hebrewName": "שכיבת סמיכה",
       "videoUrl": "../../movements/10.mp4"
     },
     {
       "id": 11,
-      "name": "Go left",
-      "hebrewName": "לך שמאלה",
-      "description": "Move the robot to the left",
-      "hebrewDescription": "הזז את הרובוט שמאלה",
+      "name": "Cynical walk to the left",
+      "hebrewName": "הליכה צינית שמאלה",
       "videoUrl": "../../movements/11.mp4"
     },
     {
       "id": 12,
-      "name": "Go left",
-      "hebrewName": "לך שמאלה",
-      "description": "Move the robot to the left",
-      "hebrewDescription": "הזז את הרובוט שמאלה",
+      "name": "Bowing to the right",
+      "hebrewName": "השתחוות לימין",
       "videoUrl": "../../movements/12.mp4"
     },
     {
       "id": 13,
-      "name": "Go left",
-      "hebrewName": "לך שמאלה",
-      "description": "Move the robot to the left",
-      "hebrewDescription": "הזז את הרובוט שמאלה",
+      "name": "Sterch to the right",
+      "hebrewName": "התמתחות לימין",
       "videoUrl": "../../movements/13.mp4"
     },
     {
       "id": 14,
-      "name": "Go left",
-      "hebrewName": "לך שמאלה",
-      "description": "Move the robot to the left",
-      "hebrewDescription": "הזז את הרובוט שמאלה",
+      "name": "Bent to the left",
+      "hebrewName": "התכופפות לשמאל",
       "videoUrl": "../../movements/14.mp4"
     },
     {
       "id": 15,
-      "name": "Go left",
-      "hebrewName": "לך שמאלה",
-      "description": "Move the robot to the left",
-      "hebrewDescription": "הזז את הרובוט שמאלה",
+      "name": "Aggressive stoop",
+      "hebrewName": "גחינה אגרסיבית",
       "videoUrl": "../../movements/15.mp4"
     },
     {
       "id": 16,
-      "name": "Go left",
-      "hebrewName": "לך שמאלה",
-      "description": "Move the robot to the left",
-      "hebrewDescription": "הזז את הרובוט שמאלה",
+      "name": "Spinning left",
+      "hebrewName": "להסתובב לשמאל",
       "videoUrl": "../../movements/16.mp4"
     },
     {
       "id": 17,
-      "name": "Go left",
-      "hebrewName": "לך שמאלה",
-      "description": "Move the robot to the left",
-      "hebrewDescription": "הזז את הרובוט שמאלה",
+      "name": "Spinning right",
+      "hebrewName": "להסתובב לימין",
       "videoUrl": "../../movements/17.mp4"
     },
     {
       "id": 18,
-      "name": "Go left",
-      "hebrewName": "לך שמאלה",
-      "description": "Move the robot to the left",
-      "hebrewDescription": "הזז את הרובוט שמאלה",
+      "name": "Trampling in place",
+      "hebrewName": "צעידה במקום",
       "videoUrl": "../../movements/18.mp4"
-    },
-    {
-      "id": 19,
-      "name": "Go left",
-      "hebrewName": "לך שמאלה",
-      "description": "Move the robot to the left",
-      "hebrewDescription": "הזז את הרובוט שמאלה",
-      "videoUrl": "../../movements/19.mp4"
-    },
-    {
-      "id": 20,
-      "name": "Go left",
-      "hebrewName": "לך שמאלה",
-      "description": "Move the robot to the left",
-      "hebrewDescription": "הזז את הרובוט שמאלה",
-      "videoUrl": "../../movements/20.mp4"
-    },
-    {
-      "id": 21,
-      "name": "Go left",
-      "hebrewName": "לך שמאלה",
-      "description": "Move the robot to the left",
-      "hebrewDescription": "הזז את הרובוט שמאלה",
-      "videoUrl": "../../movements/21.mp4"
     }
   ],
   "gestures": [
@@ -174,129 +114,72 @@
       "id": 1,
       "name": "Default Gesture",
       "realLabel": "happy",
-      "movements": [
-        1,
-        2
-      ],
-      "creator": [
-        "anon",
-        0
-      ],
+      "movements": [1, 2],
+      "creator": ["anon", 0],
       "labels": []
     },
     {
       "id": 2,
       "name": "New Gesture",
       "realLabel": "Jealousy",
-      "movements": [
-        3,
-        2
-      ],
-      "creator": [
-        "",
-        null
-      ],
+      "movements": [3, 2],
+      "creator": ["", null],
       "labels": []
     },
     {
       "id": 3,
       "name": "New Gesture",
       "realLabel": "Sadness",
-      "movements": [
-        2
-      ],
-      "creator": [
-        "",
-        null
-      ],
+      "movements": [2],
+      "creator": ["", null],
       "labels": []
     },
     {
       "id": 4,
       "name": "Gesture With a lot of labels",
       "realLabel": "Anger",
-      "movements": [
-        2
-      ],
-      "creator": [
-        "Sahar Rofe",
-        0
-      ],
-      "labels": [
-        "Sadness",
-        "Love",
-        "Anger"
-      ]
+      "movements": [2],
+      "creator": ["Sahar Rofe", 0],
+      "labels": ["Sadness", "Love", "Anger"]
     },
     {
       "id": 5,
       "name": "New Gesture",
       "realLabel": "Anger",
-      "movements": [
-        3
-      ],
-      "creator": [
-        "Sahar Rofe",
-        0
-      ],
-      "labels": [
-        "Joy"
-      ]
+      "movements": [3],
+      "creator": ["Sahar Rofe", 0],
+      "labels": ["Joy"]
     },
     {
       "id": 6,
       "name": "New Gesture",
       "realLabel": "Anger",
-      "movements": [
-        2
-      ],
-      "creator": [
-        "Sahar Rofe",
-        0
-      ],
+      "movements": [2],
+      "creator": ["Sahar Rofe", 0],
       "labels": []
     },
     {
       "id": 7,
       "name": "New Gesture",
       "realLabel": "Curiosity",
-      "movements": [
-        2
-      ],
-      "creator": [
-        "ssss",
-        0
-      ],
+      "movements": [2],
+      "creator": ["ssss", 0],
       "labels": []
     },
     {
       "id": 8,
       "name": "New Gesture",
       "realLabel": "Pride",
-      "movements": [
-        3,
-        2
-      ],
-      "creator": [
-        "",
-        null
-      ],
+      "movements": [3, 2],
+      "creator": ["", null],
       "labels": []
     },
     {
       "id": 9,
       "name": "New Gesture",
       "realLabel": "Love",
-      "movements": [
-        3,
-        8,
-        15,
-        18
-      ],
-      "creator": [
-        "Amit Cohen",
-        1
-      ],
+      "movements": [3, 8, 15, 18],
+      "creator": ["Amit Cohen", 1],
       "labels": []
     }
   ],
@@ -433,16 +316,8 @@
       "id": 1,
       "name": "New Gesture",
       "realLabel": "Love",
-      "movements": [
-        3,
-        8,
-        15,
-        18
-      ],
-      "creator": [
-        "Amit Cohen",
-        1
-      ],
+      "movements": [3, 8, 15, 18],
+      "creator": ["Amit Cohen", 1],
       "labels": []
     }
   ]
