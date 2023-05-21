@@ -132,6 +132,20 @@
         0
       ],
       "labels": []
+    },
+    {
+      "id": 8,
+      "name": "New Gesture",
+      "realLabel": "Pride",
+      "movements": [
+        3,
+        2
+      ],
+      "creator": [
+        "",
+        null
+      ],
+      "labels": []
     }
   ],
   "users": [
@@ -229,6 +243,21 @@
       },
       "education": {
         "education": "Bachelor's degree"
+      }
+    },
+    {
+      "id": 7,
+      "name": {
+        "name": "Amit"
+      },
+      "age": {
+        "age": "15"
+      },
+      "gender": {
+        "gender": "male"
+      },
+      "education": {
+        "education": "Master's degree"
       }
     }
   ],

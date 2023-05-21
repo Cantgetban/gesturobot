@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 function Popup({ onClose }) {
   const handleButtonClick = () => {
+    var feedback = document.getElementById("message").value;
     onClose();
   };
 
