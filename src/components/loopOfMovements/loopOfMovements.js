@@ -71,6 +71,7 @@ const LoopOfMovements = (props) => {
         }
         
         <video
+          muted={true}
           onEnded={handleVideoEnd}
           src={URLs[currentVideoIndex]}
           ref={videoRef}

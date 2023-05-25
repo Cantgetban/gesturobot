@@ -37,6 +37,7 @@ const Movement = ({ movement, draggable }) => {
         >
           <div className="embed-responsive embed-responsive-16by9 video-play-button">
             <video
+              muted={true}
               ref={videoRef}
               title={name}
               id="movement-player"
