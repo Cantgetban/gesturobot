@@ -29,7 +29,7 @@ function App() {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div>
+      <div dir="ltr">
         <LanguageSwitcher />
       </div>
       <Routes>

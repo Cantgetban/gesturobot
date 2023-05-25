@@ -21,7 +21,6 @@ function MainPage() {
     <Translations>
       {({ translate }) => (
         <div>
-          <img src="/logo3.png" class="logo-image" alt="GestuRobot logo"></img>
           <div class="container">
             <div class="card1" onClick={moveToGestureManagement}>
               <div class="face face1">

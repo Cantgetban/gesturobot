@@ -31,7 +31,6 @@ function DemographicForm() {
 
   return (
     <>
-      <img src="/logo3.png" class="logo-image" alt="GestuRobot logo"></img>
       <form className="demographic-form" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Name:</label>

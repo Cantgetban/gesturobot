@@ -50,7 +50,6 @@ function UserLogin() {
     <Translations>
       {({ translate }) => (
         <div class="container">
-          <img src="/logo3.png" class="logo-image" alt="GestuRobot logo" />
           <form onSubmit={HandleLogin} class="login-form">
             <div>
               <label htmlFor="username-input">{translate("Username")}</label>

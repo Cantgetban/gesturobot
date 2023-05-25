@@ -13,7 +13,6 @@ function GestureTag() {
   };
   return (
     <div>
-      <img src="/logo3.png" class="logo-image" alt="GestuRobot logo"></img>
       <div class="container">
         <h1>Participation Confirmation</h1>
         <p>
