@@ -8,7 +8,9 @@ import LoopOfMovements from "../../components/loopOfMovements/loopOfMovements";
 import { Translations } from "../../language-management/Translations";
 import { LanguageContext } from "../../language-management/LanguageContext";
 
+
 function CreateNewExperiment() {
+  const [isLocked, setIsLocked] = useState(false);
   const language = useContext(LanguageContext)
   let navigate = useNavigate();
   const [name, setName] = useState("");
@@ -17,6 +19,8 @@ function CreateNewExperiment() {
   const [showCreateNewGesture, setShowCreateNewGesture] = useState(false);
 
   const handleNameChange = (event) => {
+    if (isLocked)
+      return
     setName(event.target.value);
   };
 
@@ -29,6 +33,8 @@ function CreateNewExperiment() {
   }, []);
 
   const handleTypeChange = (event) => {
+    if(isLocked)
+      return;
     setType(event.target.value);
   };
 
@@ -51,18 +57,18 @@ function CreateNewExperiment() {
       {({ translate }) => (
         <div>
           <div className="row">
-            <form onSubmit={handleSubmit} className="col-3">
+            <form onSubmit={() => {setIsLocked(false) ;handleSubmit()}} className="col-3">
               <label>
                 {translate('Name')}:
-                <input type="text" value={name} onChange={handleNameChange} />
+                <input type="text" disabled={isLocked} value={name} onChange={handleNameChange} />
               </label>
               <br />
               <label>
                 {translate('Type')}:
-                <input type="text" value={type} onChange={handleTypeChange} />
+                <input type="text" disabled={isLocked} value={type} onChange={handleTypeChange} />
               </label>
               <br />
-              <button type="button" onClick={() => setShowCreateNewGesture(true)}>
+              <button type="button" onClick={() => {setIsLocked(true) ;setShowCreateNewGesture(true)}}>
                 {translate('Create New Gesture')}
               </button>
               <br />

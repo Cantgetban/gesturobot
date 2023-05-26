@@ -190,10 +190,7 @@ const CreateNewGesture = (props) => {
               <div className="card-body p-0" {...dropTargetProps}>
                 {series.map((movement, index) => (
                   <div className="p-1" key={movement.id}>
-                    <Movement
-                      movement={movement}
-                      onDragEnd={(result) => handleMovementDragEnd(result)}
-                    />
+                    {language == "en" ? movement.name : movement.hebrewName}
                     <div className="d-flex align-items-center">
                       <button
                         className="btn btn-sm btn-outline-secondary mx-1"
