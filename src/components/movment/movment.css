@@ -5,7 +5,11 @@ transform: translate(0, 0);
 }
 
 #con{
-min-height: 280px;
+min-height: 50px;
 min-width: 280px
+}
+
+#cd{
+min-height: 50px;
 }
 
