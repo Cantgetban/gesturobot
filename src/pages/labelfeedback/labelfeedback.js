@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Translations } from "../../language-management/Translations";
 function Popup({ onClose }) {
   const handleButtonClick = () => {
     var feedback = document.getElementById("message").value;
@@ -7,19 +8,23 @@ function Popup({ onClose }) {
   };
 
   return (
-    <div className="popup">
-      <div className="popup__content">
-        <form id="feedback-form">
-          <div>
-            <h2>Feedback</h2>
-            <textarea id="message" required></textarea>
+    <Translations>
+      {({ translate }) => (
+        <div className="popup">
+          <div className="popup__content">
+            <form id="feedback-form">
+              <div>
+                <h2>{translate('Feedback')}</h2>
+                <textarea id="message" required></textarea>
+              </div>
+              <button type="submit" onClick={handleButtonClick}>
+                {translate('Submit')}
+              </button>
+            </form>
           </div>
-          <button type="submit" onClick={handleButtonClick}>
-            Submit
-          </button>
-        </form>
-      </div>
-    </div>
+        </div>
+      )}
+    </Translations>
   );
 }
 
@@ -35,15 +40,19 @@ function Labelfeedback() {
     navigate("/");
   }
   return (
-    <>
-      {showPopup && <Popup onClose={handleClosePopup} />}
-      {showContent && (
-        <div class="container">
-          <h1>Thank you!</h1>
-          <button onClick={handleClick}>Back to Main Page</button>
-        </div>
+    <Translations>
+      {({ translate }) => (
+        <>
+          {showPopup && <Popup onClose={handleClosePopup} />}
+          {showContent && (
+            <div className="container">
+              <h1>{translate('Thank you!')}</h1>
+              <button onClick={handleClick}>{translate('Back to Main Page')}</button>
+            </div>
+          )}
+        </>
       )}
-    </>
+    </Translations>
   );
 }
 

@@ -112,121 +112,28 @@
   "gestures": [
     {
       "id": 1,
-      "name": "Default Gesture",
-      "realLabel": "happy",
+      "name": "New Gesture",
+      "realLabel": {
+        "en": "Pride",
+        "he": "גאווה"
+      },
       "movements": [
-        1,
+        3,
         2
       ],
       "creator": [
-        "anon",
-        0
+        "",
+        null
       ],
       "labels": []
     },
     {
       "id": 2,
       "name": "New Gesture",
-      "realLabel": "Jealousy",
-      "movements": [
-        3,
-        2
-      ],
-      "creator": [
-        "",
-        null
-      ],
-      "labels": []
-    },
-    {
-      "id": 3,
-      "name": "New Gesture",
-      "realLabel": "Sadness",
-      "movements": [
-        2
-      ],
-      "creator": [
-        "",
-        null
-      ],
-      "labels": []
-    },
-    {
-      "id": 4,
-      "name": "Gesture With a lot of labels",
-      "realLabel": "Anger",
-      "movements": [
-        2
-      ],
-      "creator": [
-        "Sahar Rofe",
-        0
-      ],
-      "labels": [
-        "Sadness",
-        "Love",
-        "Anger"
-      ]
-    },
-    {
-      "id": 5,
-      "name": "New Gesture",
-      "realLabel": "Anger",
-      "movements": [
-        3
-      ],
-      "creator": [
-        "Sahar Rofe",
-        0
-      ],
-      "labels": [
-        "Joy"
-      ]
-    },
-    {
-      "id": 6,
-      "name": "New Gesture",
-      "realLabel": "Anger",
-      "movements": [
-        2
-      ],
-      "creator": [
-        "Sahar Rofe",
-        0
-      ],
-      "labels": []
-    },
-    {
-      "id": 7,
-      "name": "New Gesture",
-      "realLabel": "Curiosity",
-      "movements": [
-        2
-      ],
-      "creator": [
-        "ssss",
-        0
-      ],
-      "labels": []
-    },
-    {
-      "id": 8,
-      "name": "New Gesture",
-      "realLabel": "Pride",
-      "movements": [
-        3,
-        2
-      ],
-      "creator": [
-        "",
-        null
-      ],
-      "labels": []
-    },
-    {
-      "id": 9,
-      "name": "New Gesture",
-      "realLabel": "Love",
+      "realLabel": {
+        "en": "Love",
+        "he": "אהבה"
+      },
       "movements": [
         3,
         8,
@@ -236,6 +143,43 @@
       "creator": [
         "Amit Cohen",
         1
+      ],
+      "labels": []
+    },
+    {
+      "id": 3,
+      "name": "New Gesture",
+      "movements": [
+        2
+      ],
+      "creator": [
+        "sahar rofe",
+        1
+      ],
+      "labels": []
+    },
+    {
+      "id": 4,
+      "name": "New Gesture",
+      "movements": [
+        2
+      ],
+      "creator": [
+        "eeee",
+        0
+      ],
+      "labels": []
+    },
+    {
+      "id": 5,
+      "name": "New Gesture",
+      "movements": [
+        2,
+        4
+      ],
+      "creator": [
+        "sahar rofe",
+        0
       ],
       "labels": []
     }
@@ -381,24 +325,22 @@
       "education": {
         "education": "GED"
       }
+    },
+    {
+      "id": 10,
+      "name": {
+        "name": "3"
+      },
+      "age": {
+        "age": "3"
+      },
+      "gender": {
+        "gender": "male"
+      },
+      "education": {
+        "education": "Vocational qualification"
+      }
     }
   ],
-  "newExperiment": [
-    {
-      "id": 1,
-      "name": "New Gesture",
-      "realLabel": "Love",
-      "movements": [
-        3,
-        8,
-        15,
-        18
-      ],
-      "creator": [
-        "Amit Cohen",
-        1
-      ],
-      "labels": []
-    }
-  ]
+  "newExperiment": []
 }

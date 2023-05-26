@@ -1,10 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext} from 'react';
 import "./gesturesection.css";
 import { getAllGestures } from "../../databases/gesturesAPI";
 import LoopOfMovements from '../loopOfMovements/loopOfMovements';
+import { LanguageContext } from '../../language-management/LanguageContext';
+
 
 function GestureSection(props) {
-
+  const language = useContext(LanguageContext);
   const [gestures, setGestures] = useState([]);
   const videoRef = useRef(null);
 
@@ -21,7 +23,8 @@ function GestureSection(props) {
     if (props.filterBy === 'name') {
       return gesture.creator[0].toLowerCase().includes(props.value.toLowerCase());
     } else if (props.filterBy === 'emotion') {
-      return gesture.realLabel.toLowerCase().includes(props.value.toLowerCase());
+      const temp = language == 'en' ? gesture.realLabel.en : gesture.realLabel.he;
+      return temp.toLowerCase().includes(props.value.toLowerCase());
     } else if (props.filterBy === 'type') {
       const type = gesture.creator[1] === 0 ? "0" : "1";
       return type.includes(props.value.toLowerCase());

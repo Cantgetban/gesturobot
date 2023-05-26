@@ -1,32 +1,43 @@
 export const emotionsList = [
-  "Joy", // שמחה
-  "Sadness", // עצב
-  "Anger", // כעס
-  "Fear", // פחד
-  "Love", // אהבה
-  "Hate", // שנאה
-  "Guilt", // אשמה
-  "Shame", // חרפה
-  "Envy", // קנאה
-  "Jealousy", // קנאה
-  "Pride", // גאווה
-  "Gratitude", // תודה
-  "Hope", // תקווה
-  "Despair", // יאוש
-  "Confusion", // בלבול
-  "Curiosity", // סקרנות
-  "Surprise", // הפתעה
-  "Excitement", // ערבוב
-  "Disappointment", // אכזבה
-  "Contentment", // שבענות
-  "Loneliness", // בדידות
-  "Nostalgia", // נוסטלגיה
-  "Relief", // רווחה
-  "Pity", // חמלה
-  "Boredom", // משעממת
-  "Empathy", // תחושת הדדיות
-  "Compassion", // רחמים
-  "Apathy", // אפתיעה
-  "Satisfaction", // שביעות רצון
-  "Disgust", // נפגעות מתמונה מסוימת
+  { en: "Joy", he: "שמחה" },
+  { en: "Sadness", he: "עצב" },
+  { en: "Anger", he: "כעס" },
+  { en: "Fear", he: "פחד" },
+  { en: "Love", he: "אהבה" },
+  { en: "Hate", he: "שנאה" },
+  { en: "Guilt", he: "אשמה" },
+  { en: "Shame", he: "חרפה" },
+  { en: "Envy", he: "קנאה" },
+  { en: "Jealousy", he: "קנאה" },
+  { en: "Pride", he: "גאווה" },
+  { en: "Gratitude", he: "תודה" },
+  { en: "Hope", he: "תקווה" },
+  { en: "Despair", he: "יאוש" },
+  { en: "Confusion", he: "בלבול" },
+  { en: "Curiosity", he: "סקרנות" },
+  { en: "Surprise", he: "הפתעה" },
+  { en: "Excitement", he: "ערבוב" },
+  { en: "Disappointment", he: "אכזבה" },
+  { en: "Contentment", he: "שבענות" },
+  { en: "Loneliness", he: "בדידות" },
+  { en: "Nostalgia", he: "נוסטלגיה" },
+  { en: "Relief", he: "רווחה" },
+  { en: "Pity", he: "חמלה" },
+  { en: "Boredom", he: "משעממת" },
+  { en: "Empathy", he: "תחושת הדדיות" },
+  { en: "Compassion", he: "רחמים" },
+  { en: "Apathy", he: "אפתיעה" },
+  { en: "Satisfaction", he: "שביעות רצון" },
+  { en: "Disgust", he: "נפגעות מתמונה מסוימת" }
 ];
+
+// Function to map from Hebrew emotion to English
+function mapHebrewToEnglish(hebrewEmotion) {
+  return emotionsList.find((emotion) => emotion.he === hebrewEmotion);
+}
+// Function to map from English emotion to Hebrew
+function mapEnglishToHebrew(englishEmotion) {
+  return emotionsList.find((emotion) => emotion.en === englishEmotion);
+}
+
+export {mapHebrewToEnglish, mapEnglishToHebrew};

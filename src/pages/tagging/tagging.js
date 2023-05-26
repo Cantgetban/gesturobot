@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getAllGestures } from "../../databases/gesturesAPI";
 import GestureLable from "../../components/gestureLable/gestureLable";
 import { useNavigate } from "react-router-dom";
+import { Translations } from "../../language-management/Translations";
 
 function Tagging() {
   const [Gestures, setGestures] = useState([]);
@@ -29,16 +30,20 @@ function Tagging() {
   }
 
   return (
-    <div>
-      {Gestures.length > 0 ? (
-        <GestureLable
-          gesture={Gestures[currentGestureIndex]}
-          clickFunction={HandleNextGesture}
-        ></GestureLable>
-      ) : (
-        <p>Loading...</p>
+    <Translations>
+      {({ translate }) => (
+        <div>
+          {Gestures.length > 0 ? (
+            <GestureLable
+              gesture={Gestures[currentGestureIndex]}
+              clickFunction={HandleNextGesture}
+            />
+          ) : (
+            <p>{translate('Loading...')}</p>
+          )}
+        </div>
       )}
-    </div>
+    </Translations>
   );
 }
 

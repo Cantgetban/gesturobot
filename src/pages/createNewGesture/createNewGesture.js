@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Movement from "../../components/movment/movment";
 import { getMovements } from "../../databases/movementsAPI";
 import { useDrop } from "react-dnd";
@@ -7,11 +7,14 @@ import { useNavigate } from "react-router-dom";
 import { Translations } from "../../language-management/Translations";
 import { addGestureJson, deleteGesture } from "../../databases/gesturesAPI";
 import { emotionsList } from "../../databases/emotions";
+import { LanguageContext} from "../../language-management/LanguageContext";
+import { mapHebrewToEnglish, mapEnglishToHebrew } from "../../databases/emotions";
 
 const CreateNewGesture = (props) => {
   const [movements, setMovements] = useState([]);
   const [series, setSeries] = useState([]);
   const [selectedEmotion, setSelectedEmotion] = useState("");
+  const { language } = useContext(LanguageContext);
 
   let navigate = useNavigate();
 
@@ -65,10 +68,13 @@ const CreateNewGesture = (props) => {
       //here add the code that dent message to the user
       return;
     }
+     
+    const realLabel = language == "en" ? mapEnglishToHebrew(selectedEmotion)
+    : mapHebrewToEnglish(selectedEmotion);
 
     const newGesture = {
       name: "New Gesture",
-      realLabel: selectedEmotion,
+      realLabel: realLabel,
       movements: series.map((movement) => movement.id),
       creator: [props.name, parseInt(props.type)],
       labels: [],
@@ -166,12 +172,12 @@ const CreateNewGesture = (props) => {
               {translate("Save And Add New Gesture")}
             </button>
             <label>
-              Select an emotion:
+              {translate("Select an emotion")}:
               <select value={selectedEmotion} onChange={handleEmotionSelect}>
-                <option value="">--Please choose an emotion--</option>
+                <option value="">{translate("--Please choose an emotion--")}</option>
                 {emotionsList.map((emotion, index) => (
                   <option key={index} value={emotion}>
-                    {emotion}
+                    {language == "en"? emotion.en : emotion.he}
                   </option>
                 ))}
               </select>

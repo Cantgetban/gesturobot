@@ -1,4 +1,7 @@
-function addGestureEx(newGesture) {
+import { useContext } from "react";
+import { mapEnglishToHebrew , mapHebrewToEnglish} from "./emotions";
+
+function addGestureEx(newGesture, language) {
     // get the current maximum ID
     fetch("http://localhost:3000/newExperiment")
       .then((response) => response.json())
@@ -7,7 +10,6 @@ function addGestureEx(newGesture) {
         const maxId = data ? Math.max(...data.map((gesture) => gesture.id)) : 0;
         // add 1 to the maximum ID to get the next ID for the new gesture
         const nextId = maxId + 1;
-        
         // add the new gesture with the next ID
         fetch("http://localhost:3000/newExperiment", {
           method: "POST",
