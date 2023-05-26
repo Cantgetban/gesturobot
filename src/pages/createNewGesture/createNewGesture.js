@@ -68,17 +68,20 @@ const CreateNewGesture = (props) => {
       //here add the code that dent message to the user
       return;
     }
-     
-    const realLabel = language == "en" ? mapEnglishToHebrew(selectedEmotion)
-    : mapHebrewToEnglish(selectedEmotion);
 
+    console.log(selectedEmotion)
+    let label = language === "en" ? [selectedEmotion , mapEnglishToHebrew(selectedEmotion)] 
+    : [mapHebrewToEnglish(selectedEmotion), selectedEmotion]
+     
     const newGesture = {
       name: "New Gesture",
-      realLabel: realLabel,
+      realLabel: label,
       movements: series.map((movement) => movement.id),
       creator: [props.name, parseInt(props.type)],
       labels: [],
     };
+
+    console.log(newGesture)
 
     setSeries([]);
     setSelectedEmotion("");
@@ -176,7 +179,7 @@ const CreateNewGesture = (props) => {
               <select value={selectedEmotion} onChange={handleEmotionSelect}>
                 <option value="">{translate("--Please choose an emotion--")}</option>
                 {emotionsList.map((emotion, index) => (
-                  <option key={index} value={emotion}>
+                  <option key={index} value={language == "en"? emotion.en : emotion.he}>
                     {language == "en"? emotion.en : emotion.he}
                   </option>
                 ))}

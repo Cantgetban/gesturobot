@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { mapEnglishToHebrew , mapHebrewToEnglish} from "./emotions";
 
-function addGestureEx(newGesture, language) {
+function addGestureEx(newGesture) {
     // get the current maximum ID
     fetch("http://localhost:3000/newExperiment")
       .then((response) => response.json())

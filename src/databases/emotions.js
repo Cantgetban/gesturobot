@@ -33,11 +33,15 @@ export const emotionsList = [
 
 // Function to map from Hebrew emotion to English
 function mapHebrewToEnglish(hebrewEmotion) {
-  return emotionsList.find((emotion) => emotion.he === hebrewEmotion);
+  let Ob = (emotionsList.find((emotion) => emotion.he === hebrewEmotion));
+  return Ob.en
 }
 // Function to map from English emotion to Hebrew
 function mapEnglishToHebrew(englishEmotion) {
-  return emotionsList.find((emotion) => emotion.en === englishEmotion);
+  console.log(englishEmotion)
+  let Ob =  (emotionsList.find((emotion) => emotion.en === englishEmotion));
+  console.log(Ob)
+  return Ob.he;
 }
 
 export {mapHebrewToEnglish, mapEnglishToHebrew};

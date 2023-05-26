@@ -14,7 +14,7 @@ function GestureLable(props) {
     if (gestureEmotionsList.includes(randomElement)) {
       continue;
     } else {
-      gestureEmotionsList.push(randomElement);
+      gestureEmotionsList.push([randomElement.en, randomElement.he]);
     }
   }
   //shuffle the array
@@ -31,19 +31,20 @@ function GestureLable(props) {
         <LoopOfMovements ids={props.gesture.movements} />
         <div class="button-line">
           <button onClick={props.clickFunction}>
-            {language == "en" ? gestureEmotionsList[0].en : gestureEmotionsList[0].he}
+            {console.log(gestureEmotionsList)}
+            {language == "en" ? (gestureEmotionsList[0])[0] : (gestureEmotionsList[0])[1]}
           </button>
           <button onClick={props.clickFunction}>
-            {language == "en" ? gestureEmotionsList[1].en : gestureEmotionsList[1].he}
+            {language == "en" ? (gestureEmotionsList[1])[0] : (gestureEmotionsList[1])[1]}
           </button>
           <button onClick={props.clickFunction}>
-            {language == "en" ? gestureEmotionsList[2].en : gestureEmotionsList[2].he}
+            {language == "en" ? (gestureEmotionsList[2])[0] : (gestureEmotionsList[2])[1]}
           </button>
           <button onClick={props.clickFunction}>
-            {language == "en" ? gestureEmotionsList[3].en : gestureEmotionsList[3].he}
+            {language == "en" ? (gestureEmotionsList[3])[0] : (gestureEmotionsList[3])[1]}
           </button>
           <button onClick={props.clickFunction}>
-            {language == "en" ? gestureEmotionsList[4].en : gestureEmotionsList[4].he}
+            {language == "en" ? gestureEmotionsList[4][0] : gestureEmotionsList[4][1]}
           </button>
         </div>
       </span>

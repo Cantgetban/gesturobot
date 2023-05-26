@@ -23,7 +23,7 @@ function GestureSection(props) {
     if (props.filterBy === 'name') {
       return gesture.creator[0].toLowerCase().includes(props.value.toLowerCase());
     } else if (props.filterBy === 'emotion') {
-      const temp = language == 'en' ? gesture.realLabel.en : gesture.realLabel.he;
+      const temp = language == 'en' ? gesture.realLabel[0] : gesture.realLabel[1];
       return temp.toLowerCase().includes(props.value.toLowerCase());
     } else if (props.filterBy === 'type') {
       const type = gesture.creator[1] === 0 ? "0" : "1";
