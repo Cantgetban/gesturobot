@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import LoopOfMovements from "../../components/loopOfMovements/loopOfMovements";
 import { Translations } from "../../language-management/Translations";
 import { LanguageContext } from "../../language-management/LanguageContext";
+import "./createNewExperiment.css"
 
 
 function CreateNewExperiment() {
@@ -43,8 +44,7 @@ function CreateNewExperiment() {
     addGestureEx(newGesture, language)
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = () => {
     // TODO: Submit the form and create a new experiment with the given name, type, and gestures
     console.log({ name, type, gestures });
     deleteAllExperiments()
@@ -57,7 +57,9 @@ function CreateNewExperiment() {
       {({ translate }) => (
         <div>
           <div className="row">
-            <form onSubmit={() => {setIsLocked(false) ;handleSubmit()}} className="col-3">
+            <form id={isLocked ? "form2" : "form"} onSubmit={() => {setIsLocked(false) ;handleSubmit()}} className="col-3">
+              { !isLocked && (
+                <>
               <label>
                 {translate('Name')}:
                 <input type="text" disabled={isLocked} value={name} onChange={handleNameChange} />
@@ -68,6 +70,8 @@ function CreateNewExperiment() {
                 <input type="text" disabled={isLocked} value={type} onChange={handleTypeChange} />
               </label>
               <br />
+              </>
+              )}
               <button type="button" onClick={() => {setIsLocked(true) ;setShowCreateNewGesture(true)}}>
                 {translate('Create New Gesture')}
               </button>
@@ -75,10 +79,10 @@ function CreateNewExperiment() {
               <button type="submit">{translate('Save Experiment')}</button>
             </form>
             <div className="col">
-              <h2>{translate('Gestures created')}</h2>
+              <h2 id="GestureCreated">{translate('Gestures created')}</h2>
+              <div className="row">
               {gestures.map((gesture, index) => (
-                <div className="col-lg-4 col-sm-6 col-12 mb-4" key={index}>
-                  <div className="card">
+                  <div className="card col-4" key={index}>
                     <div className="card-video">
                       <LoopOfMovements ids={gesture.movements} />
                     </div>
@@ -87,8 +91,8 @@ function CreateNewExperiment() {
                       <p className="card-text">{gesture.creator[0]}</p>
                     </div>
                   </div>
-                </div>
               ))}
+              </div>
             </div>
           </div>
           <div className="row">
