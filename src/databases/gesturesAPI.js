@@ -25,31 +25,34 @@ function editGesture(id, updatedGesture) {
 }
 
 function addGestureJson(newGesture) {
-  // get the current maximum ID
-  fetch("http://localhost:3000/gestures")
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-      const maxId = data ? Math.max(...data.map((gesture) => gesture.id)) : 0;
-      // add 1 to the maximum ID to get the next ID for the new gesture
-      const nextId = maxId + 1;
-
-      // add the new gesture with the next ID
-      fetch("http://localhost:3000/gestures", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ id: nextId, ...newGesture }),
+  return new Promise((resolve, reject) => {
+    fetch("http://localhost:3000/gestures")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        const maxId = data ? Math.max(...data.map((gesture) => gesture.id)) : 0;
+        const nextId = maxId + 1;
+        
+        fetch("http://localhost:3000/gestures", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ id: nextId, ...newGesture }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            resolve(nextId); // Resolve the next ID value
+          })
+          .catch((error) => reject(error));
       })
-        .then((response) => response.json())
-        .then((data) => {
-          // update the gestures state with the new gesture
-          // setGestures([...gestures, data]);
-        });
-    })
-    .catch((error) => console.log("Error fetching gestures:", error));
+      .catch((error) => {
+        console.log("Error fetching gestures:", error);
+        reject(error);
+      });
+  });
 }
+
 
 function deleteGesture(id) {
   // send a DELETE request to delete the gesture with the given ID

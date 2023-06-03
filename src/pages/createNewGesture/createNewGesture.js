@@ -85,9 +85,11 @@ const CreateNewGesture = (props) => {
 
     setSeries([]);
     setSelectedEmotion("");
-    addGestureJson(newGesture);
-    props.Show();
-    props.onGestureAdd(newGesture);
+    addGestureJson(newGesture)
+    .then((nextId) => {
+      props.Show()
+      props.onGestureAdd(newGesture, nextId);
+    })
     navigate("/createNewExperiment");
   };
 
