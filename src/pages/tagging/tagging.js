@@ -3,6 +3,7 @@ import { getAllGestures } from "../../databases/gesturesAPI";
 import GestureLable from "../../components/gestureLable/gestureLable";
 import { useNavigate } from "react-router-dom";
 import { Translations } from "../../language-management/Translations";
+import { editGesture } from "../../databases/gesturesAPI";
 
 function Tagging() {
   const [Gestures, setGestures] = useState([]);
@@ -21,13 +22,20 @@ function Tagging() {
     fetchGestures();
   }, []);
 
-  function HandleNextGesture() {
-    console.log(currentGestureIndex);
+  const HandleNextGesture = (event) => {
+    //update new label
+    var label = event.target.textContent;
+    var gestureID = Gestures[currentGestureIndex].id;
+    var updatedGesture = Gestures[currentGestureIndex];
+    updatedGesture.labels.push(label);
+    editGesture(gestureID, updatedGesture);
+
+    //get new gesture
     if (currentGestureIndex > 3) {
       navigate("/LabelFeedBack");
     }
     setCurrentGestureIndex(currentGestureIndex + 1);
-  }
+  };
 
   return (
     <Translations>
@@ -39,7 +47,7 @@ function Tagging() {
               clickFunction={HandleNextGesture}
             />
           ) : (
-            <p>{translate('Loading...')}</p>
+            <p>{translate("Loading...")}</p>
           )}
         </div>
       )}

@@ -19,5 +19,4 @@ function addTaggerJson(newTagger) {
     })
     .catch((error) => console.log("Error fetching gestures:", error));
 }
-
 export default addTaggerJson;
