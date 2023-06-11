@@ -58,9 +58,9 @@ function MovementsLib() {
             <label className="form-check-label">{translate("Loop Movements")}</label>
           </div>
           <h2 className="text-center mb-3">{translate('Movements Library')}</h2>
-          <div className="d-flex flex-wrap">
+          <div className="d-flex flex-wrap" style={{paddingLeft: "10%", paddingRight: "10%"}}>
             {movements.map((movement) => (
-       <div
+       <span
        className="p-1"
        key={movement.id}
        onMouseEnter={() => handleMovementMouseEnter(movement.id)}
@@ -68,7 +68,7 @@ function MovementsLib() {
        style={{
         justifyContent: "center",
         alignItems: "center",
-        transform: hoveredMovement === movement.id ? "scale(2)" : "scale(1)",
+        transform: hoveredMovement === movement.id ? "scale(1.6)" : "scale(1)",
         transition: "transform 0.3s ease-in-out",
         zIndex: hoveredMovement === movement.id ? 1 : "auto",
         position: "relative",
@@ -90,7 +90,7 @@ function MovementsLib() {
            zIndex: hoveredMovement === movement.id ? "auto" : 1,
          }}
        />
-     </div>
+     </span>
             ))}
           </div>
         </div>
