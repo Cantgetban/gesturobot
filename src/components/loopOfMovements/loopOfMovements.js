@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 import { getMovements } from "../../databases/movementsAPI";
 import "./loopOfMovements.css";
 
@@ -63,13 +63,12 @@ const LoopOfMovements = (props) => {
   return (
     <div className="loop-of-movements">
       <div className="video-container">
-        {
-          isPlaying ? null :
+        {isPlaying ? null : (
           <div className="video-play-button" onClick={handleButtonClick}>
-          <img src="http://clipart-library.com/images_k/white-play-button-transparent/white-play-button-transparent-14.png"/>
-            </div>
-        }
-        
+            <img src="http://clipart-library.com/images_k/white-play-button-transparent/white-play-button-transparent-14.png" />
+          </div>
+        )}
+
         <video
           muted={true}
           onEnded={handleVideoEnd}
