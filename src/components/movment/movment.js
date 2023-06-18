@@ -50,11 +50,6 @@ const Movement = ({ movement, draggable, isLooping }) => {
           ref={drag}
         >
           <div className="embed-responsive embed-responsive-16by9 video-play-button video-player">
-            {isPlaying ? null : (
-              <div className="video-play-button" onClick={handleButtonClick}>
-                <img src="http://clipart-library.com/images_k/white-play-button-transparent/white-play-button-transparent-14.png" />
-              </div>
-            )}
             <video
               muted={true}
               ref={videoRef}
