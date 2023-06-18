@@ -15,12 +15,16 @@ function Popup({ onClose }) {
       {({ translate }) => (
         <div className="popup">
           <div className="popup__content">
-            <h2 className="popup__title">{translate('Instructions for Labeling')}</h2>
+            <h2 className="popup__title">
+              {translate("Instructions for Labeling")}
+            </h2>
             <p className="popup__text">
-              {translate('You will see robot gestures and you need to give one emotion from the 5 given emotions that describe the best emotion from the gesture')}
+              {translate(
+                "You will see robot gestures and you need to give one emotion from the 5 given emotions that describe the best emotion from the gesture"
+              )}
             </p>
             <button className="popup__button" onClick={handleButtonClick}>
-              {translate('I understand')}
+              {translate("I understand")}
             </button>
           </div>
         </div>

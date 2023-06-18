@@ -128,7 +128,8 @@
       "labels": [
         "Pride",
         "Boredom",
-        "Satisfaction"
+        "Satisfaction",
+        "Hate"
       ]
     },
     {
@@ -151,7 +152,8 @@
       "labels": [
         "Love",
         "Hope",
-        "Hate"
+        "Hate",
+        "Excitement"
       ]
     },
     {
@@ -171,7 +173,8 @@
       "labels": [
         "Hope",
         "Empathy",
-        "Sadness"
+        "Sadness",
+        "Disgust"
       ]
     },
     {
@@ -192,7 +195,8 @@
       "labels": [
         "נפגעות מתמונה מסוימת",
         "Despair",
-        "Pride"
+        "Pride",
+        "Shame"
       ]
     },
     {
@@ -213,7 +217,8 @@
       "labels": [
         "הפתעה",
         "Envy",
-        "Compassion"
+        "Compassion",
+        "Boredom"
       ]
     },
     {
@@ -236,7 +241,8 @@
       "labels": [
         "Jealousy",
         "Curiosity",
-        "Curiosity"
+        "Curiosity",
+        "Envy"
       ]
     },
     {
@@ -258,7 +264,8 @@
       "labels": [
         "Satisfaction",
         "Surprise",
-        "Shame"
+        "Shame",
+        "Pride"
       ]
     },
     {
@@ -279,7 +286,8 @@
       ],
       "labels": [
         "Loneliness",
-        "Apathy"
+        "Apathy",
+        "Relief"
       ]
     },
     {
@@ -299,7 +307,8 @@
       ],
       "labels": [
         "ערבוב",
-        "Jealousy"
+        "Jealousy",
+        "Relief"
       ]
     },
     {
@@ -320,7 +329,8 @@
       ],
       "labels": [
         "Boredom",
-        "Compassion"
+        "Compassion",
+        "Excitement"
       ]
     }
   ],

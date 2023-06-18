@@ -1,3 +1,3 @@
-const numberOfGesturesToTag = 5;
+const numberOfGesturesToTag = 2;
 
 export default numberOfGesturesToTag;
