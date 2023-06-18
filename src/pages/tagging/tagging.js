@@ -4,18 +4,19 @@ import GestureLable from "../../components/gestureLable/gestureLable";
 import { useNavigate } from "react-router-dom";
 import { Translations } from "../../language-management/Translations";
 import { editGesture } from "../../databases/gesturesAPI";
+import numberOfGesturesToTag from "../../config/tagConfig";
 
 function Tagging() {
   const [Gestures, setGestures] = useState([]);
   const [currentGestureIndex, setCurrentGestureIndex] = useState(0);
   var counter = 0;
   let navigate = useNavigate();
-  //fetching 5 least tagged videos
+  //fetching the Gestures we need to Tag
   useEffect(() => {
     const fetchGestures = async () => {
       const data = await getAllGestures();
       const sortedData = data.sort((a, b) => a.labels.length - b.labels.length);
-      const smallestLabels = sortedData.slice(0, 5);
+      const smallestLabels = sortedData.slice(0, numberOfGesturesToTag);
       setGestures(smallestLabels);
     };
 
@@ -31,7 +32,7 @@ function Tagging() {
     editGesture(gestureID, updatedGesture);
 
     //get new gesture
-    if (currentGestureIndex > 3) {
+    if (currentGestureIndex > numberOfGesturesToTag - 2) {
       navigate("/LabelFeedBack");
     }
     setCurrentGestureIndex(currentGestureIndex + 1);
