@@ -34,7 +34,7 @@ function App() {
       </div>
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="/createNewExperiment" element={<CreateNewExperiment />} />
+        <Route path="/createNewExperiment/*" element={<CreateNewExperiment />} />
         <Route path="/CreateNewGesture" element={<CreateNewGesture />} />
         <Route path="/GestureTag" element={<GestureTag />} />
         <Route path="/UserLogin" element={<UserLogin />} />

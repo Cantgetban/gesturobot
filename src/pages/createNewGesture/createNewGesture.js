@@ -9,6 +9,7 @@ import { addGestureJson, deleteGesture } from "../../databases/gesturesAPI";
 import { emotionsList } from "../../databases/emotions";
 import { LanguageContext} from "../../language-management/LanguageContext";
 import { mapHebrewToEnglish, mapEnglishToHebrew } from "../../databases/emotions";
+import "./createNewGesture.css"
 
 const CreateNewGesture = (props) => {
   const [movements, setMovements] = useState([]);
@@ -24,9 +25,20 @@ const CreateNewGesture = (props) => {
       console.log(data);
       setMovements(data);
     };
-
+    const editgesture = async (gesture) => {
+      console.log(gesture);
+      if(props.gesture == null)
+        return;
+      for (let move in gesture.movements)
+        addMovementToSeries(move);
+      setSelectedEmotion(gesture.realLabel)
+      /// type and name already moved
+      deleteGesture(gesture.id)
+    };
+    editgesture(props.gesture);
     fetchMovements();
   }, []);
+
 
   const addMovementToSeries = (movement) => {
     const index = series.length;

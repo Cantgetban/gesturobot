@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import CreateNewGesture from "../createNewGesture/createNewGesture";
-import { Link } from 'react-router-dom';
-import { addGestureJson, deleteGesture }  from "../../databases/gesturesAPI"
+import { Link, useParams } from 'react-router-dom';
+import { addGestureJson, deleteGesture, getGestureById }  from "../../databases/gesturesAPI"
 import { addGestureEx, getAllGesturesEx, deleteAllExperiments, deleteExperiment } from "../../databases/newExperimentAPI";
 import { useNavigate } from "react-router-dom";
 import LoopOfMovements from "../../components/loopOfMovements/loopOfMovements";
@@ -19,6 +19,7 @@ function CreateNewExperiment() {
   const [hoveredGestureId, setHoveredGestureId] = useState(null);
   const [gestures, setGestures] = useState([]);
   const [showCreateNewGesture, setShowCreateNewGesture] = useState(false);
+  var id = useParams(); 
 
   const handleNameChange = (event) => {
     if (isLocked) return;
@@ -35,13 +36,30 @@ function CreateNewExperiment() {
     setGestures(gestures.filter((gesture) => gesture.id !== gestureId));
   };
 
+  var gestureToEdit = null
+
   useEffect(() => {
     const fetchGesturesEx = async () => {
       const data = await getAllGesturesEx();
       setGestures(data);
     };
+    const edit = async () => {
+      id = id["*"]
+      console.log(id);
+      if(id){
+        gestureToEdit = await getGestureById(id)
+        setShowCreateNewGesture(true)
+        setIsLocked(true)
+        setName(gestureToEdit.creator[0])
+        setType(gestureToEdit.creator[1])
+      }
+    };
+
     fetchGesturesEx();
-  }, []);
+    edit();
+  }, [gestureToEdit, id]);
+
+ 
 
   const handleTypeChange = (event) => {
     if (isLocked) return;
@@ -137,6 +155,7 @@ function CreateNewExperiment() {
                   Show={() => setShowCreateNewGesture(false)}
                   name={name}
                   type={type}
+                  gesture={gestureToEdit}
                 />
               </div>
             )}

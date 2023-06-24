@@ -38,3 +38,12 @@
   text-align: left;
   min-height: 100px;
 }
+
+.icon-container {
+  display: flex;
+}
+
+.delete-gesture,
+.edit-gesture {
+  margin-right: 10px; /* Add spacing between the icons */
+}

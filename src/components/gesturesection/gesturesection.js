@@ -3,8 +3,10 @@ import './gesturesection.css';
 import { getAllGestures, deleteGesture } from '../../databases/gesturesAPI';
 import LoopOfMovements from '../loopOfMovements/loopOfMovements';
 import { LanguageContext } from '../../language-management/LanguageContext';
+import { useNavigate } from "react-router-dom";
 
 function GestureSection(props) {
+  let navigate = useNavigate();
   const language = useContext(LanguageContext);
   const [gestures, setGestures] = useState([]);
   const [hoveredGestureId, setHoveredGestureId] = useState(null);
@@ -22,6 +24,10 @@ function GestureSection(props) {
   const handleDeleteGesture = async (gestureId) => {
     await deleteGesture(gestureId);
     setGestures(gestures.filter(gesture => gesture.id !== gestureId));
+  };
+
+  const hangleEditGesture = (gestureId) => {
+    navigate(`/createNewExperiment/${gestureId}`);
   };
 
   const filteredGestures = gestures.filter(gesture => {
@@ -50,9 +56,14 @@ function GestureSection(props) {
         >
           <div className="card">
             {hoveredGestureId === gesture.id && (
-              <span className="delete-gesture" onClick={() => handleDeleteGesture(gesture.id)}>
+              <div className="icon-container">
+              <div className="delete-gesture" onClick={() => handleDeleteGesture(gesture.id)}>
                 &#10006; {/* Delete icon */}
-              </span>
+              </div>
+              <div className="edit-gesture" onClick={()=> hangleEditGesture(gesture.id)}>
+              {String.fromCharCode(9998)} {/* edit icon */} 
+              </div>
+              </div>
             )}
             <div className="card-video">
               <LoopOfMovements ids={gesture.movements} />

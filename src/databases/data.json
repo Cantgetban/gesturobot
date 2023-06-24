@@ -157,6 +157,7 @@
       ]
     },
     {
+<<<<<<< HEAD
       "id": 3,
       "name": "New Gesture",
       "realLabel": [
@@ -178,6 +179,8 @@
       ]
     },
     {
+=======
+>>>>>>> 047d9b6 (ddgggf`:wq)
       "id": 4,
       "name": "New Gesture",
       "realLabel": [
@@ -389,41 +392,5 @@
       }
     }
   ],
-  "newExperiment": [
-    {
-      "id": 1,
-      "name": "New Gesture",
-      "realLabel": [
-        "Hope",
-        "תקווה"
-      ],
-      "movements": [
-        3,
-        2
-      ],
-      "creator": [
-        "דודי",
-        1
-      ],
-      "labels": []
-    },
-    {
-      "id": 2,
-      "name": "New Gesture",
-      "realLabel": [
-        "Envy",
-        "קנאה"
-      ],
-      "movements": [
-        2,
-        8,
-        7
-      ],
-      "creator": [
-        "דודי",
-        1
-      ],
-      "labels": []
-    }
-  ]
+  "newExperiment": []
 }
