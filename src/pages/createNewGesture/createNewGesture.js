@@ -164,47 +164,53 @@ const CreateNewGesture = (props) => {
         [targetIndex, 0, movement],
       ],
     });
-    setSeries(updatedSeries);
+    setSeries(updatedSeries.sort((a, b) => a.index - b.index));
   };
 
-  const handleRemoveMovement = (movementId) => {
-    const indexToRemove = series.findIndex(
-      (seriesMovement) => seriesMovement.id === movementId
-    );
-    if (indexToRemove !== -1) {
-      const updatedSeries = [
-        ...series.slice(0, indexToRemove),
-        ...series.slice(indexToRemove + 1),
-      ];
-      setSeries(updatedSeries);
-    }
+  const handleRemoveMovement = (movementIndex) => {
+    const updatedSeries = series
+      .filter((movement) => movement.index !== movementIndex)
+      .map((movement) => {
+        if (movement.index > movementIndex) {
+          return { ...movement, index: movement.index - 1 };
+        }
+        return movement;
+      });
+    setSeries(updatedSeries.sort((a, b) => a.index - b.index));
+    console.log(series)
   };
 
   const handleMoveUp = (movementIndex) => {
     if (movementIndex === 0) {
       return;
     }
-    const updatedSeries = update(series, {
-      $splice: [
-        [movementIndex - 1, 0, series[movementIndex]],
-        [movementIndex + 1, 1],
-      ],
+    const updatedSeries = series.map((movement) => {
+      if (movement.index === movementIndex - 1) {
+        return { ...movement, index: movement.index + 1 };
+      } else if (movement.index === movementIndex) {
+        return { ...movement, index: movement.index - 1 };
+      }
+      return movement;
     });
-    setSeries(updatedSeries);
+    setSeries(updatedSeries.sort((a, b) => a.index - b.index));
   };
-
+  
   const handleMoveDown = (movementIndex) => {
     if (movementIndex === series.length - 1) {
       return;
     }
-    const updatedSeries = update(series, {
-      $splice: [
-        [movementIndex, 1],
-        [movementIndex + 1, 0, series[movementIndex]],
-      ],
+    const updatedSeries = series.map((movement) => {
+      if (movement.index === movementIndex) {
+        return { ...movement, index: movement.index + 1 };
+      } else if (movement.index === movementIndex + 1) {
+        return { ...movement, index: movement.index - 1 };
+      }
+      return movement;
     });
     setSeries(updatedSeries);
+    console.log(series)
   };
+  
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -214,6 +220,18 @@ const CreateNewGesture = (props) => {
   const handleEmotionSelect = (event) => {
     setSelectedEmotion(event.target.value);
   };
+
+  const addMovement = (id) => {
+    console.log(id)
+    const targetMovementId = id
+    const targetMovement = movements.find(
+      (movement) => movement.id === targetMovementId
+    );
+    if (targetMovement) {
+      // Add the target movement to the series
+      addMovementToSeries(targetMovement);
+    }
+  }
 
   return (
     <Translations>
@@ -226,7 +244,9 @@ const CreateNewGesture = (props) => {
             <div className="d-flex flex-wrap">
               {movements.map((movement) => (
                 <div className="p-1" key={movement.id} onMouseLeave={handleMovementMouseLeave} onMouseEnter={() => handleMovementMouseEnter(movement.id)}>
+                  <button onDoubleClick={() => addMovement(movement.id)}>
                   <Movement movement={movement} isLooping={hoveredMovement === movement.id} />
+                  </button>
                 </div>
               ))}
             </div>
@@ -248,15 +268,15 @@ const CreateNewGesture = (props) => {
               </select>
             </label>
             <br />
-            <div className="card mb-3">
+            <div className="card mb-3" id="drag">
               <div className="card-body p-0" {...dropTargetProps}>
                 {series.map((movement, index) => (
-                  <div className="p-1" key={movement.id}>
+                  <div className="p-1" key={index}>
                     {language == "en" ? movement.name : movement.hebrewName}
                     <div className="d-flex align-items-center">
                       <button
                         className="btn btn-sm btn-outline-secondary mx-1"
-                        onClick={() => handleRemoveMovement(movement.id)}
+                        onClick={() => handleRemoveMovement(index)}
                       >
                         {translate("Remove")}
                       </button>
