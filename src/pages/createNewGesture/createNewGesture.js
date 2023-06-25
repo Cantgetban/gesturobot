@@ -5,13 +5,16 @@ import { useDrop } from "react-dnd";
 import update from "immutability-helper";
 import { useNavigate } from "react-router-dom";
 import { Translations } from "../../language-management/Translations";
-import { addGestureJson, deleteGesture } from "../../databases/gesturesAPI";
+import { addGestureJson, deleteGesture, getGestureById} from "../../databases/gesturesAPI";
 import { emotionsList } from "../../databases/emotions";
 import { LanguageContext} from "../../language-management/LanguageContext";
-import { mapHebrewToEnglish, mapEnglishToHebrew } from "../../databases/emotions";
+import { mapHebrewToEnglish, mapEnglishToHebrew } from "../../databases/emotions"; 
 import "./createNewGesture.css"
 
 const CreateNewGesture = (props) => {
+
+  var data;
+  var gestureToEdit;
   const [movements, setMovements] = useState([]);
   const [series, setSeries] = useState([]);
   const [selectedEmotion, setSelectedEmotion] = useState("");
@@ -20,28 +23,41 @@ const CreateNewGesture = (props) => {
   let navigate = useNavigate();
 
   useEffect(() => {
-    const fetchMovements = async () => {
-      const data = await getMovements();
+    const editgesture = async (gesture) => {
+      data = await getMovements();
       console.log(data);
       setMovements(data);
-    };
-    const editgesture = async (gesture) => {
-      console.log(gesture);
-      if(props.gesture == null)
+      if(props.gesture == 0)
         return;
-      for (let move in gesture.movements)
-        addMovementToSeries(move);
-      setSelectedEmotion(gesture.realLabel)
+      gestureToEdit = await getGestureById(gesture)
+      console.log(gestureToEdit.movements)
+      console.log(series.length)
+      console.log(gestureToEdit.realLabel)
+      setSelectedEmotion(gestureToEdit.realLabel[language == "en" ? 0 : 1])
+      console.log(selectedEmotion)
       /// type and name already moved
-      deleteGesture(gesture.id)
+     // deleteGesture(gestureToEdit.id)
+     await createSeries(gestureToEdit.movements, data)
     };
     editgesture(props.gesture);
-    fetchMovements();
   }, []);
-
+  
+  const createSeries = async (moves, data) => {
+    var ser = [];
+    var index = 0
+    for (let move of moves){
+      let movement = data.find((movement) => movement.id === move)
+      let movementWithIndex = {...movement, index};
+      ser = [...ser, movementWithIndex];
+      console.log(ser)
+      index += 1;
+    }
+    setSeries(ser)
+    return ser
+  }
 
   const addMovementToSeries = (movement) => {
-    const index = series.length;
+    let index = series.length;
     const movementWithIndex = { ...movement, index };
     setSeries((prevSeries) => [...prevSeries, movementWithIndex]);
   };
@@ -102,6 +118,11 @@ const CreateNewGesture = (props) => {
       props.Show()
       props.onGestureAdd(newGesture, nextId);
     })
+    if(props.gesture != 0){
+      await deleteGesture(props.gesture);
+      await props.handleSubmit()
+      return
+    }
     navigate("/createNewExperiment");
   };
 
@@ -186,7 +207,7 @@ const CreateNewGesture = (props) => {
           <div className="col-md-3">
             <h2 className="text-center mb-3">{translate("New Gesture")}</h2>
             <button className="btn btn-primary" onClick={() => addGesture()}>
-              {translate("Save And Add New Gesture")}
+            {props.gesture === 0 ? translate("Save And Add New Gesture") : translate("Save Edited Gesture")}
             </button>
             <label>
               {translate("Select an emotion")}:

@@ -68,7 +68,7 @@ function MovementsLib() {
        style={{
         justifyContent: "center",
         alignItems: "center",
-        transform: hoveredMovement === movement.id ? "scale(1.6)" : "scale(1)",
+        transform: hoveredMovement === movement.id ? "scale(1.5)" : "scale(1)",
         transition: "transform 0.3s ease-in-out",
         zIndex: hoveredMovement === movement.id ? 1 : "auto",
         position: "relative",

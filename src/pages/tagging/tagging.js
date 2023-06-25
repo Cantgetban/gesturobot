@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { Translations } from "../../language-management/Translations";
 import { editGesture } from "../../databases/gesturesAPI";
 import numberOfGesturesToTag from "../../config/tagConfig";
-import "./tagging.css";
 
 function Tagging() {
   const [Gestures, setGestures] = useState([]);
@@ -43,7 +42,6 @@ function Tagging() {
     <Translations>
       {({ translate }) => (
         <div>
-          <div className="GestureNumber">{currentGestureIndex + 1}</div>
           {Gestures.length > 0 ? (
             <GestureLable
               gesture={Gestures[currentGestureIndex]}

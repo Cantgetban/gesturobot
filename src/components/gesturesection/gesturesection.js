@@ -4,8 +4,9 @@ import { getAllGestures, deleteGesture } from '../../databases/gesturesAPI';
 import LoopOfMovements from '../loopOfMovements/loopOfMovements';
 import { LanguageContext } from '../../language-management/LanguageContext';
 import { useNavigate } from "react-router-dom";
+import CreateNewExperiment from '../../pages/createNewExperiment/createNewExperiment';
 
-function GestureSection(props) {
+function GestureSection({setGestureID, filterBy, value}) {
   let navigate = useNavigate();
   const language = useContext(LanguageContext);
   const [gestures, setGestures] = useState([]);
@@ -27,20 +28,21 @@ function GestureSection(props) {
   };
 
   const hangleEditGesture = (gestureId) => {
-    navigate(`/createNewExperiment/${gestureId}`);
+    setGestureID(gestureId)
+    navigate("/CreateNewExperiment");
   };
 
   const filteredGestures = gestures.filter(gesture => {
-    if (props.filterBy === 'name') {
-      return gesture.creator[0].toLowerCase().includes(props.value.toLowerCase());
-    } else if (props.filterBy === 'emotion') {
+    if (filterBy === 'name') {
+      return gesture.creator[0].toLowerCase().includes(value.toLowerCase());
+    } else if (filterBy === 'emotion') {
       const temp = language === 'en' ? gesture.realLabel[0] : gesture.realLabel[1];
-      return temp.toLowerCase().includes(props.value.toLowerCase());
-    } else if (props.filterBy === 'type') {
+      return temp.toLowerCase().includes(value.toLowerCase());
+    } else if (filterBy === 'type') {
       const type = gesture.creator[1] === 0 ? '0' : '1';
-      return type.includes(props.value.toLowerCase());
-    } else if (props.filterBy === 'date') {
-      return gesture.date.toLowerCase().includes(props.value.toLowerCase());
+      return type.includes(value.toLowerCase());
+    } else if (filterBy === 'date') {
+      return gesture.date.toLowerCase().includes(value.toLowerCase());
     }
     return true;
   });

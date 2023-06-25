@@ -10,7 +10,7 @@ import { LanguageContext } from "../../language-management/LanguageContext";
 import "./createNewExperiment.css";
 
 
-function CreateNewExperiment() {
+function CreateNewExperiment({id}) {
   const [isLocked, setIsLocked] = useState(false);
   const language = useContext(LanguageContext);
   let navigate = useNavigate();
@@ -19,7 +19,6 @@ function CreateNewExperiment() {
   const [hoveredGestureId, setHoveredGestureId] = useState(null);
   const [gestures, setGestures] = useState([]);
   const [showCreateNewGesture, setShowCreateNewGesture] = useState(false);
-  var id = useParams(); 
 
   const handleNameChange = (event) => {
     if (isLocked) return;
@@ -44,20 +43,22 @@ function CreateNewExperiment() {
       setGestures(data);
     };
     const edit = async () => {
-      id = id["*"]
       console.log(id);
+      // if id = 0 we are create a new experiment, id the id != 0 we edit an exist gesture
       if(id){
         gestureToEdit = await getGestureById(id)
+        console.log("here" + id)
         setShowCreateNewGesture(true)
         setIsLocked(true)
         setName(gestureToEdit.creator[0])
         setType(gestureToEdit.creator[1])
+        console.log(gestureToEdit)
       }
     };
 
     fetchGesturesEx();
     edit();
-  }, [gestureToEdit, id]);
+  }, []);
 
  
 
@@ -79,10 +80,10 @@ function CreateNewExperiment() {
  
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     // TODO: Submit the form and create a new experiment with the given name, type, and gestures
     console.log({ name, type, gestures });
-    deleteAllExperiments();
+    await deleteAllExperiments();
     setGestures([]);
     navigate("/GestureManagement");
   };
@@ -155,7 +156,9 @@ function CreateNewExperiment() {
                   Show={() => setShowCreateNewGesture(false)}
                   name={name}
                   type={type}
-                  gesture={gestureToEdit}
+                  gesture={id}
+                  CreateNewGesture = {showCreateNewGesture}
+                  handleSubmit = {handleSubmit}
                 />
               </div>
             )}

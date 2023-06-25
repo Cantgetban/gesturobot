@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { Routes, Route } from "react-router-dom";
 import MainPage from "./pages/mainpage/MainPage";
@@ -21,6 +21,7 @@ import CreateNewGesture from "./pages/createNewGesture/createNewGesture";
 import CreateNewExperiment from "./pages/createNewExperiment/createNewExperiment";
 
 function App() {
+  const [gestureID, setGestureID] = useState(0);
   const { language } = useContext(LanguageContext);
   document.documentElement.setAttribute(
     "dir",
@@ -34,13 +35,13 @@ function App() {
       </div>
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="/createNewExperiment/*" element={<CreateNewExperiment />} />
+        <Route path="/createNewExperiment/*" element={<CreateNewExperiment id = {gestureID}/>} />
         <Route path="/CreateNewGesture" element={<CreateNewGesture />} />
         <Route path="/GestureTag" element={<GestureTag />} />
         <Route path="/UserLogin" element={<UserLogin />} />
-        <Route path="/GestureManagement" element={<GestureManagement />} />
+        <Route path="/GestureManagement" element={<GestureManagement setGestureID={setGestureID}/>} />
         <Route path="/MovementsLib" element={<MovementsLib />} />
-        <Route path="/GestureDisplay" element={<GestureDisplay />} />
+        <Route path="/GestureDisplay" element={<GestureDisplay setGestureID={setGestureID} />} />
         <Route path="/DemographicForm" element={<DemographicForm />} />
         <Route path="/TagInstructions" element={<TagInstructions />} />
         <Route path="/Tagging" element={<Tagging />} />
@@ -51,3 +52,4 @@ function App() {
 }
 
 export default App;
+

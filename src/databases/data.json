@@ -111,232 +111,38 @@
   ],
   "gestures": [
     {
-      "id": 1,
+      "id": 9,
       "name": "New Gesture",
       "realLabel": [
-        "Pride",
-        "גאווה"
+        "Guilt",
+        "אשמה"
       ],
       "movements": [
-        3,
-        2
-      ],
-      "creator": [
-        "",
-        null
-      ],
-      "labels": [
-        "Pride",
-        "Boredom",
-        "Satisfaction",
-        "Hate"
-      ]
-    },
-    {
-      "id": 2,
-      "name": "New Gesture",
-      "realLabel": [
-        "Love",
-        "אהבה"
-      ],
-      "movements": [
-        3,
-        8,
-        15,
-        18
-      ],
-      "creator": [
-        "Amit Cohen",
-        1
-      ],
-      "labels": [
-        "Love",
-        "Hope",
-        "Hate",
-        "Excitement"
-      ]
-    },
-    {
-<<<<<<< HEAD
-      "id": 3,
-      "name": "New Gesture",
-      "realLabel": [
-        "Jealousy",
-        "קנאה"
-      ],
-      "movements": [
-        2
-      ],
-      "creator": [
-        "a",
-        0
-      ],
-      "labels": [
-        "Hope",
-        "Empathy",
-        "Sadness",
-        "Disgust"
-      ]
-    },
-    {
-=======
->>>>>>> 047d9b6 (ddgggf`:wq)
-      "id": 4,
-      "name": "New Gesture",
-      "realLabel": [
-        "Despair",
-        "יאוש"
-      ],
-      "movements": [
-        2,
+        4,
         4
       ],
       "creator": [
-        "sa",
-        1
-      ],
-      "labels": [
-        "נפגעות מתמונה מסוימת",
-        "Despair",
-        "Pride",
-        "Shame"
-      ]
-    },
-    {
-      "id": 5,
-      "name": "New Gesture",
-      "realLabel": [
-        "Anger",
-        "כעס"
-      ],
-      "movements": [
-        5,
-        3
-      ],
-      "creator": [
-        "sss",
+        "sahar",
         0
       ],
-      "labels": [
-        "הפתעה",
-        "Envy",
-        "Compassion",
-        "Boredom"
-      ]
+      "labels": []
     },
     {
-      "id": 6,
+      "id": 10,
       "name": "New Gesture",
       "realLabel": [
         "Fear",
         "פחד"
       ],
       "movements": [
-        12,
-        15,
-        4,
-        13
-      ],
-      "creator": [
-        "משה",
-        2
-      ],
-      "labels": [
-        "Jealousy",
-        "Curiosity",
-        "Curiosity",
-        "Envy"
-      ]
-    },
-    {
-      "id": 7,
-      "name": "New Gesture",
-      "realLabel": [
-        "Compassion",
-        "רחמים"
-      ],
-      "movements": [
-        3,
-        6,
-        5
-      ],
-      "creator": [
-        "עמית",
-        0
-      ],
-      "labels": [
-        "Satisfaction",
-        "Surprise",
-        "Shame",
-        "Pride"
-      ]
-    },
-    {
-      "id": 8,
-      "name": "New Gesture",
-      "realLabel": [
-        "Anger",
-        "כעס"
-      ],
-      "movements": [
-        4,
-        9,
-        11
-      ],
-      "creator": [
-        "עמית",
-        0
-      ],
-      "labels": [
-        "Loneliness",
-        "Apathy",
-        "Relief",
-        "Love"
-      ]
-    },
-    {
-      "id": 9,
-      "name": "New Gesture",
-      "realLabel": [
-        "Hope",
-        "תקווה"
-      ],
-      "movements": [
-        3,
-        2
-      ],
-      "creator": [
-        "דודי",
-        1
-      ],
-      "labels": [
-        "ערבוב",
-        "Jealousy",
-        "Relief",
-        "Sadness"
-      ]
-    },
-    {
-      "id": 10,
-      "name": "New Gesture",
-      "realLabel": [
-        "Envy",
-        "קנאה"
-      ],
-      "movements": [
         2,
-        8,
-        7
+        4
       ],
       "creator": [
-        "דודי",
-        1
+        "sahar",
+        0
       ],
-      "labels": [
-        "Boredom",
-        "Compassion",
-        "Excitement"
-      ]
+      "labels": []
     }
   ],
   "users": [
@@ -392,5 +198,23 @@
       }
     }
   ],
-  "newExperiment": []
+  "newExperiment": [
+    {
+      "id": 1,
+      "name": "New Gesture",
+      "realLabel": [
+        "Fear",
+        "פחד"
+      ],
+      "movements": [
+        2,
+        4
+      ],
+      "creator": [
+        "sahar",
+        0
+      ],
+      "labels": []
+    }
+  ]
 }

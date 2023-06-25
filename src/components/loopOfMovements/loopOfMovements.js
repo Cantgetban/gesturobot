@@ -17,15 +17,6 @@ const LoopOfMovements = (props) => {
     return URLs;
   }
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await getMovements();
-      const URLs = getURLsByIds(data);
-      setURLs(URLs);
-    };
-    fetchData();
-  }, []);
-
   const handleVideoEnd = () => {
     if (currentVideoIndex === URLs.length - 1) {
       setCurrentVideoIndex(0);
@@ -50,6 +41,12 @@ const LoopOfMovements = (props) => {
   };
 
   useEffect(() => {
+    const fetchData = async () => {
+      const data = await getMovements();
+      const URLs = getURLsByIds(data);
+      setURLs(URLs);
+    };
+    fetchData();
     if (
       videoRef.current &&
       ((currentVideoIndex === 0 && !isFirstVideoPlayed) ||
@@ -58,14 +55,14 @@ const LoopOfMovements = (props) => {
       videoRef.current.play();
       return;
     }
-  }, [URLs, currentVideoIndex, isFirstVideoPlayed]);
+  }, [currentVideoIndex, isFirstVideoPlayed]);
 
   return (
     <div className="loop-of-movements">
       <div className="video-container">
         {isPlaying ? null : (
           <div className="video-play-button" onClick={handleButtonClick}>
-            <img src="http://clipart-library.com/images_k/white-play-button-transparent/white-play-button-transparent-14.png" />
+          <img src="http://clipart-library.com/images_k/white-play-button-transparent/white-play-button-transparent-14.png" /> 
           </div>
         )}
 

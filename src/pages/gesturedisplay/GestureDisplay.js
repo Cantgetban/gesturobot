@@ -4,7 +4,7 @@ import { getAllGestures } from "../../databases/gesturesAPI";
 import { useState } from 'react';
 import { Translations } from "../../language-management/Translations";
 
-function GestureDisplay() {
+function GestureDisplay({setGestureID}) {
   const [filterBy, setFilterBy] = useState('name');
   const [inputValue, setInputValue] = useState('');
 
@@ -36,7 +36,7 @@ function GestureDisplay() {
             onChange={handleInputChange}
           />
         </form>
-        <GestureSection filterBy={filterBy} value={inputValue} />
+        <GestureSection filterBy={filterBy} value={inputValue} setGestureID={setGestureID} />
       </div>
     )}
   </Translations>

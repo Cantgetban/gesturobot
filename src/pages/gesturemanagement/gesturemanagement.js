@@ -3,7 +3,7 @@ import { Translations } from "../../language-management/Translations";
 import { useNavigate } from "react-router-dom";
 import GestureSection from "../../components/gesturesection/gesturesection";
 
-function GestureManagement() {
+function GestureManagement({setGestureID}) {
   let navigate = useNavigate();
 
   const moveToViewGestures = () => {
@@ -11,6 +11,7 @@ function GestureManagement() {
   };
 
   const moveToMovmentLibrary = () => {
+    setGestureID(0)
     navigate("/createNewExperiment");
   };
   return (
