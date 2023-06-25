@@ -55,16 +55,18 @@ function GestureDisplay({setGestureID}) {
     />
   </div>
 
-  <div style={{ marginRight: '10px' }}>
-    <label htmlFor="new-gesture-name-3">{translate("Type")}</label>
-    <input
-      type="text"
-      id="new-gesture-name-3"
-      placeholder={translate('type')}
-      value={filterType}
-      onChange={handleTypeChange}
-    />
-  </div>
+              <div style={{ marginRight: '10px' }}>
+                <label htmlFor="new-gesture-name-3">{translate("Type")}</label>
+                <select
+                  id="new-gesture-name-3"
+                  value={filterType}
+                  onChange={handleTypeChange}
+                >
+                  <option value=""> All types </option>
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                </select>
+              </div>
 
   <div style={{ marginRight: '10px' }}>
     <label htmlFor="new-gesture-name-4">{translate("Emotion")}</label>

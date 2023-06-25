@@ -114,7 +114,10 @@ function CreateNewExperiment({id}) {
                   </label>
                   <label>
                     {translate('Type')}:
-                    <input type="text" disabled={isLocked} value={type} onChange={handleTypeChange} />
+                    <select disabled={isLocked} value={type} onChange={handleTypeChange}>
+                      <option value="0">0</option>
+                      <option value="1">1</option>
+                    </select>
                   </label>
                   <br />
                 </>

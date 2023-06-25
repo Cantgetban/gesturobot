@@ -275,25 +275,5 @@
       }
     }
   ],
-  "newExperiment": [
-    {
-      "id": 1,
-      "name": "New Gesture",
-      "realLabel": [
-        "Fear",
-        "פחד"
-      ],
-      "movements": [
-        4,
-        2,
-        4
-      ],
-      "creator": [
-        "sahar",
-        0,
-        "209275114"
-      ],
-      "labels": []
-    }
-  ]
+  "newExperiment": []
 }
