@@ -5,15 +5,25 @@ import { useState } from 'react';
 import { Translations } from "../../language-management/Translations";
 
 function GestureDisplay({setGestureID}) {
-  const [filterBy, setFilterBy] = useState('name');
-  const [inputValue, setInputValue] = useState('');
+  const [filterName, setFilterName] = useState('');
+  const [filterTaz, setFilterTaz] = useState('');
+  const [filterType, setFilterType] = useState('');
+  const [filterEmotion, setFilterEmotion] = useState('');
 
-  const handleSelectChange = (event) => {
-    setFilterBy(event.target.value);
-  };
+  const handleNameChange = (event) => {
+    setFilterName(event.target.value);
+  }
 
-  const handleInputChange = (event) => {
-    setInputValue(event.target.value);
+  const handleTazChange = (event) => {
+    setFilterTaz(event.target.value);
+  }
+
+  const handleTypeChange = (event) => {
+    setFilterType(event.target.value);
+  }
+
+  const handleEmotionChange = (event) => {
+    setFilterEmotion(event.target.value);
   }
 
   return (
@@ -22,21 +32,53 @@ function GestureDisplay({setGestureID}) {
       <div>
         <form className="form-container">
           <label htmlFor="gesture-select">{translate('Filter by:')}</label>
-          <select id="gesture-select" className="mb-2" onChange={handleSelectChange}>
-            <option value="name">{translate('Name')}</option>
-            <option value="emotion">{translate('Emotion')}</option>
-            <option value="type">{translate('Type')}</option>
-            {/* <option value="date">{translate('Date')}</option> */}
-          </select>
-          <input
-            type="text"
-            id="new-gesture-name"
-            placeholder={translate('Write your filter..')}
-            value={inputValue}
-            onChange={handleInputChange}
-          />
+          <div style={{ display: 'flex' }}>
+  <div style={{ marginRight: '10px' }}>
+    <label htmlFor="new-gesture-name-1">{translate("Name")}</label>
+    <input
+      type="text"
+      id="new-gesture-name-1"
+      placeholder={translate('name')}
+      value={filterName}
+      onChange={handleNameChange}
+    />
+  </div>
+
+  <div style={{ marginRight: '10px' }}>
+    <label htmlFor="new-gesture-name-2">{translate("Id")}</label>
+    <input
+      type="text"
+      id="new-gesture-name-2"
+      placeholder={translate('id')}
+      value={filterTaz}
+      onChange={handleTazChange}
+    />
+  </div>
+
+  <div style={{ marginRight: '10px' }}>
+    <label htmlFor="new-gesture-name-3">{translate("Type")}</label>
+    <input
+      type="text"
+      id="new-gesture-name-3"
+      placeholder={translate('type')}
+      value={filterType}
+      onChange={handleTypeChange}
+    />
+  </div>
+
+  <div style={{ marginRight: '10px' }}>
+    <label htmlFor="new-gesture-name-4">{translate("Emotion")}</label>
+    <input
+      type="text"
+      id="new-gesture-name-4"
+      placeholder={translate('emotion')}
+      value={filterEmotion}
+      onChange={handleEmotionChange}
+    />
+  </div>
+</div>
         </form>
-        <GestureSection filterBy={filterBy} value={inputValue} setGestureID={setGestureID} />
+        <GestureSection name={filterName} type={filterType} Taz={filterTaz} emotion={filterEmotion} setGestureID={setGestureID}/>
       </div>
     )}
   </Translations>

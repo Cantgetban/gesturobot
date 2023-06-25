@@ -6,7 +6,7 @@ import { LanguageContext } from '../../language-management/LanguageContext';
 import { useNavigate } from "react-router-dom";
 import CreateNewExperiment from '../../pages/createNewExperiment/createNewExperiment';
 
-function GestureSection({setGestureID, filterBy, value}) {
+function GestureSection(props) {
   let navigate = useNavigate();
   const language = useContext(LanguageContext);
   const [gestures, setGestures] = useState([]);
@@ -28,23 +28,18 @@ function GestureSection({setGestureID, filterBy, value}) {
   };
 
   const hangleEditGesture = (gestureId) => {
-    setGestureID(gestureId)
+    props.setGestureID(gestureId)
     navigate("/CreateNewExperiment");
   };
 
-  const filteredGestures = gestures.filter(gesture => {
-    if (filterBy === 'name') {
-      return gesture.creator[0].toLowerCase().includes(value.toLowerCase());
-    } else if (filterBy === 'emotion') {
-      const temp = language === 'en' ? gesture.realLabel[0] : gesture.realLabel[1];
-      return temp.toLowerCase().includes(value.toLowerCase());
-    } else if (filterBy === 'type') {
-      const type = gesture.creator[1] === 0 ? '0' : '1';
-      return type.includes(value.toLowerCase());
-    } else if (filterBy === 'date') {
-      return gesture.date.toLowerCase().includes(value.toLowerCase());
-    }
-    return true;
+  const filteredGestures =  gestures.filter(gesture => {
+    console.log(language.language)
+    const temp = language.language === 'en' ? gesture.realLabel[0] : gesture.realLabel[1];
+    const type = gesture.creator[1] === 0 ? '0' : '1';
+    return gesture.creator[0].toLowerCase().includes(props.name.toLowerCase()) &&
+           temp.toLowerCase().includes(props.emotion.toLowerCase()) &&
+           type.includes(props.type.toLowerCase()) &&
+           gesture.creator[2].toLowerCase().includes(props.Taz.toLowerCase());
   });
 
   return (
