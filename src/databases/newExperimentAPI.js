@@ -43,7 +43,7 @@ function addGestureEx(newGesture) {
       .catch((error) => console.log("Error fetching gestures:", error));
   }
 
-  function deleteAllExperiments() {
+  async function deleteAllExperiments() {
     fetch('http://localhost:3000/newExperiment')
       .then(response => response.json())
       .then(experiments => {

@@ -38,6 +38,7 @@ function CreateNewExperiment({id}) {
   var gestureToEdit = null
 
   useEffect(() => {
+    deleteAllExperiments()
     const fetchGesturesEx = async () => {
       const data = await getAllGesturesEx();
       setGestures(data);
@@ -93,7 +94,7 @@ function CreateNewExperiment({id}) {
       {({ translate }) => (
         <div>
           <div className="row">
-            <form id={isLocked ? "form2" : "form"} onSubmit={() => {setIsLocked(false) ;handleSubmit()}} className="col-3">
+           {id == 0 && (<form id={isLocked ? "form2" : "form"} onSubmit={() => {setIsLocked(false) ;handleSubmit()}} className="col-3">
               {!isLocked && (
                 <>
                   <label>
@@ -113,7 +114,7 @@ function CreateNewExperiment({id}) {
               </button>
               <br />
               <button type="submit">{translate('Save Experiment')}</button>
-            </form>
+            </form> )}
             <div className="col">
               <h2 id="GestureCreated">{translate('Gestures created')}</h2>
               <div className="row">
@@ -159,6 +160,7 @@ function CreateNewExperiment({id}) {
                   gesture={id}
                   CreateNewGesture = {showCreateNewGesture}
                   handleSubmit = {handleSubmit}
+                  setGestures = {setGestures}
                 />
               </div>
             )}

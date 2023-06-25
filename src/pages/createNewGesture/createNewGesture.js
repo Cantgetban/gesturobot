@@ -6,6 +6,7 @@ import update from "immutability-helper";
 import { useNavigate } from "react-router-dom";
 import { Translations } from "../../language-management/Translations";
 import { addGestureJson, deleteGesture, getGestureById} from "../../databases/gesturesAPI";
+import { deleteAllExperiments } from "../../databases/newExperimentAPI";
 import { emotionsList } from "../../databases/emotions";
 import { LanguageContext} from "../../language-management/LanguageContext";
 import { mapHebrewToEnglish, mapEnglishToHebrew } from "../../databases/emotions"; 
@@ -117,12 +118,14 @@ const CreateNewGesture = (props) => {
     .then((nextId) => {
       props.Show()
       props.onGestureAdd(newGesture, nextId);
-    })
-    if(props.gesture != 0){
+    }).then(async () =>
+    {if(props.gesture != 0){
       await deleteGesture(props.gesture);
-      await props.handleSubmit()
+      await deleteAllExperiments();
+      await props.setGestures([]);
+      navigate("/GestureManagement");
       return
-    }
+    }})
     navigate("/createNewExperiment");
   };
 
