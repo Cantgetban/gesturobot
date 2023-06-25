@@ -15,6 +15,7 @@ function CreateNewExperiment({id}) {
   const language = useContext(LanguageContext);
   let navigate = useNavigate();
   const [name, setName] = useState("");
+  const [Taz, setTaz] = useState("");
   const [type, setType] = useState("");
   const [hoveredGestureId, setHoveredGestureId] = useState(null);
   const [gestures, setGestures] = useState([]);
@@ -24,6 +25,11 @@ function CreateNewExperiment({id}) {
     if (isLocked) return;
     setName(event.target.value);
   };
+
+  const handleTazChange = (event) => {
+    if (isLocked) return;
+    setTaz(event.target.value);
+  }
 
   const handleDeleteGesture = async (gestureId) => {
     console.log(gestureId);
@@ -53,6 +59,7 @@ function CreateNewExperiment({id}) {
         setIsLocked(true)
         setName(gestureToEdit.creator[0])
         setType(gestureToEdit.creator[1])
+        setTaz(gestureToEdit.creator[2])
         console.log(gestureToEdit)
       }
     };
@@ -83,7 +90,7 @@ function CreateNewExperiment({id}) {
 
   const handleSubmit = async () => {
     // TODO: Submit the form and create a new experiment with the given name, type, and gestures
-    console.log({ name, type, gestures });
+    console.log({ name, type, Taz, gestures });
     await deleteAllExperiments();
     setGestures([]);
     navigate("/GestureManagement");
@@ -101,7 +108,10 @@ function CreateNewExperiment({id}) {
                     {translate('Name')}:
                     <input type="text" disabled={isLocked} value={name} onChange={handleNameChange} />
                   </label>
-                  <br />
+                  <label>
+                    {translate('Id')}:
+                    <input type="text" disabled={isLocked} value={Taz} onChange={handleTazChange} />
+                  </label>
                   <label>
                     {translate('Type')}:
                     <input type="text" disabled={isLocked} value={type} onChange={handleTypeChange} />
@@ -112,7 +122,6 @@ function CreateNewExperiment({id}) {
               <button type="button" onClick={() => {setIsLocked(true) ;setShowCreateNewGesture(true)}}>
                 {translate('Create New Gesture')}
               </button>
-              <br />
               <button type="submit">{translate('Save Experiment')}</button>
             </form> )}
             <div className="col">
@@ -157,6 +166,7 @@ function CreateNewExperiment({id}) {
                   Show={() => setShowCreateNewGesture(false)}
                   name={name}
                   type={type}
+                  Taz={Taz}
                   gesture={id}
                   CreateNewGesture = {showCreateNewGesture}
                   handleSubmit = {handleSubmit}

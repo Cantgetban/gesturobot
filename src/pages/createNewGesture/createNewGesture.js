@@ -130,7 +130,7 @@ const CreateNewGesture = (props) => {
       name: "New Gesture",
       realLabel: label,
       movements: series.map((movement) => movement.id),
-      creator: [props.name, parseInt(props.type)],
+      creator: [props.name, parseInt(props.type), props.Taz],
       labels: [],
     };
 
