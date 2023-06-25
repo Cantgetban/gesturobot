@@ -96,6 +96,22 @@ function CreateNewExperiment({id}) {
     navigate("/GestureManagement");
   };
 
+  const submitAndCreateNewGesture = () => {
+    if (name.length < 3 || name.length > 20) {
+      alert("Name should be between 3 and 20 characters.");
+      return;
+    }
+  
+    if (!/^\d{9}$/.test(Taz)) {
+      alert("TAZ should be a 9-digit number.");
+      return;
+    }
+  
+    setIsLocked(true);
+    setShowCreateNewGesture(true);
+  };
+
+
   return (
     <Translations>
       {({ translate }) => (
@@ -106,11 +122,11 @@ function CreateNewExperiment({id}) {
                 <>
                   <label>
                     {translate('Name')}:
-                    <input type="text" disabled={isLocked} value={name} onChange={handleNameChange} />
+                    <input type="text" disabled={isLocked} value={name} onChange={handleNameChange} pattern=".{3,20}" required/>
                   </label>
                   <label>
                     {translate('Id')}:
-                    <input type="text" disabled={isLocked} value={Taz} onChange={handleTazChange} />
+                    <input type="text" disabled={isLocked} value={Taz} onChange={handleTazChange} pattern="\d{9}" required/>
                   </label>
                   <label>
                     {translate('Type')}:
@@ -122,7 +138,7 @@ function CreateNewExperiment({id}) {
                   <br />
                 </>
               )}
-              <button type="button" onClick={() => {setIsLocked(true) ;setShowCreateNewGesture(true)}}>
+              <button type="button" onClick={submitAndCreateNewGesture}>
                 {translate('Create New Gesture')}
               </button>
               <button type="submit">{translate('Save Experiment')}</button>
