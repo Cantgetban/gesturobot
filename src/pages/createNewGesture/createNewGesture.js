@@ -16,6 +16,7 @@ const CreateNewGesture = (props) => {
 
   var data;
   var gestureToEdit;
+  const [hoveredMovement, setHoveredMovement] = useState(null);
   const [movements, setMovements] = useState([]);
   const [series, setSeries] = useState([]);
   const [selectedEmotion, setSelectedEmotion] = useState("");
@@ -56,6 +57,29 @@ const CreateNewGesture = (props) => {
     setSeries(ser)
     return ser
   }
+
+  const handleMovementMouseEnter = (movementId) => {
+    console.log(movementId)
+    setMovements((prevMovements) =>
+      prevMovements.map((movement) =>
+        movement.id === movementId
+          ? { ...movement, isLooping: true }
+          : movement
+      )
+    );
+    setHoveredMovement(movementId);
+  };
+
+  const handleMovementMouseLeave = () => {
+    setMovements((prevMovements) =>
+      prevMovements.map((movement) =>
+        movement.id === hoveredMovement
+          ? { ...movement, isLooping: false }
+          : movement
+      )
+    );
+    setHoveredMovement(null);
+  };
 
   const addMovementToSeries = (movement) => {
     let index = series.length;
@@ -201,8 +225,8 @@ const CreateNewGesture = (props) => {
             </h2>
             <div className="d-flex flex-wrap">
               {movements.map((movement) => (
-                <div className="p-1" key={movement.id}>
-                  <Movement movement={movement} />
+                <div className="p-1" key={movement.id} onMouseLeave={handleMovementMouseLeave} onMouseEnter={() => handleMovementMouseEnter(movement.id)}>
+                  <Movement movement={movement} isLooping={hoveredMovement === movement.id} />
                 </div>
               ))}
             </div>

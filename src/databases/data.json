@@ -111,7 +111,25 @@
   ],
   "gestures": [
     {
-      "id": 20,
+      "id": 21,
+      "name": "New Gesture",
+      "realLabel": [
+        "Fear",
+        "פחד"
+      ],
+      "movements": [
+        2,
+        4,
+        4
+      ],
+      "creator": [
+        "sahar",
+        0
+      ],
+      "labels": []
+    },
+    {
+      "id": 23,
       "name": "New Gesture",
       "realLabel": [
         "Pride",
@@ -128,15 +146,14 @@
       "labels": []
     },
     {
-      "id": 21,
+      "id": 25,
       "name": "New Gesture",
       "realLabel": [
-        "Fear",
-        "פחד"
+        "Surprise",
+        "הפתעה"
       ],
       "movements": [
         2,
-        4,
         4
       ],
       "creator": [
@@ -204,12 +221,11 @@
       "id": 1,
       "name": "New Gesture",
       "realLabel": [
-        "Fear",
-        "פחד"
+        "Surprise",
+        "הפתעה"
       ],
       "movements": [
         2,
-        4,
         4
       ],
       "creator": [

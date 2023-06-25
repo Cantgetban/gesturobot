@@ -116,7 +116,7 @@ function CreateNewExperiment({id}) {
               <button type="submit">{translate('Save Experiment')}</button>
             </form> )}
             <div className="col">
-              <h2 id="GestureCreated">{translate('Gestures created')}</h2>
+              {id == 0 && (<h2 id="GestureCreated">{translate('Gestures created')}</h2>)}
               <div className="row">
                 {gestures.map((gesture) => (
                   <div
