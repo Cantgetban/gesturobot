@@ -74,4 +74,15 @@ const BASE_URL = 'http://localhost:3000'; // Replace with your JSON Server URL
     }
   }
 
-export {addTazNameType, deleteTazNameType, searchTazNameType, getNameAndTypeById};
+  const checkIfNameExists = async (name, Taz) => {
+    const response = await fetch(`${BASE_URL}/TazNameType?name=${name}`);
+    const data = await response.json();
+    for (let tazNameType of data) {
+      if (tazNameType.taz === Taz) {
+        return false; // Name exists with the same Taz
+      }
+    }
+    return data.length > 0; // Name exists with another Taz or doesn't exist
+  };
+
+export {addTazNameType, deleteTazNameType, searchTazNameType, getNameAndTypeById, checkIfNameExists};

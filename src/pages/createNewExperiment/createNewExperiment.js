@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import LoopOfMovements from "../../components/loopOfMovements/loopOfMovements";
 import { Translations } from "../../language-management/Translations";
 import { LanguageContext } from "../../language-management/LanguageContext";
-import {addTazNameType, deleteTazNameType, searchTazNameType, getNameAndTypeById} from "../../databases/tazNameTypeAPI"
+import {addTazNameType, deleteTazNameType, searchTazNameType, getNameAndTypeById, checkIfNameExists} from "../../databases/tazNameTypeAPI"
 import "./createNewExperiment.css";
 
 
@@ -16,6 +16,7 @@ function CreateNewExperiment({id}) {
   const language = useContext(LanguageContext);
   let navigate = useNavigate();
   const [name, setName] = useState("");
+  const [errorMessage, setErrorMessage] = useState('');
   const [Taz, setTaz] = useState("");
   const [type, setType] = useState("");
   const [hoveredGestureId, setHoveredGestureId] = useState(null);
@@ -36,7 +37,12 @@ function CreateNewExperiment({id}) {
       setName(res.name)
       document.getElementById('name-input').value = res.name;
       setType(res.type)
-      document.getElementById('type-input').value = res.name;
+      document.getElementById('type-input').value = res.type;
+      document.getElementById('name-input').disabled = true;
+      document.getElementById('type-input').disabled = true; 
+    } else {
+      document.getElementById('name-input').disabled = false; 
+      document.getElementById('type-input').disabled = false;
     }
   }
 
@@ -111,11 +117,21 @@ function CreateNewExperiment({id}) {
     navigate("/GestureManagement");
   };
 
-  const submitAndCreateNewGesture = () => {
+  const submitAndCreateNewGesture = async () => {
+    let b = await checkIfNameExists(name, Taz)
+    if(b){
+      setErrorMessage('Username is already in use with another ID.');
+      return;
+    }
     setIsLocked(true);
     setShowCreateNewGesture(true);
   };
 
+  const handleCloseError = () => {
+    setErrorMessage('');
+  };
+
+  
 
   return (
     <Translations>
@@ -132,6 +148,14 @@ function CreateNewExperiment({id}) {
                   <label>
                     {translate('Name')}:
                     <input id="name-input" type="text" disabled={isLocked} value={name} onChange={handleNameChange} pattern=".{3,20}" title="Name should be 3-20 characters" required/>
+                    {errorMessage && (
+                      <div className="alert alert-danger d-flex align-items-center" role="alert">
+                        <span>{errorMessage}</span>
+                        <button type="button" className="close ml-auto" onClick={handleCloseError}>
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                    )}
                   </label>
                   <label>
                     {translate('Type')}:
