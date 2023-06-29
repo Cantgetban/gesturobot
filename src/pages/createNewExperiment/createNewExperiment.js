@@ -22,6 +22,7 @@ function CreateNewExperiment({id}) {
   const [hoveredGestureId, setHoveredGestureId] = useState(null);
   const [gestures, setGestures] = useState([]);
   const [showCreateNewGesture, setShowCreateNewGesture] = useState(false);
+  const [showCreatedGestures, setShowCreatedGestures] = useState(false);
 
   const handleNameChange = (event) => {
     if (isLocked) return;
@@ -173,9 +174,17 @@ function CreateNewExperiment({id}) {
               {isLocked && (<button onClick={() => {setIsLocked(false) ;handleSubmit()}}>{translate('Save Experiment')}</button>)}
             </form> )}
             <div className="col">
-              {id == 0 && (<h2 id="GestureCreated">{translate('Gestures created')}</h2>)}
+            <label>
+  <input
+    type="checkbox"
+    checked={showCreatedGestures}
+    onChange={(event) => setShowCreatedGestures(event.target.checked)}
+  />
+  {id == 0 && translate("Show created Gestures")} 
+</label>
+              {id == 0 && showCreatedGestures && (<h2 id="GestureCreated">{translate('Gestures created')}</h2>)}
               <div className="row">
-                {gestures.map((gesture) => (
+                { showCreatedGestures && gestures.map((gesture) => (
                   <div
                     className="col-lg-4 col-sm-6 col-12 mb-4"
                     key={gesture.id}
