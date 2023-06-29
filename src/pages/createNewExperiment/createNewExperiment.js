@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import LoopOfMovements from "../../components/loopOfMovements/loopOfMovements";
 import { Translations } from "../../language-management/Translations";
 import { LanguageContext } from "../../language-management/LanguageContext";
+import {addTazNameType, deleteTazNameType, searchTazNameType, getNameAndTypeById} from "../../databases/tazNameTypeAPI"
 import "./createNewExperiment.css";
 
 
@@ -26,9 +27,17 @@ function CreateNewExperiment({id}) {
     setName(event.target.value);
   };
 
-  const handleTazChange = (event) => {
+  const handleTazChange = async (event) => {
     if (isLocked) return;
     setTaz(event.target.value);
+    let res = await searchTazNameType(event.target.value)
+    //console.log(res)
+    if (res){
+      setName(res.name)
+      document.getElementById('name-input').value = res.name;
+      setType(res.type)
+      document.getElementById('type-input').value = res.name;
+    }
   }
 
   const handleDeleteGesture = async (gestureId) => {
@@ -93,6 +102,12 @@ function CreateNewExperiment({id}) {
     console.log({ name, type, Taz, gestures });
     await deleteAllExperiments();
     setGestures([]);
+    const TazNameType = {
+      taz : Taz,
+      name : name,
+      type : type,
+    };
+    await addTazNameType(TazNameType);
     navigate("/GestureManagement");
   };
 
@@ -116,11 +131,11 @@ function CreateNewExperiment({id}) {
                   </label>
                   <label>
                     {translate('Name')}:
-                    <input type="text" disabled={isLocked} value={name} onChange={handleNameChange} pattern=".{3,20}" title="Name should be 3-20 characters" required/>
+                    <input id="name-input" type="text" disabled={isLocked} value={name} onChange={handleNameChange} pattern=".{3,20}" title="Name should be 3-20 characters" required/>
                   </label>
                   <label>
                     {translate('Type')}:
-                    <select disabled={isLocked} value={type} onChange={handleTypeChange}>
+                    <select id="type-input" disabled={isLocked} value={type} onChange={handleTypeChange}>
                       <option value="0">0</option>
                       <option value="1">1</option>
                     </select>

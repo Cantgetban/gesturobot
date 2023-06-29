@@ -288,5 +288,13 @@
       }
     }
   ],
-  "newExperiment": []
+  "newExperiment": [],
+  "TazNameType": [
+    {
+      "taz": "123456700",
+      "name": "saharjjj",
+      "type": 0,
+      "id": 1
+    }
+  ]
 }
