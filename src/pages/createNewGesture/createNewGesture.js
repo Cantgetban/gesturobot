@@ -16,6 +16,7 @@ const CreateNewGesture = (props) => {
 
   var data;
   var gestureToEdit;
+  const [emotionIsSet, setemotionIsSet] = useState(false);
   const [hoveredMovement, setHoveredMovement] = useState(null);
   const [movements, setMovements] = useState([]);
   const [series, setSeries] = useState([]);
@@ -36,6 +37,7 @@ const CreateNewGesture = (props) => {
       console.log(series.length)
       console.log(gestureToEdit.realLabel)
       setSelectedEmotion(gestureToEdit.realLabel[language == "en" ? 0 : 1])
+      setemotionIsSet(true)
       console.log(selectedEmotion)
       /// type and name already moved
      // deleteGesture(gestureToEdit.id)
@@ -90,7 +92,8 @@ const CreateNewGesture = (props) => {
   const [dropTargetProps, dropTarget] = useDrop({
     accept: "movement",
     canDrop: (item, monitor) => {
-      // Return true only if the movement is dragged over the series drop target
+      if(!emotionIsSet)
+        return false;
       return (
         monitor.isOver({ shallow: true }) &&
         monitor.getItemType() === "movement"
@@ -218,10 +221,13 @@ const CreateNewGesture = (props) => {
   };
 
   const handleEmotionSelect = (event) => {
+    setemotionIsSet(event.target.value != "");
     setSelectedEmotion(event.target.value);
   };
 
   const addMovement = (id) => {
+    if(!emotionIsSet)
+      return
     console.log(id)
     const targetMovementId = id
     const targetMovement = movements.find(
@@ -239,10 +245,10 @@ const CreateNewGesture = (props) => {
         <div className="row">
           <div className="col-md-9">
             <h2 className="text-center mb-3">
-              {translate("Movements Library")}
+              {emotionIsSet && translate("Movements Library")}
             </h2>
             <div className="d-flex flex-wrap">
-              {movements.map((movement) => (
+              {emotionIsSet && movements.map((movement) => (
                 <div className="p-1" key={movement.id} onMouseLeave={handleMovementMouseLeave} onMouseEnter={() => handleMovementMouseEnter(movement.id)}>
                   <button onDoubleClick={() => addMovement(movement.id)}>
                   <Movement movement={movement} isLooping={hoveredMovement === movement.id} />
