@@ -174,14 +174,14 @@ function CreateNewExperiment({id}) {
               {isLocked && (<button onClick={() => {setIsLocked(false) ;handleSubmit()}}>{translate('Save Experiment')}</button>)}
             </form> )}
             <div className="col">
-            <label>
-  <input
-    type="checkbox"
-    checked={showCreatedGestures}
-    onChange={(event) => setShowCreatedGestures(event.target.checked)}
-  />
-  {id == 0 && translate("Show created Gestures")} 
-</label>
+              <label>
+                <input
+                  type="checkbox"
+                  checked={showCreatedGestures}
+                  onChange={(event) => setShowCreatedGestures(event.target.checked)}
+                />
+                {id == 0 && translate("Show created Gestures")}
+              </label>
               {id == 0 && showCreatedGestures && (<h2 id="GestureCreated">{translate('Gestures created')}</h2>)}
               <div className="row">
                 { showCreatedGestures && gestures.map((gesture) => (

@@ -11,6 +11,19 @@ import { emotionsList } from "../../databases/emotions";
 import { LanguageContext} from "../../language-management/LanguageContext";
 import { mapHebrewToEnglish, mapEnglishToHebrew } from "../../databases/emotions"; 
 import "./createNewGesture.css"
+import LoopOfMovements from "../../components/loopOfMovements/loopOfMovements";
+
+
+function SeriesCard({ series }) {
+  return (
+    <div className="card">
+      <div className="card-video">
+        <LoopOfMovements key={series.map(ser => ser.id).join('-')} ids={series.map(ser => ser.id)} />
+      </div>
+    </div>
+  );
+}
+
 
 const CreateNewGesture = (props) => {
 
@@ -262,6 +275,7 @@ const CreateNewGesture = (props) => {
             <button className="btn btn-primary" onClick={() => addGesture()}>
             {props.gesture === 0 ? translate("Save And Add New Gesture") : translate("Save Edited Gesture")}
             </button>
+            <SeriesCard series = {series} />
             <label>
               {translate("Select an emotion")}:
               <select value={selectedEmotion} onChange={handleEmotionSelect}>
