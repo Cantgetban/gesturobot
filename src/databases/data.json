@@ -111,26 +111,6 @@
   ],
   "gestures": [
     {
-      "id": 23,
-      "name": "New Gesture",
-      "realLabel": [
-        "Pride",
-        "גאווה"
-      ],
-      "movements": [
-        4,
-        4
-      ],
-      "creator": [
-        "sahar",
-        0,
-        "222222222"
-      ],
-      "labels": [
-        "גאווה"
-      ]
-    },
-    {
       "id": 27,
       "name": "New Gesture",
       "realLabel": [
@@ -169,15 +149,13 @@
       "labels": []
     },
     {
-      "id": 29,
+      "id": 32,
       "name": "New Gesture",
       "realLabel": [
         "Confusion",
         "בלבול"
       ],
       "movements": [
-        2,
-        4,
         4
       ],
       "creator": [
@@ -188,7 +166,25 @@
       "labels": []
     },
     {
-      "id": 30,
+      "id": 33,
+      "name": "New Gesture",
+      "realLabel": [
+        "Despair",
+        "יאוש"
+      ],
+      "movements": [
+        4,
+        10
+      ],
+      "creator": [
+        "sahar",
+        0,
+        "222222222"
+      ],
+      "labels": []
+    },
+    {
+      "id": 34,
       "name": "New Gesture",
       "realLabel": [
         "Fear",
@@ -203,6 +199,23 @@
         "sahar",
         0,
         "209275114"
+      ],
+      "labels": []
+    },
+    {
+      "id": 35,
+      "name": "New Gesture",
+      "realLabel": [
+        "Envy",
+        "קנאה"
+      ],
+      "movements": [
+        2
+      ],
+      "creator": [
+        "dda",
+        null,
+        "123456789"
       ],
       "labels": []
     }

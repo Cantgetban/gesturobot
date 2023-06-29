@@ -97,16 +97,6 @@ function CreateNewExperiment({id}) {
   };
 
   const submitAndCreateNewGesture = () => {
-    if (name.length < 3 || name.length > 20) {
-      alert("Name should be between 3 and 20 characters.");
-      return;
-    }
-  
-    if (!/^\d{9}$/.test(Taz)) {
-      alert("TAZ should be a 9-digit number.");
-      return;
-    }
-  
     setIsLocked(true);
     setShowCreateNewGesture(true);
   };
@@ -117,16 +107,16 @@ function CreateNewExperiment({id}) {
       {({ translate }) => (
         <div>
           <div className="row">
-           {id == 0 && (<form id={isLocked ? "form2" : "form"} onSubmit={() => {setIsLocked(false) ;handleSubmit()}} className="col-3">
+           {id == 0 && (<form id={isLocked ? "form2" : "form"}  onSubmit={(event)=>{event.preventDefault(); submitAndCreateNewGesture()}} className="col-3">
               {!isLocked && (
                 <>
-                  <label>
-                    {translate('Name')}:
-                    <input type="text" disabled={isLocked} value={name} onChange={handleNameChange} pattern=".{3,20}" required/>
+                 <label>
+                    {translate('Id')}:
+                    <input type="text" disabled={isLocked} value={Taz} onChange={handleTazChange} pattern="\d{9}" title="Please enter a 9-digit number" required/>
                   </label>
                   <label>
-                    {translate('Id')}:
-                    <input type="text" disabled={isLocked} value={Taz} onChange={handleTazChange} pattern="\d{9}" required/>
+                    {translate('Name')}:
+                    <input type="text" disabled={isLocked} value={name} onChange={handleNameChange} pattern=".{3,20}" title="Name should be 3-20 characters" required/>
                   </label>
                   <label>
                     {translate('Type')}:
@@ -138,10 +128,10 @@ function CreateNewExperiment({id}) {
                   <br />
                 </>
               )}
-              <button type="button" onClick={submitAndCreateNewGesture}>
+              <button type="submit" className="btn btn-primary">
                 {translate('Create New Gesture')}
               </button>
-              <button type="submit">{translate('Save Experiment')}</button>
+              {isLocked && (<button onClick={() => {setIsLocked(false) ;handleSubmit()}}>{translate('Save Experiment')}</button>)}
             </form> )}
             <div className="col">
               {id == 0 && (<h2 id="GestureCreated">{translate('Gestures created')}</h2>)}
